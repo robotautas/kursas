@@ -1,0 +1,34 @@
+{
+  "colors": [
+    {
+      "color": "black",
+      "rgb": "255, 255, 255",
+      "hex": "#000"
+    },
+    {
+      "color": "white",
+      "rgb": "0, 0, 0",
+      "hex": "#FFF"
+    },
+    {
+      "color": "red",
+      "rgb": "255, 0, 0",
+      "hex": "#FF0"
+    },
+    {
+      "color": "blue",
+      "rgb": "0, 0, 255",
+      "hex": "#00F"
+    },
+    {
+      "color": "yellow",
+      "rgb": "255, 255, 0",
+      "hex": "#FF0"
+    },
+    {
+      "color": "green",
+      "rgb": "0, 255, 0",
+      "hex": "#0F0"
+    }
+  ]
+}

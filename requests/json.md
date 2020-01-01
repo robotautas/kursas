@@ -32,8 +32,22 @@ Panagrinėkime pavyzdį iš wikipedia'os:
 }
 ```
 Kaip matome, formatas labai primena Python žodynus. 
-Jį sudaro atributo - reikšmės poros (*key - value pairs*) ir masyvai. 
+Jį sudaro objektai su atributo - reikšmės poromis (*key - value pairs*) ir masyvai. 
 JSON, kaip standartas, paplito dėl lengvo skaitomumo.
+Lentelėje matyti, kaip vadinasi Python objektų ekvivalentai JSON formate.
+
+|Python|JSON|
+|--- |--- |
+|dict|Object|
+|list|Array|
+|tuple|Array|
+|str|String|
+|int|Number|
+|float|Number|
+|True|true|
+|False|false|
+|None|null|
+
 
 Python'e galima atlikti įvairias manipuliacijas su JSON objektais. 
 Norint pradėti, reikia importuoti biblioteką:
@@ -128,4 +142,3 @@ with open('example2.json', 'w') as file:
     json.dump(data, file, indent=2, sort_keys=True)
 ```
 *sort_keys* išrūšiuoja atributus (keys) pagal abėcelę
-
