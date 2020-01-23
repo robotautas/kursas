@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<!--    Įdedame linką į skeleton css, kad baisiai neatrodytų:)-->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+    <title>Title</title>
+
+</head>
+<body>
+<h4>Enter measurements of iris flower:</h4>
+<!--paprasta web forma-->
+<form action="/" method="POST">
+  Sepal length:<br>
+  <input type="text" name="sepalL"><br>
+  Sepal width::<br>
+  <input type="text" name="sepalW"><br>
+  Petal length:<br>
+  <input type="text" name="petalL"><br>
+  Petal width:<br>
+  <input type="text" name="petalW"><br>
+  <input type="submit" name="Submit"/>
+</form>
+<!--jeidu gauname pred kintamąjį, parodome atsakymą ir nuotrauką-->
+{% if pred %}
+<h1>{{ pred }}</h1>
+<img src="{{ picture }}"/>
+{% endif %}
+</body>
+</html>
