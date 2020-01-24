@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Straipsniai</h1>
+<br>
+{% for straipsnis in data %}
+{% if straipsnis['status'] == 'published' %}
+<h3>{{ straipsnis['pavadinimas'] }}</h3>
+<p>{{ straipsnis['data'] }}, <i>{{ straipsnis['autorius'] }}</i></p>
+<hr>
+<p>{{ straipsnis['tekstas'] }}</p>
+<br><br>
+{% else %}
+<h3>{{ straipsnis['pavadinimas'] }} - <i>Publikavimas laikinai išjungtas</i></h3>
+<br><br>
+{% endif %}
+{% endfor %}
+
+{% endblock %}
