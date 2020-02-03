@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Straipsniai</h1>
+<br>
+{% for straipsnis in data %}
+<h3>{{ straipsnis['pavadinimas'] }}</h3>
+<p>{{ straipsnis['data'] }}, <i>{{ straipsnis['autorius'] }}</i></p>
+<hr>
+<p>{{ straipsnis['tekstas'][:30] }}<a href="{{ url_for('article', title=straipsnis['pavadinimas']) }}">...skaityti toliau</a></p>
+<br><br>
+{% endfor %}
+<h1><a href="{{ url_for('add_article') }}"> Rašyti straipsnį</a></h1>
+{% endblock %}

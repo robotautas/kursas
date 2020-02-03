@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form method="post" action="#">
+    {{ form.csrf_token }}
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        {{ form.email.label(class="form-control-label") }}
+        {{ form.email(class="form-control") }}
+        {% if form.email.errors %}
+        {% for error in form.email.errors %}
+          <small><font color="red">{{ error }}</font></small>
+        {% endfor %}
+        {% endif %}
+      </div>
+      <div class="form-group col-md-6">
+        {{ form.password.label(class="form-control-label") }}
+        {{ form.password(class="form-control") }}
+        {% if form.password.errors %}
+        {% for error in form.password.errors %}
+          <small><font color="red">{{ error }}</font></small>
+        {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+    <div class="form-group">
+        {{ form.address1.label(class="form-control-label") }}
+        {{ form.address1(class="form-control") }}
+        {% if form.address1.errors %}
+        {% for error in form.address1.errors %}
+          <small><font color="red">{{ error }}</font></small>
+        {% endfor %}
+        {% endif %}
+    </div>
+    <div class="form-group">
+        {{ form.address2.label(class="form-control-label") }}
+        {{ form.address2(class="form-control") }}
+        {% if form.address2.errors %}
+        {% for error in form.address2.errors %}
+          <small><font color="red">{{ error }}</font></small>
+        {% endfor %}
+        {% endif %}
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+            {{ form.city.label(class="form-control-label") }}
+            {{ form.city(class="form-control") }}
+            {% if form.city.errors %}
+            {% for error in form.city.errors %}
+                <small><font color="red">{{ error }}</font></small>
+            {% endfor %}
+            {% endif %}
+      </div>
+      <div class="form-group col-md-4">
+            {{ form.state.label(class="form-control-label") }}
+            {{ form.state(class="form-control") }}
+            {% if form.state.errors %}
+            {% for error in form.state.errors %}
+                <small><font color="red">{{ error }}</font></small>
+            {% endfor %}
+            {% endif %}
+      </div>
+      <div class="form-group col-md-2">
+            {{ form.zip_code.label(class="form-control-label") }}
+            {{ form.zip_code(class="form-control") }}
+            {% if form.zip_code.errors %}
+            {% for error in form.zip_code.errors %}
+                <small><font color="red">{{ error }}</font></small>
+            {% endfor %}
+            {% endif %}
+      </div>
+    </div>
+    <div class="form-check">
+            {{ form.agree(class="form-check-input") }}    
+            {{ form.agree.label(class="form-check-label") }}
+            {% if form.agree.errors %}
+            {% for error in form.agree.errors %}
+                <small><font color="red">{{ error }}</font></small>
+            {% endfor %}
+            {% endif %}
+    </div>
+    <br>
+    {{ form.submit }}
+  </form>
+
+{% endblock %}

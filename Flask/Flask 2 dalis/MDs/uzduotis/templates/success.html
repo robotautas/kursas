@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Forma užpildyta sėkmingai!</h1><br><br>
+<p>Email: {{form.email.data}}</p>
+<p>Password: {{form.password.data}}</p>
+<p>Adresas:</p>
+<p>{{form.address1.data}}</p>
+<p>{{form.address2.data}}</p>
+<p>{{form.zip_code.data}} {{form.city.data}}</p>
+<p>{{form.state.data}} raj.</p>
+<p>{{form.agree.data}}</p>
+
+{% endblock %}

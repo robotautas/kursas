@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% for straipsnis in data %}
+{% if straipsnis['pavadinimas'] == title %}
+
+<h1>{{ straipsnis['pavadinimas'] }}</h1>
+<p>{{ straipsnis['data'] }}, <i>{{ straipsnis['autorius'] }}</i></p>
+<hr>
+<p>{{ straipsnis['tekstas'] }}</p>
+<br><br>
+
+{% endif %}
+{% endfor %}
+
+{% endblock %}
+
