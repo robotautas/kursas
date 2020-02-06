@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+    <title>Best Deal!!!</title>
+</head>
+
+<body>
+    <div class="container">
+
+
+        <h3>Best deals for Top 10 coin arbitrage trading!</h3>
+        <br>
+        <br>
+        <form action="#" method="post">
+            <div class="row">
+                <div class="six columns">
+                    <label for="Input">Pasirinkite valiutų skaičių</label>
+                    <input class="u-full-width" type="number" placeholder="10" id="Input" name="number">
+                    <input class="button-primary" type="submit" value="Submit">
+                </div>
+            </div>
+        </form>
+        <table class="u-full-width">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Exchange 1</th>
+                    <th>Price 1</th>
+                    <th>Exchange 2</th>
+                    <th>Price 2</th>
+                    <th>Profit</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in table %}
+                <tr>
+                    <td>{{ i.name }}</td>
+                    <td>{{ i.ex1 }}</td>
+                    <td>{{ i.rate1 }}</td>
+                    <td>{{ i.ex2 }}</td>
+                    <td>{{ i.rate2 }}</td>
+                    <td>{{ i.profit }}</td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
