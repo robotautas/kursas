@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if form %}
+<h4>Mūsų šventas tikslas yra užkirsti kelią barbariškai bebrų medžioklei. Prašome pasirašyti peticiją!</h4>
+<br>
+
+<form method="post" action="#">
+      {{ form.hidden_tag() }}
+      <div class="form-group">
+      {{ form.fname.label(class="form-control-label") }}
+      {{ form.fname(class="form-control") }}
+      </div>
+      <div class="form-group">
+      {{ form.lname.label(class="form-control-label") }}
+      {{ form.lname(class="form-control") }}
+      </div>
+      <div class="form-group">
+      {{ form.comment.label(class="form-control-label") }}
+      {{ form.comment(class="form-control", rows="5") }}
+      </div>
+      {{ form.submit }}
+  </form>
+{% else %}
+
+<h3>Ačiū, kad pasirašėte. Mums liko surinkti {{stats}} parašų!</h3>
+
+{% endif %}
+{% for i in data %}
+<hr>
+<p>{{i.id}}. {{i.fname}} {{i.lname}}, {{i.date}}</p>
+<p>{{i.comment}}</p>
+
+
+{% endfor %}
+{% endblock %}
