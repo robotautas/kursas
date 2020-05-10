@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  {% if form.errors %}
+    <p>Prisijungimo klaida, bandykite dar kartą!</p>
+  {% endif %}
+  
+  {% if next %}
+    {% if user.is_authenticated %}
+      <p>Neturite prieigos prie šio puslpaio, bandykite jungtis su kita paskyra.</p>
+    {% else %}
+      <p>Norėdami matyti šį turinį, turite prisijungti.</p>
+    {% endif %}
+  {% endif %}
+  
+  <form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    <table>
+      <tr>
+        <td>Vartotojas: </td>
+        <td>{{ form.username }}</td>
+      </tr>
+      <tr>
+        <td>Slaptažodis: </td>
+        <td>{{ form.password }}</td>
+      </tr>
+    </table>
+    <input type="submit" value="Prisijungti" />
+    <input type="hidden" name="next" value="{{ next }}" />
+  </form>
+  
+  {# Assumes you setup the password_reset view in your URLconf #}
+  <p><a href="{% url 'password_reset' %}">Pamiršote slaptažodį?</a></p>
+  
+{% endblock %}
+
+

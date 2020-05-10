@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load static %}  
+  {% if book.cover %}
+   <img src="{{ book.cover.url }}" style="margin-bottom: 20px;">
+  {% else %}
+   <img src="{% static "img/no-image.png" %}" style="margin-bottom: 20px; height: 300px;">
+  {% endif %}
+  <h1>{{ book.title }}</h1>
+
+  <p><strong>Autorius:</strong> <a href="{% url 'author' book.author.pk %}">{{ book.author }}</a></p>
+  <p><strong>Aprašymas:</strong> {{ book.summary }}</p>
+  <p><strong>ISBN:</strong> {{ book.isbn }}</p> 
+  <p><strong>Žanras:</strong> {{ book.genre.all|join:", " }}</p>  
+
+  <div style="margin-left:20px;margin-top:20px">
+    <h4>Kopijos:</h4>
+
+    {% for copy in book.bookinstance_set.all %}
+      <hr>
+      <p class="{% if copy.status == 'a' %}text-success{% elif copy.status == 'm' %}text-danger{% else %}text-warning{% endif %}">
+        {{ copy.get_status_display }}
+      </p>
+      {% if copy.status != 'a' %}
+        <p><strong>Bus grąžinta:</strong> {{ copy.due_back }}</p>
+      {% endif %}
+      <p class="text-muted"><strong>Id:</strong> {{ copy.id }}</p>
+    {% endfor %}
+  </div>
+  </br>
+  <h4>Atsiliepimai:</h4>
+  {% if book.bookreview_set.all %}
+    {% for review in book.bookreview_set.all %}
+      <hr>
+      <strong>{{ review.reviewer }}</strong>, <em>{{ review.date_created}}</em>
+      <p>{{ review.content }}</p>
+    {% endfor %}
+  {% else %}
+    <p>Knyga neturi atsiliepimų</p>
+  {% endif %}
+
+  {{ form }}
+
+{% endblock %}
+

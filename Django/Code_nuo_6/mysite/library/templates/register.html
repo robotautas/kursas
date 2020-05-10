@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="container register">
+        <h3>Registracija</h3><br/>
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-danger" role="alert">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username">Vartotojo vardas</label>
+                <input name="username" type="text" class="form-control" id="username" aria-describedby="usernameHelp">
+                <small id="usernameHelp" class="form-text text-muted">Iki 150 simbolių.</small>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">El. paštas</label>
+                <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <small id="emailHelp" class="form-text text-muted">Nesidalinsime su niekuo, nesiųsime jokio spamo.
+                    Reikalingas naujam slaptažodžiui išsiųsti. </small>
+            </div>
+            <div class="form-group">
+                <label for="password">Slaptažodis</label>
+                <input name="password" type="password" class="form-control" id="password" aria-describedby="pwdHelp">
+                <small id="pwdHelp" class="form-text text-muted">Ne mažiau, kaip 8 simboliai. Negali būti vien tik
+                    skaičiai</small>
+            </div>
+            <div class="form-group">
+                <label for="password2">Pakartoti slaptažodį</label>
+                <input name="password2" type="password" class="form-control" id="password2" aria-describedby="pwd2Help">
+            </div>
+            <button type="submit" class="btn btn-primary register-button">Registruotis</button>
+        </form>
+        <p>Jeigu užsiregistravote anksčiau, <a href="/login"><strong>prisijunkite.</strong></a></p>
+    </div>
+
+{% endblock %}

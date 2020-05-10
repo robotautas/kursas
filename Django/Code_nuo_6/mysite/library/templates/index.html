@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Rajono biblioteka</h1>
+  <p>Sveiki atvykę į knygų rojų!</p>
+  <p>Šiuo metu turime:</p>
+  <ul>
+    <li><strong>Knygų:</strong> {{ num_books }}</li>
+    <li><strong>Egzempliorių:</strong> {{ num_instances }}</li>
+    <li><strong>Laisvų egzempliorių:</strong> {{ num_instances_available }}</li>
+    <li><strong>Autorių:</strong> {{ num_authors }}</li>
+  </ul>
+  <p>Čia jūs lankotes {{ num_visits }}-ą kartą.</p>
+
+{% endblock %}
