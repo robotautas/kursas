@@ -1,6 +1,6 @@
 # Vartotojai - autorizuotas turinys
 
-Pagrindinis dinaminių tinklalapių požymis - jų gebėjimas bendrauti su kiekvienu vartotoju atskirai, pateikiant jam aktualų turinį. Mūsų atveju, tinklalapio vartotojai bus bibliotekos skaitytojai. Iš pradžių pertvarkykime base.html taiop, kad vartotojas matytų, ar jis yra prisijungęs:
+Pagrindinis dinaminių tinklalapių požymis - jų gebėjimas bendrauti su kiekvienu vartotoju atskirai, pateikiant jam aktualų turinį. Mūsų atveju, tinklalapio vartotojai bus bibliotekos skaitytojai. Iš pradžių pertvarkykime *base.html* taip, kad vartotojas matytų, ar jis yra prisijungęs:
 
 ```html
         <ul class="navbar-nav ml-auto">
@@ -17,14 +17,14 @@ Pagrindinis dinaminių tinklalapių požymis - jų gebėjimas bendrauti su kiekv
 
 jeigu paeksperimentuotumėte su atskirų vartotojų prisijungimais, atsijungimais, pastebėtumėte, kad apsilankymų skaitliukas kinta, priklausomai nuo to, koks vartotojas prisijungęs. 
 
-pamėginkime pertvarkyti BookInstance modelį taip, kad kiekviena paimta kopija būtų priskirta tam tikram vartotojui. Pirmiausiai, į models.py importuokime User klasę, bei datetime biblioteką.
+pamėginkime pertvarkyti *BookInstance* modelį taip, kad kiekviena paimta kopija būtų priskirta tam tikram vartotojui. Pirmiausiai, į *models.py** importuokime *User* klasę, bei *datetime* biblioteką.
 
 ```python
 from django.contrib.auth.models import User
 from datetime import date
 ```
 
-tuomet papildykime klasę BookInstance skaitytoju:
+tuomet papildykime klasę *BookInstance* skaitytoju:
 
 ```python
 reader = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
@@ -42,7 +42,7 @@ def is_overdue(self):
 
 ...ir viską numigruokime.
 
-Skaitytojo laukelį integruokime ir į administratoriaus panelę:
+Skaitytojo laukelį integruokime ir į administratoriaus svetainę:
 
 ```python
 class BookInstanceAdmin(admin.ModelAdmin):
@@ -70,7 +70,7 @@ Rezultatas atrodys taip:
 Dabar administratorius gali 'išrašinėti' skaitytojams knygas, ta proga paskolinkime skaitytojams keletą egzempliorių.
 
 
-Dabar pats metas sukurti view'są, kuriame prisijungęs vartotojas matys savo pasiimtas knygas.
+Dabar pats metas sukurti *view*'są, kuriame prisijungęs vartotojas matys savo paimtas knygas.
 
 views.py:
 ```python
@@ -85,19 +85,19 @@ class LoanedBooksByUserListView(LoginRequiredMixin,generic.ListView):
         return BookInstance.objects.filter(reader=self.request.user).filter(status__exact='p').order_by('due_back')
 ```
 
-čia jau reikės paaiškinimų:
+šiek tiek paaiškinimų:
 
-* importuojame LoginRequiredMixin, ir keliame jį į klasės parametrus. Jis django nurodo, kad view'sas bus prieinamas tik prisiregistravusiam vartotojui. Jei naudotumėm funkcinį view'są, prieš jį dėtumėm dekoratorių @login_required.
+* importuojame *LoginRequiredMixin*, ir keliame jį į klasės parametrus. Jis django nurodo, kad *view'*sas bus prieinamas tik prisiregistravusiam vartotojui. Jei naudotumėm funkcinį *view*'są, prieš jį dėtumėm dekoratorių *@login_required*.
 
-* override'inam *get_queryset* funkciją ir nurodome, kad Bookinstance modelį filtruosime pagal prisiregistravusį skaitytoją, pagal statusą 'p'(paimta), ir išrūšiuosime pagal due_back lauką.
+* *override*'inam *get_queryset* funkciją ir nurodome, kad *Bookinstance* modelį filtruosime pagal prisiregistravusį skaitytoją, pagal statusą 'p'(paimta), ir išrūšiuosime pagal *due_back* lauką.
 
-užregistruokime view'są urls.py:
+užregistruokime *view*'są *urls.py*:
 
 ```python
 path('mybooks/', views.LoanedBooksByUserListView.as_view(), name='my-borrowed')
 ```
 
-Reikės template'o:
+Reikės šablono:
 
 ```html
 {% extends "base.html" %}
@@ -121,9 +121,9 @@ Reikės template'o:
 {% endblock %}
 ```
 
-Čia matome, kaip praktikoje naudojasi mūsų anksčiau sukurtas @property. Jis leidžia tikrinti, ar vėluojame grąžinti knygą. Jeigu vėluojame - knyga tekste bus žymima raudonu tekstu. 
+Čia matome, kaip praktikoje veikia mūsų anksčiau sukurtas *@property*. Jis leidžia tikrinti, ar vėluojame grąžinti knygą. Jeigu vėluojame - knyga tekste bus žymima raudonu tekstu. 
 
-Belieka tik įdėti nuorodą į aukščiau sukurtą šabloną faile base.html (taip pat prie prisijungusio skaitytojo prid4jome ikonėlę, kad navigacijos meniu viskas tilptų):
+Belieka tik įdėti nuorodą į aukščiau sukurtą šabloną faile *base.html* (taip pat prie prisijungusio skaitytojo pridėjome ikonėlę, kad navigacijos meniu viskas tilptų):
 
 ```html
           {% if user.is_authenticated %}
@@ -174,13 +174,13 @@ INSTALLED_APPS = (
     static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT))
  ```
 
-sakykime, kad norime autorių aprašymus daryti pilno straipsnio pobūdžio. Mums reikės pakoreguoti modelį Author:
+sakykime, kad norime autorių aprašymus daryti pilno straipsnio pobūdžio. Mums reikės pakoreguoti modelį *Author*:
 
 ```python
 description = HTMLField()
 ```
 
-Administratoriaus panelėjė turime tokį rezultatą:
+Administratoriaus svetainėjė turime tokį rezultatą:
 
 ![](tinymce1.png)
 
@@ -219,11 +219,11 @@ TINYMCE_DEFAULT_CONFIG = {
 ```
 Ką reiškia kiekvienas nustatymas, galite pasiskaityti [dokumentacijoje](https://django-tinymce.readthedocs.io/en/latest/installation.html#configuration)
 
-bet iš esmės - plugins yra tas skyrelis, kuris aktyvuoja viduje surašytus TinyMCE įskiepius.
+bet iš esmės - *plugins* yra tas skyrelis, kuris aktyvuoja viduje surašytus TinyMCE įskiepius.
 
 ![](tinymce2.png)
 
-Dabar jau turime pilną redaktorių su meniu, kurį galime išsididinti fullscreen ir dirbti tarsi su Word programa. Pamėginkime :) Bet prieš tai django nurodykime, kad šie pakeitimai yra saugūs. Django nelabai nori leisti programoms iš išorės daryti html įterpimus. Pakoreguokime author.html:
+Dabar jau turime pilną redaktorių su meniu, kurį galime išsididinti fullscreen ir dirbti tarsi su Word programa. Pamėginkime :) Bet prieš tai django nurodykime, kad šie pakeitimai yra saugūs. Django nelabai nori leisti programoms iš išorės daryti html įterpimus. Pakoreguokime *author.html*:
 
 ```html
 <p>{{ author.description | safe }}</p>

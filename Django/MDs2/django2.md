@@ -29,8 +29,8 @@ class Genre(models.Model):
         return self.name
 ```
 * Importavome modelių paketą
-* Sukūrėme klasę (models.Model)
-* Nurodėme, kad žanro pavadinimas bus iki 200 eilučių string'as, ir helper text, kuris matysis admin panelėje.
+* Sukūrėme klasę *(models.Model)*
+* Nurodėme, kad žanro pavadinimas bus iki 200 eilučių string'as, pagalbinį tekstą, kuris matysis administratoriaus svetainėje.
 * def __str__ nurodėme, kaip reprezentuosis modelis. 
 
 pridėkime knygos modelį:
@@ -56,7 +56,7 @@ class Book(models.Model):
 Modelis iš esmės pats save aprašantis. Į ką reikėtų atkreipti dėmesį:
 
 * author lauko parametruose *on_delete=models.SET_NULL* reiškia, kad ištrynus autorių, knygą neišsitrins, tiesiog vietoje autoriaus bus nustatytas NULL laukas.
-* *null=True* - leidžia duomenų bazėje nurodyti NULL reikšmę. Plačiau apie parametro naudojimą [čia](https://i.stack.imgur.com/TMMej.png) ir [čia](https://i.stack.imgur.com/gUanA.png).
+* *null=True* - leidžia duomenų bazėje nurodyti *NULL* reikšmę. Plačiau apie parametro naudojimą [čia](https://i.stack.imgur.com/TMMej.png) ir [čia](https://i.stack.imgur.com/gUanA.png).
 
 Sukurkime dar vieną modelį:
 
@@ -91,7 +91,7 @@ class BookInstance(models.Model):
         return f'{self.id} ({self.book.title})'
 ```
 
-UUIDField generuos unikalų identifikacinį numerį, pvz 81afcd8c-7544-4c0e-b2df-838c0c8c3446. Tai yra alternatyva įprasto id naudojimui. Vėliau pamatysime, kaip tai atrodo praktikoje. Meta klasėje nurodėme, kaip rūšiuosime atvejus.
+UUIDField generuos unikalų identifikacinį numerį, pvz. 81afcd8c-7544-4c0e-b2df-838c0c8c3446. Tai yra alternatyva įprasto id naudojimui. Vėliau pamatysime, kaip tai atrodo praktikoje. Meta klasėje nurodėme, kaip rūšiuosime atvejus.
 
 Pridėkime modelį Author: 
 
@@ -137,9 +137,9 @@ Running migrations:
 gavome štai tokią schemą:
 ![](schema.png)
 
-# Administratoriaus panelė
+# Administratoriaus svetainė
 
-Dabar, kai jau numigravome mūsų ilgai ruoštus duomenų bazės modelius, užregistruokime juos administratoriaus panelėje. Atsidarykime admin.py ir pridėkime:
+Dabar, kai jau numigravome mūsų ilgai ruoštus duomenų bazės modelius, užregistruokime juos administratoriaus svetainėje. Atsidarykime admin.py ir pridėkime:
 
 ```python
 from .models import Author, Genre, Book, BookInstance
@@ -150,7 +150,7 @@ admin.site.register(Genre)
 admin.site.register(BookInstance)
 ```
 
-Susikurkime superuser'į (prisijungimas administratoriui):
+Susikurkime supervartotoją (prisijungimas administratoriui):
 
 ```bash
 $ python manage.py createsuperuser

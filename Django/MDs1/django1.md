@@ -1,16 +1,16 @@
-## Įžanga
+## Įžanga, failų sistema
 
 Django yra internetinių puslapių ir programų framework'as. Pasižymi tokiomis savybėmis:
 
 * Greitis - geba tvarkytis su labai daug užklausų per sekundę.
 * Išplečiamumas (scalability) - ateityje savo programai galėsite nesunkiai pridėti papildomo funkcionalumo, kitaip tariant leidžia programai augti.
 * Saugumas - orientuotas į saugumą. Jeigu Flask leidžia jums daryti, ką norite, django aplinkoje susidursite su apribojimais, jeigu jūsų sumanymas nesaugus.
-* Batteries included - django turi praktiškai viską, ko gali prireikti standartinei web aplikacijai. Pvz. administratoriaus panelę.
+* *Batteries included* - django turi praktiškai viską, ko gali prireikti standartinei web aplikacijai. Pvz. administratoriaus svetainę.
 * Populiarumas - pats populiariausias Python web kūrimo įrankis. Užstrigus procese, labai tikėtina, kad rasite savo problemos sprendimą internete.
 * Puikiai dokumentuotas - dokumentacijas anksčiau ar vėliau teks pradėti skaityti, django atveju tai bus žymiai maloniau, negu kad pvz Odoo :)
 * Turbūt pagrindinis - greitas rezultatas (rapid development). Pramokus django, web projektus darysite greitai.
 
-Atkreipkite dėmesį, Django 3.0 palaiko Python 3.6, 3.7, and 3.8 versijas. Django neveiks, jeigu banmdysite naudoti su ankstesne už 3.6 python versija. Instaliacija:
+Atkreipkite dėmesį, Django 3.0 palaiko Python 3.6, 3.7, and 3.8 versijas. Django 3 neveiks, jeigu bandysite naudoti su ankstesne už 3.6 python versija. Instaliacija:
 
 ```bash
 $ pip install django
@@ -35,7 +35,7 @@ pirmą kartą naudodami django turėsite pasirūpinti pradinio karkaso inicijavi
 $ django-admin startproject mysite
 ```
 
-konsolėje nieko nįvyko, tačiau atkreipkite dėmesį, kad ten kur iniciavote komandą, atsirado katalogas mysite. Čia gulės mūsų projektas. Jis turi tokią struktūrą:
+konsolėje nieko neįvyko, tačiau atkreipkite dėmesį, kad ten, kur iniciavote komandą, atsirado katalogas mysite. Čia gulės mūsų projektas. Jis turi tokią struktūrą:
 
 ![](failai.png)
 
@@ -46,10 +46,10 @@ konsolėje nieko nįvyko, tačiau atkreipkite dėmesį, kad ten kur iniciavote k
 * __init__.py - tuščias failas, kuris nurodo python'ui, kad katalogas /mysite(vidinis) yra modulis, ir su juo reikia elgtis atitinkamai.
 
 * settings.py - pagrindinis projekto nustatymų puslapis.
-* urls.py - jame bus surašyti URL adresai (endpoints).
+* urls.py - jame bus surašyti URL adresai (*endpoints*).
 
 
-Mūsų projektas jau veikia lokaliame serveryje:
+Mūsų projektas jau veikia lokaliame vystymo (*development*) serveryje:
 
 ```bash
 $ python manage.py runserver
@@ -67,12 +67,12 @@ Starting development server at http://127.0.0.1:8000/
 Quit the server with CONTROL-C.
 ```
 
-Pirmą kartą panaudojome manage.py :)
-Django startinis pulspis atrodo taip:
+Pirmą kartą panaudojome manage.py! 
+Django startinis puslapis atrodo taip:
 
 ![](rocket.png)
 
-Vienas iš django "neprivalumų" - palyginti didelė failų struktūra, kurią reikia suprasti ir tvarkingai dėliotis nuo pat projekto pradžios. Jeigu Flask'as leidžia turėti viską viename faile, su django tokie dalykai neišdegs. Šis kompromisas neišvengiamas, norint greitai daryti didelės apimties projektus. Ir tai ne paskutinė vieta, kur susidursite su django laisvės suvaržymais.
+Vienas iš django trūkumų - palyginti didelė failų struktūra, kurią reikia suprasti ir tvarkingai dėliotis nuo pat projekto pradžios. Jeigu Flask'as leidžia turėti viską viename faile, su django tokie dalykai neišdegs. Šis kompromisas neišvengiamas, norint greitai daryti didelės apimties projektus.
 
 Taigi, vietoje firminės užsklandos norime matyti kažką savo, gražesnio. Susikurkime app'są!
 
@@ -80,7 +80,7 @@ Taigi, vietoje firminės užsklandos norime matyti kažką savo, gražesnio. Sus
 $ python manage.py startapp library
 ```
 
-Taigi, dabar turime projektą mysite, o jame app'są library. Vienas projektas gali turėti daug app'sų. Failų struktūra dabar atrodo taip:
+Dabar turime projektą mysite, o jame app'są library. Vienas projektas gali turėti daug app'sų. Failų struktūra dabar atrodo taip:
 
 ![](tree2.png)
 
@@ -108,9 +108,9 @@ urlpatterns = [
 ]
 ```
 
-Taigi, prie standartinio *path* importuojame failą views.py, kurį rašėme prieš tai. Į sąrašą *urlpatterns* dedame iš django.urls importuotą funkciją path, kurios parametruose nurodome:
+Taigi, prie standartinio *path* importuojame failą views.py, kurį rašėme prieš tai. Į sąrašą *urlpatterns* dedame iš django.urls importuotą funkciją *path*, kurios parametruose nurodome:
 
-* tuščias kabutes - vadinasi response gausime mūsų app'so reliatyviame adrese (endpoint'e) '/'.
+* tuščias kabutes - vadinasi response gausime mūsų app'so reliatyviame adrese (*endpoint'e*) '/'.
 * *views.index* - nurodome, kad funkcija, kuri mums grąžins *HttpResponse("Labas, pasauli!")* yra faile *views* ir ji vadinasi *index*.
 * *name='index'* - suteikiame pavdinimą šiam adresui. Ateityje tai bus naudinga referuojant į jį iš šablonų (templates).
 
@@ -140,13 +140,13 @@ Django pranešimai, kuomet settings.py nustatytas *DEBUG = True* yra pakankamai 
 
 ![](hello_world.png)
 
-ir django pasididžiavimas, vienas iš batteries included komponentų, puikioji administratoriaus panelė:
+ir django pasididžiavimas, vienas iš batteries included komponentų, puikioji administratoriaus svetainė:
 
 ![](admin.png)
 
-...apie kurią būtinai kalbėsime ateityje :)
+...apie kurią būtinai kalbėsime ateityje! 
 
-Tam kad visi ateityje naudojami įrankiai atpažintų mūsų aplikaciją, ją reikia užregistruoti settings.py:
+Tam, kad visi ateityje naudojami įrankiai atpažintų mūsų aplikaciją, ją reikia užregistruoti settings.py:
 
 ```python
 INSTALLED_APPS = [
@@ -173,13 +173,13 @@ Tai bus projektas, kuris bus jums kaip pavyzdys, kaip veikia django sistema. Jam
 
 Dizainas - su django visiškai nesusijusi tema, todėl bus vietų, atrodančių kiek grubokai. Sekdami šį, ar darydami savo projektą, turėsite pasirūpinti frontendu pagal savo estetikos supratimą. Projekto eigoje bus įjungtas paprasčiausias Bootstrap CSS karkasas.
 
-Projektas bus apie vietinę biblioteką, kurioje bus modeliai knyga, autorius, apžvalga, komentaras, ir pan. Bus vartotojų registracija ir prisijungimai, formos ir kiti web backend'o karkasui reikalingi atributai.
+Projektas bus apie vietinę biblioteką, kurioje bus modeliai knyga, autorius, apžvalga, komentaras, ir pan. Bus vartotojų registracija ir prisijungimai, formos ir kiti web backend'o karkasui būdingi atributai.
 
 Django turi keletą būdų įgyvendinti kai kurias funkcijas, jas visas stengsimės pademonstruoti, tačiau realiam gyvenime turbūt darytumėt kuriuo nors vienu, nuosekliai. 
 
 Siekiant išvengti painumo, gatavas kodas Github repozitorijoje perskeltas pusiau - iki 6 paskaitos ir nuo jos, kadangi eigoje stipriai keisis modeliai ir kiti komponentai iš visiškai paprastų į kiek sudėtingesnius.
 
-Taip pat reikėtų suprasti, kad Django yra labai plati tema (apimtis turbūt panaši kaip visos python kalbos), todėl nepamirškite draugų stackoverflow, dokumentacijos ir kitų:) Sėkmės!
+Taip pat reikėtų suprasti, kad Django yra labai plati tema (apimtis turbūt panaši kaip visos python kalbos), todėl nepamirškite draugų - stackoverflow, dokumentacijos ir kitų:) Sėkmės!
 
 
 

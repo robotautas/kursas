@@ -10,6 +10,7 @@ urlpatterns = [
     path('search/', views.search, name='search'),
     path('mybooks/', views.LoanedBooksByUserListView.as_view(), name='my-borrowed'),
     path('register/', views.register, name='register'),
+    # path('review/', views.ReviewCreate.as_view(), name='review-create')
 ]
 
 urlpatterns += [

@@ -4,4 +4,5 @@ from django import forms
 class BookReviewForm(forms.ModelForm):
     class Meta:
         model = BookReview
-        fields = ('content',)
+        fields = ('content', 'book', 'reviewer',)
+        widgets = {'book': forms.HiddenInput(), 'reviewer': forms.HiddenInput()}

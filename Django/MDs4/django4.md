@@ -70,7 +70,7 @@ Dabar reikia pasirašyti šabloną *base.html*, kurį naudosime dar daug kartų,
 </html>
 ```
 
-atkreipkite dėmesį į 5 eilutę nuo apačios. Joje yra *div* blokas, kuriame talpinsis visa likusi mūsų aplikacijos logika. Pradėkime nuo index.html:
+Kol kas palikime taip, eigoje kažkiek keisime. Atkreipkite dėmesį į 5 eilutę nuo apačios. Joje yra *div* blokas, kuriame talpinsis visa likusi mūsų aplikacijos logika. Pradėkime nuo index.html:
 
 ```html
 {% extends "base.html" %}
@@ -113,7 +113,7 @@ TEMPLATES = [
 ]
 ```
 
-Dar vienas dalykas, kurio reikia nepamiršti - statinių failų susiejimas su programa. Sukurkime /library/static/css/styles.css:
+Dar vienas dalykas, kurio reikia nepamiršti - statinių failų susiejimas su programa. Sukurkime */library/static/css/styles.css*:
 
 ```css
 .sidebar-nav {
@@ -123,7 +123,7 @@ Dar vienas dalykas, kurio reikia nepamiršti - statinių failų susiejimas su pr
 }
 ```
 
-/mysite/urls.py perrašykime sekančiai:
+*/mysite/urls.py* perrašykime sekančiai:
 
 ```python
 from django.contrib import admin
@@ -137,7 +137,7 @@ urlpatterns = [
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 ```
 
-Galbūt atkreipėte dėmesį, base.html buvo tokios eilutės:
+Galbūt atkreipėte dėmesį, *base.html* buvo tokios eilutės:
 
 ```html
 {% load static %}
@@ -146,13 +146,13 @@ Galbūt atkreipėte dėmesį, base.html buvo tokios eilutės:
 
 ir dar, settings.py, pati paskutinė eilutė yra *STATIC_URL = '/static/'*. Pabandykite logiškai susieti šiuos 4 epizodus :) 
 
-Taip Django nurodoma, kur ieškoti statinių failų. Galėsite ant Bootstrap ar kito CSS karkaso viršaus darašinėti savo stiliaus korekcijas. Static, beje, apima ne tik CSS, tačiau ir paveikslėlius, JS skriptus. Šiuos (galbūt) aptarsime vėlesnėje eigoje. 
+Taip Django nurodoma, kur ieškoti statinių failų. Galėsite ant Bootstrap ar kito CSS karkaso viršaus darašinėti savo stiliaus korekcijas. Static, apima ne tik CSS, tačiau ir JS skriptus, paveikslėlius. Pastaruosius aptarsime vėlesnėje eigoje. 
 
 Štai taip dabar atrodo mūsų aplikacija:
 
 ![](screenshot.png)
 
-Šiuo metu mūsų veikiančio puslapio URL adresas yra *127.0.0.1:8000/library*. Jeigu neketiname prie to paties projekto rišti daugiau aplikacijų, galime padaryti nukreipimą iš /library į /. Tam dar kartą atsidarysime /mysite/urls.py ir perrašysime taip:
+Šiuo metu mūsų veikiančio puslapio URL adresas yra *127.0.0.1:8000/library*. Jeigu neketiname prie to paties projekto rišti daugiau aplikacijų, galime padaryti nukreipimą iš */library* į /. Tam dar kartą atsidarysime /mysite/urls.py ir perrašysime taip:
 
 ```python
 from django.contrib import admin

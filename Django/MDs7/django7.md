@@ -6,7 +6,7 @@ Ryšys tarp naršyklės ir serverio vyksta per HTTP protokolą, kuris neįsimena
 
 Django numatytas būdas saugoti sesijų informaciją yra toje pačioje duomenų bazėje. Tai yra saugesnis būdas, negu tą daryti naršyklės 'sausainiukuose'. Django leidžia mums patiems apsispręsti, kur saugosime sesijas, galime pasitelkti dar kitą saugojimo vietą, pvz Redis. Panagrinėkime paprasčiausią pavyzdį - apsilankymų skaičiaus fiksavimą.
 
-faile views.py perrašykime funkciją index:
+faile *views.py* perrašykime funkciją *index:*
 
 ```python
 def index(request):
@@ -30,9 +30,9 @@ def index(request):
 ```
 
 * nustatome sesijos 'num_visits' rakto reikšmę 1, jeigu ji nebuvo nustatyta prieš tai.
-* kaskartą sužadinus funkciją index, reikšmė paauga vienetu.
+* kaskartą sužadinus funkciją *index*, reikšmė paauga vienetu.
 
-išveskime rezultatą į naršyklę. index.html pabaigoje pridėkime eilutę:
+išveskime rezultatą į naršyklę. *index.html* pabaigoje pridėkime eilutę:
 
 ```html
 <p>Čia jūs lankotes {{ num_visits }}-ą kartą.</p>
@@ -46,19 +46,19 @@ kaskartą perkrovus puslapį, skaičius paauga. Jeigu pabandytumėt užeiti iš 
 
 Sesijų pagrindu sukurta visa django autentifikacijos ir autorizacijos sistema. Autentifikacijos sistema įjungiama automatiškai, inicijavus projektą (kuomet leidome komandą *django-admin startproject*), todėl papildomai jokių nustatymų daryti nereikės. Duomenų bazė jau paruošta vartotojų kūrimui nuo pat pirmosios migracijos. Užregistruokime bibliotekai skaitytojų!
 
-Pradėsime nuo grupės 'skaitytojai' sukūrimo. Administratoriaus panelėje užeikime į 'Groups', įveskime pavadinimą skaitytojai ir spauskime save:
+Pradėsime nuo grupės 'skaitytojai' sukūrimo. Administratoriaus svetainėje užeikime į 'Groups', įveskime pavadinimą skaitytojai ir spauskime save:
 
 ![](skaitytojai_kurimas.png)
 
-Tuomet sukurkime vartotoją, įveskime username, slaptažodį ir save. Tuomet pakliūsime į detalią vartotojo aprašymo anketą. Paskrolinkime žemyn, ir surasime grupę *Permissions*, uždėkime varnelę prie *Active*, tada dar kiek žemiau galime mūsų vartotoją priskirti grupei:
+Tuomet sukurkime vartotoją, įveskime *username*, slaptažodį ir *save*. Tuomet pakliūsime į detalią vartotojo aprašymo anketą. Paskrolinkime žemyn, ir surasime grupę *Permissions*, uždėkime varnelę prie *Active*, tada dar kiek žemiau galime mūsų vartotoją priskirti grupei:
 
 ![](priskirti_grupei.png)
 
 pabaigoje rasime *'save'*, jį ir paspauskime.
 
-Django turi integruotą visą autentifikacijos sistemą - URL mapper'ius, formas, viewsus. Tik templates teks susikurti patiems.
+Į Django integruota visa autentifikacijos sistema - URL mapper'iai, formos, *views'ai*. Tik templates teks susikurti patiems.
 
-Pradėkime nuo urls.py. Pridėkime
+Pradėkime nuo *urls.py*. Pridėkime:
 ```python
 from django.urls import path, include
 
@@ -67,7 +67,7 @@ urlpatterns += [
 ]
 ```
 
-pridėję šį vienintelį narį prie urlpatterns sąrašo, realiai gauname visą puokštę naudingų endpoint'ų, su gatava už jų esančia logika:
+pridėję šį vienintelį narį prie *urlpatterns* sąrašo, realiai gauname visą puokštę naudingų *endpoint*'ų, su gatava už jų esančia logika:
 
 ```python
 accounts/ login/ [name='login']
@@ -80,7 +80,7 @@ accounts/ reset/<uidb64>/<token>/ [name='password_reset_confirm']
 accounts/ reset/done/ [name='password_reset_complete']
 ```
 
-jeigu pabandytumėm aplankyti http://127.0.0.1:8000/library/accounts/login/, gautumėm klaidą, kad trūksta template'o:
+jeigu pabandytumėm aplankyti http://127.0.0.1:8000/library/accounts/login/, gautumėm klaidą, kad trūksta *template*'o:
 
 ```
 ...
@@ -88,7 +88,7 @@ Exception Type:	TemplateDoesNotExist
 Exception Value: registration/login.html
 ...
 ```
-Ši klaida mums sufleruoja, kur ir kokio failo ieško django. Templates kataloge sukurkime katalogą registration, o jame failą login.html.
+Ši klaida mums sufleruoja, kur ir kokio failo ieško django. *T*emplates* kataloge sukurkime katalogą *registration*, o jame failą *login.html*.
 
 ```html
 {% extends "base.html" %}
@@ -128,9 +128,9 @@ Exception Value: registration/login.html
 
 ![](login.png)
 
-Django daro prielaidą, kad mus reikia nukrepti į /profile puslapį, kurio mes neturime ir nežadame turėti.
+Django daro prielaidą, kad mus reikia nukrepti į */profile* puslapį, kurio mes neturime ir nežadame turėti.
 
-pakeiskime tai, settings.py pridėję eilutę:
+pakeiskime tai, *settings.py* pridėję eilutę:
 
 ```python
 LOGIN_REDIRECT_URL = '/'
@@ -190,9 +190,9 @@ The 127.0.0.1:8000 team
 
 ![](passreset_standart.png)
 
-Ši konfigūracija yra development only, todėl realių laiškų kol kas nesiųs, tačiau konsolėje gautas įrašas rodo, kad nustatymai veikia.  
+Ši konfigūracija yra *development only*, todėl realių laiškų kol kas nesiųs, tačiau konsolėje gautas įrašas rodo, kad nustatymai veikia.  
 
-Anksčiau minėjau, kad galima perrašyti standartinius django slaptažodžių priminimo šablonus. Jeigu norėsite slaptažodžių keitime turėti savo dizainą ir galbūt kažkokios papildomos logikos, reikės perrašyti django numatytuosius šablonus (pavyzdžiai be jokio dizaino):
+Anksčiau minėjau, kad galima perrašyti standartinius django slaptažodžių priminimo šablonus. Jeigu norėsite slaptažodžių keitime turėti savo dizainą ir galbūt kažkokios papildomos logikos, reikės perrašyti django numatytuosius šablonus (pavyzdžiai su minimaliu dizainu):
 
 /templates/registration/password_reset_form.html:
 

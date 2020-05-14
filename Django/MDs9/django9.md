@@ -1,6 +1,6 @@
 # Formos
 
-Formos gali būti komplikuotos, dažnai iš pirmo karto ir neišeina :) Šį kartą formas bandysime įsisavinti per mūsų pavyzdžiui nebūtiną, bet mokymosi tikslams tinkamą naujo vartotojo registracijos procesą.
+Formos gali būti komplikuotos, dažnai iš pirmo karto ir neišeiti :) Šį kartą formas bandysime įsisavinti per mūsų pavyzdžiui nebūtiną, bet mokymosi tikslams tinkamą naujo vartotojo registracijos procesą.
 
 Pradėkime nuo šablono *register.html* sukūrimo:
 
@@ -42,7 +42,7 @@ Pradėkime nuo šablono *register.html* sukūrimo:
 {% endblock %}
 ```
 
-tai tiesiog iš bootstrap nukopijuota ir situacijai pritaikyta forma, su vartotojo vardu, el. paštu ir dviem slaptažodžio laukais. Dar reikės sukurti reikalingas view. Pradžioje views.py pasidarykime keletą importų:
+tai tiesiog iš *bootstrap* nukopijuota ir situacijai pritaikyta forma, su vartotojo vardu, el. paštu ir dviem slaptažodžio laukais. Dar reikės sukurti *view*są. Pradžioje *views.py* pasidarykime keletą *import*ų:
 
 ```python
 from django.shortcuts import redirect
@@ -84,13 +84,13 @@ def register(request):
 
 Šiek tiek paaiškinimų rasite kodo komentaruose.
 
-Užregistruokime endpoint'ą urls.py:
+Užregistruokime *endpoint'ą urls.py*:
 
 ```python
 path('register/', views.register, name='register')
 ```
 
-Taip pat, base.html, reikės nuorodos į registracijos formą. Iš karto po navigacijos meniu punkto "prisijungti" įterpkime:
+Taip pat, *base.html*, reikės nuorodos į registracijos formą. Iš karto po navigacijos meniu punkto "prisijungti" įterpkime:
 
 ```html
 {% if not user.is_authenticated %}
@@ -106,7 +106,7 @@ Pagrindinės (ne visos!) registracijos funkcijos veikia:
 
 ![](registracija_admin.png)
 
-Nors su formomis dar nebaigėme, dabar geras metas panagrinėti django pranešimų sistemą. Jeigu pamenate, views.py jau importavome *messages* ir į registracijos view'są įterpėme šiek tiek logikos su pranešimais. Bet jie neveikia - todėl, kad jų nenurodėme šablone. Pamėginkime sutvarkyti register.html:
+Nors su formomis dar nebaigėme, dabar geras metas panagrinėti django pranešimų sistemą. Jeigu pamenate, *views.py* jau importavome *messages* ir į registracijos *view*'są įterpėme šiek tiek logikos su pranešimais. Bet jie neveikia - todėl, kad jų nenurodėme šablone. Pamėginkime sutvarkyti *register.html*:
 
 ```html
         {% if messages %}
@@ -134,7 +134,7 @@ class BookReview(models.Model):
     content = models.CharField('Atsiliepimas', max_length=2000)
 ```
 
-pridėkime į adminitratoriaus panelę:
+pridėkime į adminitratoriaus svetainę:
 
 ```python
 class BookReviewAdmin(admin.ModelAdmin):
@@ -143,7 +143,7 @@ class BookReviewAdmin(admin.ModelAdmin):
 admin.site.register(BookReview, BookReviewAdmin)
 ```
 
-padarykime atsiliepimus matomus šablone book_detail.html po knygos aprašymu:
+padarykime atsiliepimus matomus šablone *book_detail.html* po knygos aprašymu:
 
 ```html
 </br>
@@ -159,11 +159,11 @@ padarykime atsiliepimus matomus šablone book_detail.html po knygos aprašymu:
   {% endif %}
 ```
 
-susimuliuokime atsiliepimą per administratoriaus panelę:
+susimuliuokime atsiliepimą per administratoriaus svetainę:
 
 ![](atsiliepimas.png)
 
-dabar sukursime paprastą formą atsiliepimui. Naudosimės django integruotu būdu formoms kurti. Pirmiausia susikurkime naują failą forms.py:
+dabar sukursime paprastą formą atsiliepimui. Naudosimės django integruotu būdu formoms kurti. Pirmiausia susikurkime naują failą *forms.py*:
 
 ```python
 from .models import BookReview
@@ -172,21 +172,69 @@ from django import forms
 class BookReviewForm(forms.ModelForm):
     class Meta:
         model = BookReview
-        fields = ('content',)
+        fields = ('content', 'book', 'reviewer',)
+        widgets = {'book': forms.HiddenInput(), 'reviewer': forms.HiddenInput()}
 ```
 
-perrašykime BookDetailView taip:
+Kadangi komentuoti galės tik prisijungęs vartotojas, o knyga visuomet bus ta, po kuria komentuojamama, *book* ir *reviewer* laukus paslėpėme.
+
+Dabar perrašykime *BookDetailView*  *view*'są taip:
 
 ```python
-class BookDetailView(generic.DetailView):
+# Importuojame FormMixin, kurį naudosime BookDetailView klasėje
+from django.views.generic.edit import FormMixin
+
+class BookDetailView(FormMixin, generic.DetailView):
     model = Book
     template_name = 'book_detail.html'
+    form_class = BookReviewForm
 
     class Meta:
         ordering = ['title']
 
+    # nurodome, kur atsidursime komentaro sėkmės atveju.
+    def get_success_url(self):
+        return reverse('book-detail', kwargs={'pk': self.object.id})
+    
+    # įtraukiame formą į kontekstą, inicijuojame pradinę 'book' reikšmę.
     def get_context_data(self, *args, **kwargs):
-       context = super(BookDetailView, self).get_context_data(*args, **kwargs)
-       context['form'] = BookReviewForm()
+       context = super(BookDetailView, self).get_context_data(**kwargs)
+       context['form'] = BookReviewForm(initial={'book': self.object})
        return context
+
+    # standartinis post metodo perrašymas, naudojant FormMixin, galite kopijuoti tiesiai į savo projektą.
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        form = self.get_form()
+        if form.is_valid():
+            return self.form_valid(form)
+        else:
+            return self.form_invalid(form)
+
+    # štai čia nurodome, kad knyga bus būtent ta, po kuria komentuojame, o vartotojas bus tas, kuris yra prisijungęs.
+    def form_valid(self, form):
+        form.instance.book = self.object
+        form.instance.reviewer = self.request.user
+        form.save()
+        return super(BookDetailView, self).form_valid(form)
 ```
+
+čia iš karto susiduriame su situacija, kai *CBV (class based views*) parodo mažiau gražią savo pusę - *view*'sas tapo griozdiškas ir sunkiai suprantamas. Mes *override*'iname keletą funkcijų, ir turime žinoti, kaip ir kokias iš jų perrašyti. Na ir paskutiniai pakeitimai bus *book_detail.html* šablone:
+
+```html
+  {% if user.is_authenticated %}
+  <div class="fieldWrapper">
+    <hr><br/>
+    <h4>Palikite atsiliepimą:</h4>
+    <form action="" method="post">
+      {% csrf_token %}
+      {{ form.content }}</br>
+      <input type="submit" value="Išsaugoti">
+    </form>
+  </div>
+  {% endif %}
+```
+
+rezultatas:
+
+![](review_form.png)

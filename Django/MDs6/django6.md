@@ -1,6 +1,6 @@
-# Puslapiacija
+# Puslapiavimas
 
-Programoje prisikaupus daug informacijos, darosi nepatogu naudotis, kuomet ji atvaizduojama viename naršyklės puslapyje. Įprastai tokia problema sprendžiama išskirstant turinį per keletą puslapių (*pagination*). Išmėtykime knygų sąrašą per keletą puslapių.
+Programoje prisikaupus daug informacijos, darosi nepatogu naudotis, kuomet ji atvaizduojama viename naršyklės puslapyje. Įprastai tokia problema sprendžiama išskirstant turinį per keletą puslapių (*pagination*). Pamėginkime tai įgyvendinti su *BookListView*.
 
 views.py:
 ```python
@@ -33,15 +33,15 @@ Taip pat reikia pakoreguoti šabloną, pačioje pabaigoje, prieš *endblock*:
 {% endblock %}
 ```
 Logika tokia:
- 1. Jeigu puslapio objektas turi puslapių prieš tai (naudojame metodą has_previous) - atvaizduokime nuorodas pirmas (kuri nukreipia į patį pirmą puslapį) ir nuorodą "atgal" - ji nukreips į puslapį, esantį prieš tai.
+ 1. Jeigu puslapio objektas turi puslapių prieš tai (naudojame metodą *has_previous*) - atvaizduokime nuorodą *pirmas* (kuri nukreipia į patį pirmą puslapį) ir nuorodą "atgal" - ji nukreips į puslapį, esantį prieš tai.
 
- 2. Naudodami metodus number ir paginator.num_pages suformuojame užrašą centre(pvz. 2 iš 3)
+ 2. Naudodami metodus *number* ir *paginator.num_pages* suformuojame užrašą centre(pvz. 2 iš 3)
 
- 3. Analogiškai pirmam punktui, tik atvirkščiai suformuojame nuorodas pirmyn ir paskutinis.  
+ 3. Analogiškai pirmam punktui, tik atvirkščiai, suformuojame nuorodas pirmyn ir paskutinis.  
 
 ![](knygos_pages.png)
 
-Prireikus supuslapiuoti funkcija parašytą view'są, darysime taip:
+Prireikus puslapiuoti funkcija parašytą *view'są*, darysime taip:
 
 ```python
 from django.core.paginator import Paginator
@@ -96,13 +96,13 @@ papildykime navigaciją paieškos laukeliu:
 </li>
 ```
 
-papildykime urlslist'ą nauju endpoint'u:
+papildykime *urlslist*'ą nauju endpoint'u:
 
 ```python
 path('search/', views.search, name='search'),
 ```
 
-sukurkime naują funkciją search views.py:
+sukurkime naują funkciją *search views.py*:
 
 ```python
 from django.db.models import Q
@@ -119,7 +119,7 @@ def search(request):
     return render(request, 'search.html', {'books': search_results, 'query': query})
 ```
 
-Sukurkime naują šabloną search.html:
+Sukurkime naują šabloną *search.html*:
 
 ```html
 {% extends "base.html" %}
@@ -143,7 +143,7 @@ Sukurkime naują šabloną search.html:
 ```
 ![](paieska.png)
 
-Paminėtina tai, jog patogumo dėlei mūsų naudojama SQLite numatytoji duomenų bazė nepalaiko kai kurių funkcijų, pvz šveplos paieškos čia nepadarysite, o tarkime su Postgres - be problemų. Turėkite omeny, kad SQLite produkcijai apskritai nelabai tinkamas variantas. Pvz, esant dideliam konkuruojančių užklausų kiekiui ji mėgsta užsirakinti, programa lūžta. Tačiau ji yra puikus variantas modeliavimui ir prototipavimui.  
+Paminėtina tai, jog patogumo dėlei mūsų naudojama SQLite numatytoji duomenų bazė nepalaiko kai kurių funkcijų, pvz 'šveplos' paieškos čia nepadarysite, o tarkime su Postgres - be problemų. Turėkite omeny, kad SQLite produkcijai apskritai nelabai tinkamas variantas. Pvz, esant dideliam konkuruojančių užklausų kiekiui ji mėgsta užsirakinti, programa lūžta. Tačiau ji yra puikus variantas modeliavimui ir prototipavimui.  
 
 # Nuotraukos
 
@@ -157,7 +157,7 @@ MEDIA_URL = '/media/'
 # print(MEDIA_ROOT) - nevenkite padebuginti, bus lengviau nepasiklysti django filesystem džiunglėse
 ```
 
-dabar, pagrindiniame (projekto) kataloge, atidarykite urls.py ir pridėkite eilutę prie pagrindinio sąrašo:
+dabar, pagrindiniame (projekto) kataloge, atidarykite *urls.py* ir pridėkite eilutę prie pagrindinio sąrašo:
 
 ```python
 urlpatterns = [
@@ -168,7 +168,7 @@ urlpatterns = [
     static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT))
 ```
 
-papildykime Book modelį taip, kad jis galėtų turėti paveikslėlius:
+papildykime *Book* modelį taip, kad jis galėtų turėti paveikslėlius:
 
 ```python
 cover = models.ImageField('Viršelis', upload_to='covers', null=True)
@@ -178,10 +178,10 @@ nuotraukų procesavimui django naudoja pillow biblioteką, todėl:
 $ pip install pillow
 ```
 
-Dabar jau galime pridėti nuotraukas per admin panel. jeigu atkrepėte dėmesį, 
+Dabar jau galime pridėti nuotraukas per *admin panel*. jeigu atkrepėte dėmesį, 
 failų struktūroje atsirado naujas katalogas 'media' o jame 'covers'.
 
-perrašėme book_list.html:
+perrašėme *book_list.html*:
 
 ```html
   <h1>Knygų sąrašas</h1></br> 

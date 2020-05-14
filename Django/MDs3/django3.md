@@ -1,9 +1,9 @@
-# Administractoriaus panelė
+# Administratoriaus svetainė
 
-Praeitoje paskaitoje tik susipažinome su administratoriaus panele, su standartiniais nustatymais. Dabar susipažinsime su galimybėmis labiau pritaikyti ją saviems poreikiams. 
+Praeitoje paskaitoje tik susipažinome su administratoriaus svetaine, su standartiniais nustatymais. Dabar susipažinsime su galimybėmis labiau pritaikyti ją saviems poreikiams. 
 
-Pakeiskime modelio Book vaizdavimą admin panelėje, kad būtų informatyvesnis:
-admin.py
+Pakeiskime modelio Book vaizdavimą administratoriaus svetainėje, kad būtų informatyvesnis:
+*admin.py:*
 
 ```python
 from django.contrib import admin
@@ -82,7 +82,7 @@ Taip pat norėtųsi, kad autorių sąraše matytųsi, kokias kokias jo knygas bi
     display_books.short_description = 'Knygos'
 ```
 
-Modelyje Books prie lauko author, parametruose reikia įrašyti:
+Modelyje *Books* prie lauko *author*, parametruose reikia įrašyti:
 
 ```python
 author = models.ForeignKey('Author', on_delete=models.SET_NULL, null=True, related_name='books')

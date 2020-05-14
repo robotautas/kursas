@@ -1,8 +1,8 @@
 # Views
 
-Toliau dirbsime su views. Django turi du views įgyvendinimo mechanizmus, vienas iš jų yra *function based*, kitas - *class based views*. Plačiau apie privalumus ir trūkumus ir kodėl apskritai taip yra, jeigu įdomu, pasiskaitykite [čia](https://simpleisbetterthancomplex.com/article/2017/03/21/class-based-views-vs-function-based-views.html), arba django dokumentacijoje. Mūsų pavyzdys leidžia pademosntruoti abu būdus, tad tą ir padarysime. Pradėsime nuo *jums* galbūt intuityvesnio, function based.
+Toliau dirbsime su views. Django turi du views įgyvendinimo mechanizmus, vienas iš jų yra *function based*, kitas - *class based views*. Plačiau apie privalumus ir trūkumus ir kodėl apskritai taip yra, jeigu įdomu, pasiskaitykite [čia](https://simpleisbetterthancomplex.com/article/2017/03/21/class-based-views-vs-function-based-views.html), arba django dokumentacijoje. Mūsų pavyzdys leidžia pademosntruoti abu būdus, tad tą ir padarysime. Pradėsime nuo intuityvesnio, function based.
 
-papildykime /library/urls.py:
+papildykime */library/urls.py*:
 
 ```python
 urlpatterns = [
@@ -11,7 +11,7 @@ urlpatterns = [
 ]
 ```
 
-atsidarykime views.py ir sukurkime funkciją autorių sąrašui:
+atsidarykime *views.py* ir sukurkime funkciją autorių sąrašui:
 
 ```python
 def authors(request):
@@ -24,7 +24,7 @@ def authors(request):
     return render(request, 'authors.html', context=context)
 ```
 
-Sukurkime šabloną :
+Sukurkime šabloną:
 
 ```html
 {% extends "base.html" %}
@@ -42,7 +42,7 @@ Tiesiog banaliai išvardinome autorius, rezultatas atrodo štai taip:
 
 ![](autoriai.png)
 
-Sekantis logiškas žingsnis būtų kad paspaudus ant autoriaus vardo-pavardės mus nuvestų į jo aprašymą. Kad nebūtų kadangi mūsų autoriai turi labai mažai laukų, kad jų anketos nebūtų labai nykios, sukurkime jiems tekstinį lauką 'description', ir praleiskime migracijas. 
+Sekantis logiškas žingsnis būtų, kad paspaudus ant autoriaus vardo-pavardės mus nuvestų į jo aprašymą. Kadangi mūsų autoriai turi labai mažai laukų, kad jų anketos nebūtų labai nykios, sukurkime jiems tekstinį lauką 'description', ir praleiskime migracijas. 
 
 ```python
 description = models.TextField('Aprašymas', max_length=2000, default='')
@@ -54,7 +54,7 @@ Po to reikia sukurti dinaminį URL maršrutą pavieniams autoriams. Įterpkime e
 path('authors/<int:author_id>', views.author, name='author'),
 ```
 
-kaip sufleruoja šios elutės parametrai, reikia sukurti funkciją *author* faile views.py:
+kaip sufleruoja šios elutės parametrai, reikia sukurti funkciją *author* faile *views.py*:
 
 ```python
 from django.shortcuts import render, get_object_or_404
@@ -64,10 +64,10 @@ def author(request, author_id):
     return render(request, 'authors/author.html', {'author': single_author})
 ```
 
-* importuojame funkciją, kuri pagal nurodytą *primary key* traukia konkretų objektą iš modelio Author
-* funkcijos parametruose įrašome author_id. Jį funkcija pasigaus iš naršyklės, priklausomai, ant kurio autoriaus paspausite.
+* importuojame funkciją, kuri pagal nurodytą *primary key* traukia konkretų objektą iš modelio *Author*.
+* funkcijos parametruose įrašome *author_id*. Jį funkcija pasigaus iš naršyklės, priklausomai, ant kurio autoriaus paspausite.
 
-pakoreguokime authors.html taip, kad kiekvienas autorius būtų nuoroda į savo paties aprašymą:
+pakoreguokime *authors.html* taip, kad kiekvienas autorius būtų nuoroda į savo paties aprašymą:
 
 ```html
   {% for a in authors %}
@@ -75,9 +75,9 @@ pakoreguokime authors.html taip, kad kiekvienas autorius būtų nuoroda į savo 
   {% endfor %}
 ```
 
-* {% url 'author' a.id %} perduoda skaičiuką į views.py funkciją. Kuri savo ruožtu pasidalina tuo numeriuku su urls.py, todėl URL adrese matysima kažką panašaus į 127.0.0.1:8000/authors/2
+* *{% url 'author' a.id %}* perduoda skaičiuką į *views.py* funkciją. Kuri savo ruožtu pasidalina tuo numeriuku su *urls.py*, todėl URL adrese matysima kažką panašaus į 127.0.0.1:8000/authors/2
 
-belieka sukurti author.html:
+belieka sukurti *author.html*:
 
 ```html
 {% extends "base.html" %}
@@ -174,7 +174,7 @@ class BookListView(generic.ListView):
         return context
 ```
 
-Taigi, views'ai per klases yra šiek tiek greičiau rašomi (kai gerai žinote, ką rašyti), tačiau mažiau intuityvūs, nepanašūs į kitų web karkasų metodus.
+Taigi, views'ai per klases yra šiek tiek greičiau rašomi (kai gerai žinote, ką rašyti), tačiau mažiau intuityvūs, nepanašūs į kitų web karkasų metodus. Jeigu modelis turi potencialą darytis sudėtingas, ateityje gali kilti sunkumų, todėl mėgstantiems tiesiog rezultatą, būtų pasiūlymas - iš pradžių CVB view'sų privengti.  
 
 Dabar sukursime klasę pavienių knygų aprašymams:
 
@@ -185,7 +185,7 @@ class BookDetailView(generic.DetailView):
 ```
 
 urls.py pr influxdbs/<int:pk>', views.BookDetailView.as_view(), name='book-detail')
-```
+
 
 ...ir book_detail.html:
 

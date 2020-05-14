@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
-from library.models import Book, Author, BookInstance, Genre
+from library.models import Book, Author, BookInstance, Genre, BookReview
 from django.views import generic
 from django.core.paginator import Paginator
 from django.db.models import Q
@@ -8,6 +8,11 @@ from django.contrib.auth.forms import User
 from django.views.decorators.csrf import csrf_protect
 from django.contrib import messages
 from library.forms import BookReviewForm
+from django.urls import reverse
+from django.views.generic.edit import CreateView
+from django import forms
+from django.views.generic import FormView
+from django.views.generic.edit import FormMixin
 
 def index(request):
     
@@ -66,17 +71,54 @@ class BookListView(generic.ListView):
     paginate_by = 2
     template_name = 'book_list.html'
 
-class BookDetailView(generic.DetailView):
+
+class BookDetailView(FormMixin, generic.DetailView):
     model = Book
     template_name = 'book_detail.html'
+    form_class = BookReviewForm
 
     class Meta:
         ordering = ['title']
 
+    def get_success_url(self):
+        return reverse('book-detail', kwargs={'pk': self.object.id})
+    
     def get_context_data(self, *args, **kwargs):
-       context = super(BookDetailView, self).get_context_data(*args, **kwargs)
-       context['form'] = BookReviewForm()
+       context = super(BookDetailView, self).get_context_data(**kwargs)
+       context['form'] = BookReviewForm(initial={'book': self.object})
        return context
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        form = self.get_form()
+        if form.is_valid():
+            return self.form_valid(form)
+        else:
+            return self.form_invalid(form)
+
+    def form_valid(self, form):
+        form.instance.book = self.object
+        form.instance.reviewer = self.request.user
+
+        form.save()
+        return super(BookDetailView, self).form_valid(form)
+
+
+
+
+
+
+
+
+
+
+# class ReviewCreate(CreateView):
+#     model = BookReview
+#     form_class = BookReviewForm
+
+#     def get_success_url(self):
+#         return reverse('book-detail', kwargs={'pk': self.object.entry.pk})
+
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -115,3 +157,5 @@ def register(request):
             messages.error(request, 'Slaptažodžiai nesutampa!')
             return redirect('register')
     return render(request, 'register.html')
+
+
