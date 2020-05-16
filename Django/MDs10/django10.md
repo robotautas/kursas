@@ -150,8 +150,24 @@ visada, norėdami matyti pasikeitimus, perkraudinėkime serverį (systemctl rest
 
 ![](admin_html.png)
 
-Ištaisykime tai - nuėję į savo programos katalogą:
+virš eilutės *STATIC_URL = '/static/'* faile settings.py įrašykime:
+
+```python
+STATICFILES_DIRS = ['/var/www/mysite/library/media']
+
+STATIC_ROOT = '/var/www/mysite/static'
+
+STATIC_URL = '/static/'
+```
+
+Nuėję į savo programos katalogą:
 
 ```bash
 python3 manage.py collectstatic
 ```
+
+Programa turi veikti. 
+https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
+
+
+Būtinai perskaitykite šitą, nepalikite savo kode secret key, slaptažodžių ir t.t., yra botai kurie skanuoja visą githubą ieškodami būtent šitų eilučių. 
