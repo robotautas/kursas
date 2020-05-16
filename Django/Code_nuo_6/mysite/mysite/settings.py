@@ -162,4 +162,4 @@ EMAIL_POST = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'testavimui2020@gmail.com'
 # el. pašto adresas iš kurio siųsite
-EMAIL_HOST_PASSWORD = 'Troleibusas16'
+EMAIL_HOST_PASSWORD = 'slaptazodiskazkoks'
