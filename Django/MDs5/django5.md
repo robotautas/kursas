@@ -184,8 +184,10 @@ class BookDetailView(generic.DetailView):
     template_name = 'book_detail.html'
 ```
 
-urls.py pr influxdbs/<int:pk>', views.BookDetailView.as_view(), name='book-detail')
-
+Papildykime urlpatterns sąrašą (urls.py):
+```python
+path('books/<int:pk>', views.BookDetailView.as_view(), name='book-detail'),
+```
 
 ...ir book_detail.html:
 
