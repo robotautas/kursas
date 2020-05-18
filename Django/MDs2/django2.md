@@ -171,5 +171,3 @@ Pradėti kurti Django užduotį – [Autoservisas](https://github.com/robotautas
 * Sukurti visus modelius pagal nurodytą programos DB struktūrą
 * Sukurti meniu punktus visiems sukurtiems modeliams
 * Susikurti superuser vartotoją, prisijungti ir išbandyti įrašyti visų modelių įrašus
-
-
