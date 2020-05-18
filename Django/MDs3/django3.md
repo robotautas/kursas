@@ -117,5 +117,7 @@ atkreipkite dėmesį, kaip reikia nurodyti paieškomą lauką, kai tas laukas yr
 
 ![](paieska_admin.png)
 
- 
-
+ ## Užduotis
+Tęsti kurti Django užduotį – [Autoservisas](https://github.com/robotautas/kursas/wiki/Django-u%C5%BEduotis:-Autoservisas):
+* Padaryti, kad užsakymo formoje būtų matomos ir užsakymo eilutės (į jas galima būtų įrašyti informaciją)
+* Padaryti, kad modelių sąrašuose būtų matomi norimi stulpeliai
