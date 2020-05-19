@@ -132,6 +132,12 @@ atkreipkite dėmesį, kaip reikia nurodyti paieškomą lauką, kai tas laukas yr
 
 ![](paieska_admin.png)
 
+Reliacinio paieškos lauko pavyzdys:
+
+```python
+search_fields = ['foreign_key__related_fieldname']
+```
+
  ## Užduotis
 Tęsti kurti Django užduotį – [Autoservisas](https://github.com/robotautas/kursas/wiki/Django-u%C5%BEduotis:-Autoservisas):
 * Padaryti, kad modelių pavadinimai būtų atvaizduojami teisingai (vienaskaita ir daugiskaita)
