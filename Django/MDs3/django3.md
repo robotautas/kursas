@@ -88,6 +88,15 @@ Rezultatas:
 
 ![](inline_instances.png)
 
+Jei nenorite, kad knygų modelyje leistų ištrinti ar redaguoti egzempliorius, galime papildyti BooksInstanceInline klasę:
+
+```python
+class BooksInline(admin.TabularInline):
+    model = Book
+    readonly_fields = ('title', 'author', 'summary', 'isbn', 'genre')
+    can_delete = False
+```
+
 Taip pat norėtųsi, kad autorių sąraše matytųsi, kokias kokias jo knygas biblioteka turi. Panašiai darėme su žanrais, tačiau one2many atveju operacija šiek tiek skirsis. Tam pirmiausia pakoreguosime patį Author modelį:
 
 ```python
