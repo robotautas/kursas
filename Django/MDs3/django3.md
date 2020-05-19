@@ -3,7 +3,7 @@
 Praeitoje paskaitoje tik susipažinome su administratoriaus svetaine, su standartiniais nustatymais. Dabar susipažinsime su galimybėmis labiau pritaikyti ją saviems poreikiams. 
 
 Pakeiskime modelių pavadinimus administratoriaus svetainėje
-Faile models.py, modelio klasės apačioje, sukurkime Meta klasę ir įrašykite, kaip norime norimus pavadinimas vienaskaitoje ir daugiskaitoje, pvz.:
+Faile *models.py*, modelio klasės apačioje, sukurkime Meta klasę ir įrašykite, kaip norime norimus pavadinimas vienaskaitoje ir daugiskaitoje, pvz.:
 
 ```python
 class Genre(models.Model):
