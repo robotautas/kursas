@@ -2,6 +2,21 @@
 
 Praeitoje paskaitoje tik susipažinome su administratoriaus svetaine, su standartiniais nustatymais. Dabar susipažinsime su galimybėmis labiau pritaikyti ją saviems poreikiams. 
 
+Pakeiskime modelių pavadinimus administratoriaus svetainėje
+Faile models.py, modelio klasės apačioje, sukurkime Meta klasę ir įrašykite, kaip norime norimus pavadinimas vienaskaitoje ir daugiskaitoje, pvz.:
+
+```python
+class Genre(models.Model):
+    name = models.CharField('Pavadinimas', max_length=200, help_text='Įveskite knygos žanrą (pvz. detektyvas)')
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Žanras'
+        verbose_name_plural = 'Žanrai'
+```
+
 Pakeiskime modelio Book vaizdavimą administratoriaus svetainėje, kad būtų informatyvesnis:
 *admin.py:*
 
