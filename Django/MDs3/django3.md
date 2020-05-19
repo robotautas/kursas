@@ -147,6 +147,15 @@ Reliacinio paieškos lauko pavyzdys:
 search_fields = ['foreign_key__related_fieldname']
 ```
 
+Jei norime, kad pačiame knygų egzempliorių sąraše galima būtų redaguoti stulpelius (kaip iliustracijoje aukščiau), prirašykite papildomą parametrą į klasę BookAdmin faile *admin.py:*
+
+```python
+class BookInstanceAdmin(admin.ModelAdmin):
+    list_display = ('book', 'due_back', 'id', 'status')
+    list_editable = ('due_back', 'status')
+    search_fields = ('id', 'book__title')
+```
+
  ## Užduotis
 Tęsti kurti Django užduotį – [Autoservisas](https://github.com/robotautas/kursas/wiki/Django-u%C5%BEduotis:-Autoservisas):
 * Padaryti, kad modelių pavadinimai būtų atvaizduojami teisingai (vienaskaita ir daugiskaita)
