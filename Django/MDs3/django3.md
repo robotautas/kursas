@@ -134,6 +134,7 @@ atkreipkite dėmesį, kaip reikia nurodyti paieškomą lauką, kai tas laukas yr
 
  ## Užduotis
 Tęsti kurti Django užduotį – [Autoservisas](https://github.com/robotautas/kursas/wiki/Django-u%C5%BEduotis:-Autoservisas):
+* Padaryti, kad modelių pavadinimai būtų atvaizduojami teisingai (vienaskaita ir daugiskaita)
 * Padaryti, kad užsakymo formoje būtų matomos ir užsakymo eilutės (į jas galima būtų įrašyti informaciją)
 * Padaryti, kad užsakymo sąraše būtų matomi automobilio ir sumos stulpeliai
 * Padaryti, kad automobilių sąraše būtų matomi kliento, automobilio, valstybinio numerio ir VIN numerio stulpeliai
