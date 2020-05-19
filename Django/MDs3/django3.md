@@ -147,7 +147,7 @@ Reliacinio paieškos lauko pavyzdys:
 search_fields = ['foreign_key__related_fieldname']
 ```
 
-Jei norime, kad pačiame knygų egzempliorių sąraše galima būtų redaguoti stulpelius (kaip iliustracijoje aukščiau), prirašykite papildomą parametrą į klasę BookAdmin faile *admin.py:*
+Jei norime, kad pačiame knygų egzempliorių sąraše galima būtų redaguoti stulpelius (kaip iliustracijoje aukščiau), prirašykite papildomą parametrą list_editable (ir nurodykite redaguotinus laukus) į klasę BookAdmin faile *admin.py:* 
 
 ```python
 class BookInstanceAdmin(admin.ModelAdmin):
