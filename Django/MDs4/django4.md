@@ -156,9 +156,7 @@ Taip Django nurodoma, kur ieškoti statinių failų. Galėsite ant Bootstrap ar 
 
 ```python
 from django.contrib import admin
-from django.# Užduotis
-
-views.generic import RedirectView
+from django.views.generic import RedirectView
 
 
 urlpatterns = [
