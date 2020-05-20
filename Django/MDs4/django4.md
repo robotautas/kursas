@@ -172,6 +172,8 @@ urlpatterns = [
 Tęsti kurti Django užduotį – [Autoservisas](https://github.com/robotautas/kursas/wiki/Django-u%C5%BEduotis:-Autoservisas):
 * Sukurti puslapį (ne admin), kuriame būtų matoma statistika: paslaugų kiekis, atliktų užsakymų kiekis, automobilių kiekis
 * Susikurti savo puslapio stilių (base.html failą). Jei reikia, pridėkite css ir kitus failus (patartina naudoti bootstrap). Palite panaudoti paskaitoje rodytus pavyzdžius. Panaudokite frontend kurse išmoktas žinias! :)
+* Padaryti, kad programa matytų templates ir static katalogus
+* Padaryti nukreipimas iš puslapio "/" į "/autoservice" (redirect)
 
 
 [Atsakymas](https://github.com/DonatasNoreika/autoservisas)
