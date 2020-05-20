@@ -9,7 +9,7 @@ Django (kaip ir Flask) naudoja Jinja 2 šablonų kūrimo kalbą. Visas django pu
 ```python
 from django.shortcuts import render
 from django.http import HttpResponse
-from library.models import Book, Author, BookInstance, Genre
+from .models import Book, Author, BookInstance, Genre
 
 def index(request):
     
