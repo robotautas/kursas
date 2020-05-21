@@ -61,7 +61,7 @@ from django.shortcuts import render, get_object_or_404
 
 def author(request, author_id):
     single_author = get_object_or_404(Author, pk=author_id)
-    return render(request, 'authors/author.html', {'author': single_author})
+    return render(request, 'author.html', {'author': single_author})
 ```
 
 * importuojame funkciją, kuri pagal nurodytą *primary key* traukia konkretų objektą iš modelio *Author*.
