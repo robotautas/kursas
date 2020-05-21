@@ -234,3 +234,11 @@ Paskutinis dalykas - tai nesujinginėta navigacija. Sutvarkykime base.html:
 {% endblock %}
 ```
 
+ ## Užduotis
+Tęsti kurti Django užduotį – [Autoservisas](https://github.com/robotautas/kursas/wiki/Django-u%C5%BEduotis:-Autoservisas):
+* Sukurti puslapį (per view funkciją), pvz. autoservice/automobiliai, kuriame būtų atvaizduoti visi servise užregistruoti automobiliai. 
+* Paspaudus ant automobilio nuorodos, būtų rodoma detali informacija apie automobilį (savininkas, automobilio modelis, valstybinis numeris, VIN kodas)
+* Sukurti puslapį (per view klasę), pvz. autoservice/uzsakymai, kuriame būtų atvaizduoti visi vykdyomi serviso užsakymai.
+* Paspaudus ant užsakymo nuorodos, būtų rodoma detali informacija apie užsakymą. Čia pat būtų matomos ir užsakymo eilučių informacija.
+
+[Atsakymas](https://github.com/DonatasNoreika/autoservisas)
