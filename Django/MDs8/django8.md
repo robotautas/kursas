@@ -177,6 +177,8 @@ INSTALLED_APPS = (
 sakykime, kad norime autorių aprašymus daryti pilno straipsnio pobūdžio. Mums reikės pakoreguoti modelį *Author*:
 
 ```python
+from tinymce.models import HTMLField
+
 description = HTMLField()
 ```
 
