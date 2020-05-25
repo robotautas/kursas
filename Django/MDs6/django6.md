@@ -116,7 +116,7 @@ def search(request):
     didžiosios/mažosios.
     """
     query = request.GET.get('query')
-    search_results = Book.objects.filter(Q(title__icontains=query) | Q(content__icontains=query))
+    search_results = Book.objects.filter(Q(title__icontains=query) | Q(summary__icontains=query))
     return render(request, 'search.html', {'books': search_results, 'query': query})
 ```
 
