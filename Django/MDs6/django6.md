@@ -81,6 +81,7 @@ na, o šablone galime pritaikyti taip pat kiek kitokį variantą:
 ```
 
 vaizdas bus toks:
+
 ![](autoriai_pages.png)
 
 # Paieška
