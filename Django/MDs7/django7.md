@@ -273,6 +273,20 @@ Kažkas mums atsiuntė užklausą slaptažodio keitimui. Jeigu tai buvote Jūs, 
 {% endblock %}
 ```
 
+Atkreipkite dėmesį, kad tam, kad django administraciniai puslapiai naudotų mūsų html puslapius (įdėtus į registration katalogą), reikia, kad settings.py faile mūsų appsas būtų virš visų kitų:
+
+```python
+INSTALLED_APPS = [
+    'library',
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+]
+```
+
 Įsitikinkime, kad veikia. Paspaudus slaptažodžio priminimo nuorodą, įvedėme el. paštą, konsolėje pasiėmėme laiško nuorodą, perkopijavome į naršyklės url lauką. Matome rezultatą:
 
 ![](new_password.png)
