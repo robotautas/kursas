@@ -162,7 +162,7 @@ EMAIL_HOST_PASSWORD = 'VerySecret'
 # slaptažodis
 ```
 
-konsolėje įsitikiname, kad laiškas išsiųstas:
+konsolėje įsitikiname (paspaudę slaptažodžio keitimo nurodą login puslapyje), kad laiškas išsiųstas:
 
 ```bash
 Content-Type: text/plain; charset="utf-8"
@@ -197,7 +197,7 @@ Anksčiau minėjau, kad galima perrašyti standartinius django slaptažodžių p
 /templates/registration/password_reset_form.html:
 
 ```html
-{% extends "base_generic.html" %}
+{% extends "base.html" %}
 
 {% block content %}
   <form action="" method="post">
