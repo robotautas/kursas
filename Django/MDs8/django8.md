@@ -238,7 +238,7 @@ Tęsti kurti Django užduotį – [Autoservisas](https://github.com/robotautas/k
 * Į užsakymo modelį įdėti vartotojo lauką (ForeignKey su User, kaip paskaitoje).
 * Į užsakymo modelį įdėti automobilio gražinimo termimo lauką.
 * Į užsakymo modelį įdėti @property metodą, kuris pasibaigus automobilio gražinimo terminui, gražintų True.
-* Padaryti puslapį, kuriame prisijungęs vartotojas galėtų matyti tik savo užsakymus.
+* Padaryti meniu punktą "Mano Užsakymai", kuris vestų į puslapį, kuriame prisijungęs vartotojas galėtų matyti tik savo užsakymus.
 * Padaryti, kad jei automobilio gražinimo laikas praėjo, užsakymas būtų pažymimas raudona spalva.
 * Padaryti, kad jei automobilio gražinimo laikas praėjo, užsakymas būtų pažymimas raudona spalva.
 * Į automobilio modelį įdėti aprašymo lauką. Jame būtų leidžiama įvesti html kodą (padaryti teksto redagavimą su tinyMCE).
