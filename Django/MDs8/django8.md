@@ -236,7 +236,8 @@ Dabar jau turime pilną redaktorių su meniu, kurį galime išsididinti fullscre
  ## Užduotis
 Tęsti kurti Django užduotį – [Autoservisas](https://github.com/robotautas/kursas/wiki/Django-u%C5%BEduotis:-Autoservisas):
 * Į užsakymo modelį įdėti vartotojo lauką (ForeignKey su User, kaip paskaitoje).
-* Į užsakymo modelį įdėti automobilio gražinimo laiko lauką.
+* Į užsakymo modelį įdėti automobilio gražinimo termimo lauką.
+* Į užsakymo modelį įdėti @property metodą, kuris pasibaigus automobilio gražinimo terminui, gražintų True.
 * Padaryti puslapį, kuriame prisijungęs vartotojas galėtų matyti tik savo užsakymus.
 * Padaryti, kad jei automobilio gražinimo laikas praėjo, užsakymas būtų pažymimas raudona spalva.
 * Padaryti, kad jei automobilio gražinimo laikas praėjo, užsakymas būtų pažymimas raudona spalva.
