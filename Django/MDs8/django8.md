@@ -233,3 +233,13 @@ Dabar jau turime pilną redaktorių su meniu, kurį galime išsididinti fullscre
 
 ![](tinymce_result.png)
 
+ ## Užduotis
+Tęsti kurti Django užduotį – [Autoservisas](https://github.com/robotautas/kursas/wiki/Django-u%C5%BEduotis:-Autoservisas):
+* Į užsakymo modelį įdėti vartotojo lauką (ForeignKey su User, kaip paskaitoje).
+* Į užsakymo modelį įdėti automobilio gražinimo laiko lauką.
+* Padaryti puslapį, kuriame prisijungęs vartotojas galėtų matyti tik savo užsakymus.
+* Padaryti, kad jei automobilio gražinimo laikas praėjo, užsakymas būtų pažymimas raudona spalva.
+* Padaryti, kad jei automobilio gražinimo laikas praėjo, užsakymas būtų pažymimas raudona spalva.
+* Į automobilio modelį įdėti aprašymo lauką. Jame būtų leidžiama įvesti html kodą (padaryti teksto redagavimą su tinyMCE).
+
+[Atsakymas](https://github.com/DonatasNoreika/autoservisas)
