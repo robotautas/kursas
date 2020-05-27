@@ -143,6 +143,25 @@ rezultatas:
 
 ![](paimtos_knygos.png)
 
+## Kaip išvengti klaidos "Can't compare naive and aware"?
+
+Kai @property metode lyginame datas su laiku (ne tik datas), galime gauti šią ar panašią klaidą "Can't compare naive and aware datetime.now() <= challenge.datetime_end". Ją galima išspręsti taip:
+
+```python
+import pytz
+utc=pytz.UTC
+
+    @property
+    def praejes_terminas(self):
+        if self.grazinimo_laikas and datetime.today().replace(tzinfo=utc) > self.grazinimo_laikas.replace(tzinfo=utc):
+            return True
+        return False
+```
+
+Daugiau sprendimo variantų rasite čia:
+
+https://stackoverflow.com/questions/15307623/cant-compare-naive-and-aware-datetime-now-challenge-datetime-end
+
 # HTML laukai modeliuose
 
 Tokios platformos, kaip django, atrodytų turi viską, ko gali panorėti programuotojas, bet pralaimi elementariam wordpress'ui, kai reikia pasigaminti paprasčiausią blogą, nes negalime prigaminti straipsnių, taip, kad viename paveikslėliai būtų trys ir būtent tose vietose, kur norime, o kitame galbūt nebūtų nei vieno. O kitame galbūt video kaip nors įterptas. Kaip turėtų atrodyti mūsų straipsnio modelis? 
