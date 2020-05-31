@@ -241,3 +241,10 @@ class BookDetailView(FormMixin, generic.DetailView):
 rezultatas:
 
 ![](review_form.png)
+
+ ## Užduotis
+Tęsti kurti Django užduotį – [Autoservisas](https://github.com/robotautas/kursas/wiki/Django-u%C5%BEduotis:-Autoservisas):
+* Padaryti vartotojo registracijos formą pagal šioje pamokoje išmoktus žingsnius.
+* Padaryti, kad prisijungusiam vartotojui leistų palikti komentarus prie savo užsakymų (administratorius galėtų atsakyti į komentarus per administratoriaus puslapį).
+
+[Atsakymas](https://github.com/DonatasNoreika/autoservisas)
