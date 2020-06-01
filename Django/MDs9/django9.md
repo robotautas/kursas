@@ -1,6 +1,6 @@
 # Formos
 
-Formos gali būti komplikuotos, dažnai iš pirmo karto ir neišeiti :) Šį kartą formas bandysime įsisavinti per mūsų pavyzdžiui nebūtiną, bet mokymosi tikslams tinkamą naujo vartotojo registracijos procesą.
+Sukurkime naujo vartotojo registracijos formą.
 
 Pradėkime nuo šablono *register.html* sukūrimo:
 
@@ -131,10 +131,10 @@ class BookReview(models.Model):
     book = models.ForeignKey('Book', on_delete=models.SET_NULL, null=True, blank=True)
     reviewer = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
-    content = models.CharField('Atsiliepimas', max_length=2000)
+    content = models.TextField('Atsiliepimas', max_length=2000)
 ```
 
-pridėkime į adminitratoriaus svetainę:
+pridėkime į administratoriaus svetainę:
 
 ```python
 class BookReviewAdmin(admin.ModelAdmin):
