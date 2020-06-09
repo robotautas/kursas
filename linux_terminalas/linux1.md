@@ -953,3 +953,272 @@ Matome, kad leidimai failui batu_dydis.txt pasikeitė, kaip ir planuota.
 
 logika nėra labai sudėtinga - lentelėje matome jog remiamasi aštuntaine skaičiavimo sistema - tarkime 7 aštuntainėje = 111 - t.y. įjungia visus tris leidimus, rwx. Ši lentelė tik iliustracija, kuo remiasi ši leidimų nustatymo sistema, jeigu dėl jos darosi dar painiau, tiesiog sumuokite 4, 2, 1, 0 skaičius, atsimindami, kad read yra 4, write yra 2, o execute 1. 
 
+# IV Dalis
+
+## grep
+
+<hr>
+
+Dažnai mums ieškant kokios nors informacijos paieškoje, nuskaitant visą failą ar katalogą, gauname informacijos perteklių, kuriame sunku atsirinkti, ko reikia. Tokiu atveju labai naudinga naudotis komanda *grep*. 
+
+Tarkime, kad didžiuliame .py faile reikia susirasti, kaip jame skaičiuojamas koks nors, tarkime integralas.
+
+```bash
+vartotojas@j4sq:~$ grep integral pid.py 
+        :param Ki: The value for the integral gain Ki
+            in that direction. Setting output limits also avoids integral windup, since the
+            integral term will never be allowed to grow outside of the limits.
+        # compute integral and derivative terms
+        self._integral += self.Ki * error * dt
+        self._integral = _clamp(self._integral, self.output_limits)  # avoid integral windup
+        output = self._proportional + self._integral + self._derivative
+        return self._proportional, self._integral, self._derivative
+            self._integral = last_output if last_output is not None else 0
+            self._integral = _clamp(self._integral, self.output_limits)
+        self._integral = _clamp(self._integral, self.output_limits)
+        This sets each term to 0 as well as clearing the integral, the last output and the last
+        self._integral = 0
+```
+
+gauname krūvą eilučių, iš kurių žymiai paprasčiau atsirinkti. Jeigu ieškome žodžių kombinacijos, žodžius reikia sudėti į kabutes. O panaudojus argumentą -w *grep* ieškotų tik tos frazės pilno atitikimo, pvz atkarpos *self._integral* jau neberodytų.
+
+```bash
+vartotojas@j4sq:~$ grep -w "integral windup" pid.py 
+            in that direction. Setting output limits also avoids integral windup, since the
+        self._integral = _clamp(self._integral, self.output_limits)  # avoid integral windup
+```
+
+naudingi argumentai :
+
+* -i - ignoruoja didžiąsias/mažąsias raides
+* -n - nurodo eilučių numerius
+* -C *eilučių sk.* - kontekstas, nurodo kiek eilučių prieš ir po reikia parodyti rezultatuose. (-B - before, -A after, šios atitinkamai rodo eilutes prieš ir po atskirai.)
+
+pvz.:
+
+```bash
+vartotojas@j4sq:~$ grep -win -C 2 "integral windup" pid.py 
+52-            elements, for example: (lower, upper). The output will never go below the lower limit
+53-            or above the upper limit. Either of the limits can also be set to None to have no limit
+54:            in that direction. Setting output limits also avoids integral windup, since the
+55-            integral term will never be allowed to grow outside of the limits.
+56-        :param auto_mode: Whether the controller should be enabled (auto mode) or not (manual mode)
+--
+108-        # compute integral and derivative terms
+109-        self._integral += self.Ki * error * dt
+110:        self._integral = _clamp(self._integral, self.output_limits)  # avoid integral windup
+111-
+112-        self._derivative = -self.Kd * d_input / dt
+```
+
+Uždavėme komandą surasti tikslią frazę "integral windup", nepaisant didžiųjų/mažųjų raidžių, parodyti eilučių numerius, ir apsupti kontekstu, po 2 eilutes iš viršaus ir apačios.
+
+Grep taip pat pravartus kombinacijoje su kitomis komandomis:
+
+```bash
+vartotojas@j4sq:/usr/bin$ ls
+'['                                   newgrp
+ aa-enabled                           newuidmap
+ aa-exec                              NF
+ add-apt-repository                   ngettext
+ addpart                              nice
+ addr2line                            nl
+ apt                                  nm
+············· ir dar daug daug eilučių.
+```
+
+sakykime, kad mus domina tik tie katalogai, kurie turi žodį 'python'
+
+```bash
+vartotojas@j4sq:/usr/bin$ ls | grep python
+dh_python3
+python3
+python3.6
+python3.6m
+python3m
+```
+
+T.y. su grep mes apdorojame komandos ls išvestį. Tai tik įžanga į grep, tačiau kasdieniam vartojimui tiek turėtų pakakti. Tačiau tai yra labai galingas įrankis, turintis plačias filtravimo galimybes, palaikantis *search patterns* ir *regex*, iškilus poreikiui turėkite omenyje :)
+
+## history
+
+Tai paprastas, bet labai naudingas įrankis. Tiesiog suvedę history terminale, matysite savo suvestų komandų istoriją. Pvz.:
+
+```bash
+vartotojas@j4sq:~$ history
+    1  pwd
+    2  mkdir rasiniai
+    3  mkdir skaitiniai
+    4  mkdir darbai
+    5  ls
+    6  touch info.txt
+    7  nano info.txt 
+    8  ls
+    9  cd darbai
+   10  touch darbas1.txt
+   11  darbas2.txt
+   12  touch darbas2.txt
+   13  mkdir programos
+   14  ls
+   ················ ir dar daug.
+```
+
+norėdami įvykdyti pasirinktą komandą iš naujo, neskubėkite copy/paste'inti, galime tiesiog terminale nurodyti šauktuką ir komandos numerį:
+
+```bash
+vartotojas@j4sq:~$ !14
+ls
+batu_dydis.txt  dedes  pid.py  tetos  topsecret.txt
+```
+
+History galime naudoti kombinacijoje su tuo pačiu grep, pvz:
+
+```bash
+vartotojas@j4sq:~$ history | grep python
+   17  python3 labas.py 
+  429  ls -l | grep python
+  430  ls | grep python
+  444  history | grep python
+```
+
+Taip nesunkiai rasite primirštas komandas, ssh prisijungimus, kelią iki giliai paslėpto failo ir t.t.
+
+# Paketų diegimas
+
+Debian šeimos linukso distribucijose (viena iš jų yra Ubuntu), naudojamas paketų 'diegėjas' apt - (Advanced Package Tool). Veikimo principas panašus į mobiliųjų platformų 'app-store' ir panašių - distribucijos turi savo programinės įrangos ir OS atnaujinimo repozitorijas, į kurias kreipiasi apt ir saugiai diegia programinę įrangą. OS šią informaciją indeksuoja savo viduje, todėl pirmas dalykas, prieš norint kažką įsidiegti yra tos indeksacijos atnaujinimas, kad Ubuntu žinotų, kokios naujausios programinės įrangos versijos yra prieinamos. Tai daroma konsolėje suvedus *sudo apt update*:
+
+```bash
+vartotojas@j4sq:~$ sudo apt update
+[sudo] password for vartotojas: 
+Hit:1 http://ubuntu-archive.mirror.serveriai.lt bionic InRelease
+Hit:2 http://ubuntu-archive.mirror.serveriai.lt bionic-updates InRelease
+Hit:3 http://ubuntu-archive.mirror.serveriai.lt bionic-security InRelease
+Hit:4 http://archive.canonical.com/ubuntu bionic InRelease                             
+Reading package lists... Done                      
+Building dependency tree       
+Reading state information... Done
+1 package can be upgraded. Run 'apt list --upgradable' to see it.
+```
+
+šiuo metu įdiegtus paketus atnaujinti galime taip:
+
+```bash
+vartotojas@j4sq:~$ sudo apt upgrade
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+Calculating upgrade... Done
+The following NEW packages will be installed:
+  libnetplan0
+The following packages ········· etc.
+```
+
+Atnaujinti paketus verta todėl, kad juose užlopomos saugumo spragos, galbūt atsiranda kažkokios naujos funkcijos ar geresnis palaikymas.
+
+Toliau seka paketo diegimas, pvz:
+
+```bash
+vartotojas@j4sq:~$ sudo apt install htop
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+···············
+Setting up htop (2.1.0-3) ...
+Processing triggers for mime-support (3.60ubuntu1) ...
+```
+
+Įdiegėme htop. Htop yra šiek tiek įmantresnis komandos top variantas, išbandykite. Norint išdiegti darome taip:
+
+```bash
+vartotojas@j4sq:~$ sudo apt remove htop
+··············
+Removing htop (2.1.0-3) ...
+Processing triggers for mime-support (3.60ubuntu1) ...
+vartotojas@j4sq:~$ 
+```
+
+Turėkite omenyje, kad jeigu diegiate didelę programą, pvz PostrgeSQL ar Apache serverį, greičiausiai taip paprastai neišdiegsite, todėl, kad diegiasi visas paketas programų, pvz klientas, serveris, dar kažkas. Tokiu atveju tektų pasiieškoti kaip konkrečiai išdiegiamas tas paketas. 
+
+# Systemd
+
+systemd yra Linux sistemos ir servisų valdymo įrankis. Naudojamas norint sustabdyti, perkrauti, automatizuoti įvairius procesus, tarkime duomenų bazę ar web-serverį. Išbandykime systemd veikimą. Pradžiai instaliuokime Apache serverį:
+
+```bash
+vartotojas@j4sq:~$ sudo apt install apache2
+············
+Created symlink /etc/systemd/system/multi-user.target.wants/apache2.service → /lib/systemd/system/apache2.s
+ervice.
+Created symlink /etc/systemd/system/multi-user.target.wants/apache-htcacheclean.service → /lib/systemd/syst
+em/apache-htcacheclean.service.
+Processing triggers for libc-bin (2.27-3ubuntu1) ...
+Processing triggers for systemd (237-3ubuntu10.41) ...
+Processing triggers for ureadahead (0.100.0-21) ...
+```
+diegimo pabaigoje pamatysite, kad sukuriamas systemd servisas. Patikrinkime apache serverio statusą:
+
+```bash
+vartotojas@j4sq:~$ systemctl status apache2
+● apache2.service - The Apache HTTP Server
+   Loaded: loaded (/lib/systemd/system/apache2.service; enabled; vendor preset: enabled)
+  Drop-In: /lib/systemd/system/apache2.service.d
+           └─apache2-systemd.conf
+   Active: active (running) since Tue 2020-06-09 18:31:19 EEST; 2min 23s ago
+ Main PID: 30177 (apache2)
+    Tasks: 55 (limit: 2360)
+   CGroup: /system.slice/apache2.service
+           ├─30177 /usr/sbin/apache2 -k start
+           ├─30179 /usr/sbin/apache2 -k start
+           └─30180 /usr/sbin/apache2 -k start
+```
+
+matome, kad serveris veikia. Vadinasi, turi kažką rodyti:
+
+![](apachedemo.png)
+
+Tai yra standartinis apache serverio 'It works!' puslapis. 
+
+Sustabdykime serverį:
+
+```bash
+vartotojas@j4sq:~$ sudo systemctl stop apache2
+```
+
+apsilankę puslapyje pamatysite klaidą. Paleiskime serverį vėl:
+
+```bash
+vartotojas@j4sq:~$ sudo systemctl start apache2
+```
+
+Jums šios procedūros taps aktualios, kai keisite serverio konfigūrciją, tam kad serveris pasigautų naujus nustatymus reikės jį perkrauti. Dabar galime tik susimuliuoti kažką nelabai tikroviško. Apache 'transliuoja' savo demo puslapį iš /var/www/html/index.html failo. Ištrinkime, sukurkime naują:
+
+```bash
+vartotojas@j4sq:~$ sudo rm /var/www/html/index.html 
+vartotojas@j4sq:~$ sudo nano /var/www/html/home.html
+```
+ir jame įrašykime bet kokį paprastą html fragmentą. Perkraukime svetainę:
+
+![](apache_noindex.png)
+
+Jo serveris neperskaito, nes numatytuoju būdu yra sukonfigūruotas skaityti index.html. Tam teks pakeisti konfigūraciją. Visos konfigūracijos (ne tik Apache) guli /etc kataloge. 
+
+```bash
+vartotojas@j4sq:/etc/apache2$ sudo nano apache2.conf 
+```
+
+ir pačioje failo pabaigoje prirašome eilutę *DirectoryIndex home.html*. Išsaugome.
+
+pabandę perkrauti puslapį, jokių pokyčių nepamatysime, nes serveris iš inercijos naudoja į atmintį nuskaitytus konfigūracijos failus. Ir tik perkrovę serverį:
+
+```bash
+vartotojas@j4sq:/etc/apache2$ sudo systemctl restart apache2
+```
+
+Ir po to perkrovę puslapį, pamatysime pokyčius:
+
+![](apache_restart.png)
+
+kitos systemctl naudojimo galimybės:
+
+* enable - nustato, kad komanda startuos įrenginiui užsikrovus
+* disable - atvirkštinis nustatymas - nestartuos.
+* list-units - galima paskaityti, kokie servisai šiuo metu dirba.
