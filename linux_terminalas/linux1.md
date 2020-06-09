@@ -500,13 +500,20 @@ Archyvai naudojami siunčiant failų grupes kaip vieną failą, ir/arba norint s
 Archyvavimui naudojama tar programa. Dažniausi jos argumentai:
 * c - sukurti tar archyvą
 * x - išarchyvuoti
-* t - atvaizduoti archyvo turinįvartotojas@j4sq:~$ find svarbu -iname 'DarbaS*.*'
+* t - atvaizduoti archyvo turinį
+
+
+```bash
+vartotojas@j4sq:~$ find svarbu -iname 'DarbaS*.*'
 svarbu/darbai/darbas1.txt
 svarbu/darbai/darbas2.txt
+```
 
 * z - naudoti kompresiją (siekiant sutaupyti vietos)
 * f *failo_pavadinimas* - naudoti šį failą
-raspberri pi 
+raspberri pi
+
+```bash
 darbai  info.txt  ne_mano  rasinys1.txt  rasinys2.txt
 vartotojas@j4sq:~/svarbu$ tar cf archyvas.tar rasinys1.txt rasinys2.txt
 vartotojas@j4sq:~/svarbu$ ls
