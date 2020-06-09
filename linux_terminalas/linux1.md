@@ -501,19 +501,12 @@ Archyvavimui naudojama tar programa. Dažniausi jos argumentai:
 * c - sukurti tar archyvą
 * x - išarchyvuoti
 * t - atvaizduoti archyvo turinį
-
-
-```bash
-vartotojas@j4sq:~$ find svarbu -iname 'DarbaS*.*'
-svarbu/darbai/darbas1.txt
-svarbu/darbai/darbas2.txt
-```
-
 * z - naudoti kompresiją (siekiant sutaupyti vietos)
 * f *failo_pavadinimas* - naudoti šį failą
 raspberri pi
 
 ```bash
+vartotojas@j4sq:~/svarbu$ ls
 darbai  info.txt  ne_mano  rasinys1.txt  rasinys2.txt
 vartotojas@j4sq:~/svarbu$ tar cf archyvas.tar rasinys1.txt rasinys2.txt
 vartotojas@j4sq:~/svarbu$ ls
@@ -531,10 +524,7 @@ rasinys2.txt
 išarchyvuokime failą į katalogą darbai (išarchyvuojant vietoje, katalogo nurodyti nereikia):
 
 ```bash
-vartotojas@j4sq:~/svarbu$ tar xvf archyvas.tar -C darbaivartotojas@j4sq:~$ find svarbu -iname 'DarbaS*.*'
-svarbu/darbai/darbas1.txt
-svarbu/darbai/darbas2.txt
-
+vartotojas@j4sq:~/svarbu$ tar xvf archyvas.tar -C darbai
 rasinys1.txt
 rasinys2.txt
 vartotojas@j4sq:~/svarbu$ ls darbai
