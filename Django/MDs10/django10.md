@@ -39,7 +39,7 @@ apt install python3-pip
 įdiekime django, django-tinymce ir pillow:
 
 ```bash
-pip3 install django django-tinymce pillow
+pip3 install django django-tinymce pillow django-crispy-forms
 ```
 
 įdiekime apache2 serverį ir mod_wsgi:
