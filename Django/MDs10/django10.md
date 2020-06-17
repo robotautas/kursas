@@ -5,8 +5,9 @@
 prisijunkime per ssh:
 
 ```bash
-$ ssh root@jūsų.adresas
+$ ssh jūsų_vartotojas@jūsų_adresas_arba_IP
 ```
+Jei jungsitės per root vartotoją, sudo komandų niekur vesti nereikės.
 
 atnaujinkime mūsų linux paketus:
 
@@ -42,7 +43,7 @@ sudo apt install python3-pip
 sudo apt-get install -y apache2 libapache2-mod-wsgi-py3
 ```
 
-susikurkime katalogą savo aplikacijai:
+susikurkime katalogą (jei nėra) savo aplikacijai:
 
 ```bash
 mkdir /var/www
