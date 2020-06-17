@@ -54,8 +54,12 @@ Dabar savo priemonėmis (ftp) nukopijuokime mūsų aplikaciją į /var/www katal
 ```bash
 pwd
 /var/www/mysite
+```
+
+```bash
 ls -l
 total 216
+
 -rwxrwxr-x 1 root root 208896 May 16 09:09 db.sqlite3
 drwxrwxr-x 7 root root   4096 May 13 16:32 myblog
 -rwxrwxr-x 1 root root    626 May 16 09:09 manage.py
