@@ -88,7 +88,7 @@ dabar reikės sukonfigūruoti apache serverį. Mūsų aplikacijai reikės sukurt
 
 ```apache
 <VirtualHost *:80>
-    ServerName j4sq.l.dedikuoti.lt
+    ServerName 192.168.43.186
 
     ErrorLog ${APACHE_LOG_DIR}/django-err.log
     CustomLog ${APACHE_LOG_DIR}/django-acc.log combined
@@ -98,7 +98,7 @@ dabar reikės sukonfigūruoti apache serverį. Mūsų aplikacijai reikės sukurt
     WSGIScriptAlias / /var/www/mysite/mysite/wsgi.py
 
 
-    Alias /media /var/www/mysite/library/media
+    Alias /media /var/www/mysite/myblog/media
     Alias /static /var/www/mysite/static
 
     <Directory /var/www/mysite/mysite>
@@ -111,13 +111,15 @@ dabar reikės sukonfigūruoti apache serverį. Mūsų aplikacijai reikės sukurt
         Require all granted
     </Directory>
 
-    <Directory /var/www/mysite/library/media>
+    <Directory /var/www/mysite/myblog/media>
         Require all granted
     </Directory>
 </VirtualHost>
 
 ```
 * <VirtualHost *:80> - reiškia, kad norėsime prieiti prie savo aplikacijos per 80 prievadą. Visus puslapius taip prieiname, galite galite patinkrinti, pvz. http://google.com:80. Tiesiog jeigu nerašome jokio prievado adreso gale, visi serveriai automatiškai nukreipia per :80.
+
+* ServerName nurodome savo serverio adresą arba IP
 
 * error ir access logai - nurodėme, kur iesškosime log'ų.
 
