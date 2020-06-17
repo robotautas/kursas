@@ -1,6 +1,10 @@
 # Diegimas į serverį
 
-Čia bus diegimo į serverį instrukcija. Serveryje naudosime Ubuntu linux distribuciją, apache web serverį, mod_wsgi interfeisą (tarpininkas tarp web serverio ir python aplikacijos). Taigi pradėkime:
+Čia bus diegimo į serverį instrukcija. Serveryje naudosime Ubuntu linux distribuciją, apache web serverį, mod_wsgi interfeisą (tarpininkas tarp web serverio ir python aplikacijos). 
+
+Šiame pavyzdyje diegsime Django projektą mysite, kuriame yra program myblog (mysite/myblog).
+
+Taigi pradėkime:
 
 prisijunkime per ssh:
 
@@ -78,12 +82,12 @@ python3 -m venv mysite/venv
 ```
 Aktyvuojame sukurtą aplinką:
 ```bash
-vartotojas@ubuntu:~$ cd mysite/
-vartotojas@ubuntu:~/mysite$ source venv/bin/activate
+cd mysite/
+~/mysite$ source venv/bin/activate
 ```
-Įdiegiame programas iš requirements.txt failo:
+Įdiegiame programas iš requirements.txt failo (turime būti aktyvavę sukurtą venv):
 ```bash
-(venv) vartotojas@ubuntu:~/mysite$ pip install -r requirements.txt
+~/mysite$ pip install -r requirements.txt
 ```
 
 ### Konfiguruojame Apache2 serverį:
