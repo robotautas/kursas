@@ -11,7 +11,7 @@ $ ssh root@jūsų.adresas
 atnaujinkime mūsų linux paketus:
 
 ```bash
-apt update && apt upgrade
+sudo apt update && apt upgrade
 ```
 
 patikrinkime python3 versiją:
@@ -33,13 +33,13 @@ pip3 -V
 neturime, todėl: 
 
 ```bash
-apt install python3-pip
+sudo apt install python3-pip
 ```
 
 įdiekime apache2 serverį ir mod_wsgi:
 
 ```bash
-apt-get install -y apache2 libapache2-mod-wsgi-py3
+sudo apt-get install -y apache2 libapache2-mod-wsgi-py3
 ```
 
 susikurkime katalogą savo aplikacijai:
@@ -51,15 +51,37 @@ mkdir /var/www
 Dabar savo priemonėmis (ftp) nukopijuokime mūsų aplikaciją į /var/www katalogą serveryje (gali tekti pakeisti teises, kad leistų kopijuoti failus į www), galutinis rezultatas bus toks:
 
 ```bash
-[root@vps128 mysite]# pwd
+pwd
 /var/www/mysite
-[root@vps128 mysite]# ls -l
+ls -l
 total 216
 -rwxrwxr-x 1 root root 208896 May 16 09:09 db.sqlite3
-drwxrwxr-x 7 root root   4096 May 13 16:32 library
+drwxrwxr-x 7 root root   4096 May 13 16:32 myblog
 -rwxrwxr-x 1 root root    626 May 16 09:09 manage.py
 drwxrwxr-x 3 root root   4096 May 13 16:32 mysite
 ```
+
+### Susikuriame virtualią aplinką:
+
+Įdiegiame venv:
+```bash
+sudo apt install python3-venv
+```
+Sukuriame venv:
+```bash
+python3 -m venv mysite/venv
+```
+Aktyvuojame sukurtą aplinką:
+```bash
+vartotojas@ubuntu:~$ cd mysite/
+vartotojas@ubuntu:~/mysite$ source venv/bin/activate
+```
+Įdiegiame programas iš requirements.txt failo:
+```bash
+(venv) vartotojas@ubuntu:~/mysite$ pip install -r requirements.txt
+```
+
+### Konfiguruojame Apache2 serverį:
 
 dabar reikės sukonfigūruoti apache serverį. Mūsų aplikacijai reikės sukurti konfigūracinį failą, *nano /etc/apache2/sites-enabled/django_app.conf*:
 
@@ -100,7 +122,7 @@ dabar reikės sukonfigūruoti apache serverį. Mūsų aplikacijai reikės sukurt
 
 * alias - logiškai susieja URL adresus su mūsų katalogais. Tarkime jei nukopijuosime kokio nors paveikslėlio adresą ir turėsime http://127.0.0.1:8000/media/covers/paprastos-beprotybes-istorijos.jpg tokią eilutę, Alias užtikrins loginį šio adreso ryšį su adresu failų sistemoje.
 
-* WSGIDaemonProcess ir WSGIProcessGroup mysite -> Sukuriame WSGI procesą, kuris vadinasi mysite ir priklausys procesų grupei mysite, nurodome, kad šiam procesui priklausanti aplikacija yra /var/www/mysite kataloge, taip pat, kad leisime 1 procesą ir 15 threads'ų. Tai yra standartinis nustatymas, jo turėtų pakakti paprastam puslapiui su 10000 apsilankymų per dieną. 
+* WSGIDaemonProcess ir WSGIProcessGroup mysite -> Sukuriame WSGI procesą, kuris vadinasi mysite ir priklausys procesų grupei mysite, nurodome, kad šiam procesui priklausanti aplikacija yra /var/www/mysite kataloge, virtuali aplinka - /var/www/mysite/venv, taip pat, kad leisime 1 procesą ir 15 threads'ų. Tai yra standartinis nustatymas, jo turėtų pakakti paprastam puslapiui su 10000 apsilankymų per dieną. 
 
 * WSGIScriptAlias / /var/www/mysite/mysite/wsgi.py - nurodome, kur yra mūsų wsgi skriptas. 
 
@@ -115,7 +137,7 @@ mv 000-default.conf 000-default.conf.backup
 perkraukime apache:
 
 ```bash
-systemctl restart apache2
+sudo systemctl restart apache2
 ```
 
 užeikime į puslapį:
@@ -136,8 +158,8 @@ ALLOWED_HOSTS = ["j4sq.l.dedikuoti.lt"]
 Toliau - reikia leisti vartotojui www-data pasiekti visus resusrsus mūsų aplikacijoje, pvz duomenų bazė iki šio momento yra read-only visiems, išskyrus root. www-data yra specialus apache serverio sukurtas vartotojas.
 
 ```bash
-chown www-data /var/www/mysite
-chown www-data /var/www/mysite/db.sqlite3 
+sudo chown www-data /var/www/mysite
+sudo chown www-data /var/www/mysite/db.sqlite3 
 ```
 
 visada, norėdami matyti pasikeitimus, perkraudinėkime serverį (systemctl restart apache2). Dabar viskas iš pažiūros veikia, tačiau užėjus į administratoriaus puslapį, matome 'nuogą' html'ą:
