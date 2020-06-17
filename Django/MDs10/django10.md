@@ -36,12 +36,6 @@ neturime, todėl:
 apt install python3-pip
 ```
 
-įdiekime django, django-tinymce ir pillow:
-
-```bash
-pip3 install django django-tinymce pillow django-crispy-forms
-```
-
 įdiekime apache2 serverį ir mod_wsgi:
 
 ```bash
@@ -54,7 +48,7 @@ susikurkime katalogą savo aplikacijai:
 mkdir /var/www
 ```
 
-Dabar savo priemonėmis (ftp) nukopijuokime mūsų aplikaciją į /var/www katalogą serveryje, galutinis rezultatas bus toks:
+Dabar savo priemonėmis (ftp) nukopijuokime mūsų aplikaciją į /var/www katalogą serveryje (gali tekti pakeisti teises, kad leistų kopijuoti failus į www), galutinis rezultatas bus toks:
 
 ```bash
 [root@vps128 mysite]# pwd
@@ -76,7 +70,7 @@ dabar reikės sukonfigūruoti apache serverį. Mūsų aplikacijai reikės sukurt
     ErrorLog ${APACHE_LOG_DIR}/django-err.log
     CustomLog ${APACHE_LOG_DIR}/django-acc.log combined
 
-    WSGIDaemonProcess mysite processes=1 threads=15 python-path=/var/www/mysite
+    WSGIDaemonProcess mysite processes=1 threads=15 python-path=/var/www/mysite python-home=/var/www/mysite/venv
     WSGIProcessGroup mysite
     WSGIScriptAlias / /var/www/mysite/mysite/wsgi.py
 
