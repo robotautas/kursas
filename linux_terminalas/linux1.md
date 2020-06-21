@@ -125,8 +125,8 @@ failų ir katalogų struktūra linukse yra tokio pobūdžio:
 
 */katalogas/subkatalogas/failas.txt*
 
-reikštų, kad failas *failas.txt* yra subkataloge, kuris yra kataloge. Pvz. /usr/bin/python3 yra paleidžiamasis pythono failas, esantis bin kataloge, kuris yra usr kataloge, kuris jau yra hierarchijos viršuje, ir aukščiau katalogų nėra ir negali būti, t.y. */usr/bin/python3* yra pilnas kelias (path) iki pdarosi
-kai kūrėme vartotoją *vartotojas*, minėjome, kad kataloge *home* jam bus sukurtas atskiras katalogas. Tad užeikime į jį ir prisijunkime kaip vartotojas:
+reikštų, kad failas *failas.txt* yra subkataloge, kuris yra kataloge. Pvz. /usr/bin/python3 yra paleidžiamasis pythono failas, esantis bin kataloge, kuris yra usr kataloge, kuris jau yra hierarchijos viršuje, ir aukščiau katalogų nėra ir negali būti, t.y. */usr/bin/python3* yra pilnas kelias (path). 
+Kai kūrėme vartotoją *vartotojas*, minėjome, kad kataloge *home* jam bus sukurtas atskiras katalogas. Tad užeikime į jį ir prisijunkime kaip vartotojas:
 
 ```bash
 root@j4sq:~# cd /home/vartotojas
