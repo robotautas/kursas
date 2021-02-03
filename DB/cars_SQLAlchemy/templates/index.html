@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Demo</title>
+    <style>
+        table, th, td {
+          border: 1px solid black;
+          border-collapse: collapse;
+        }
+        </style>
+</head>
+<body>
+    <h1>Find cars in our DB!</h1>
+    <form method="post">
+        <label for="make">Make: </label><br>
+        <input id="make" name="make"><br>
+
+        <label for="model">Model: </label><br>
+        <input id="model" name="model"><br>
+
+        <label for="color">Color: </label><br>
+        <input id="color" name="color"><br>
+
+        <label for="year_from">Year from: </label><br>
+        <input id="year_from" name="year_from"><br>
+
+        <label for="year_to">Year to: </label><br>
+        <input id="year_to" name="year_to"><br>
+
+        <label for="price_from">Price from: </label><br>
+        <input id="price_from" name="price_from"><br>
+
+        <label for="price_to">Price to: </label><br>
+        <input id="price_to" name="price_to"><br>
+
+        <input type="submit" value="Search!"> <br><br>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>Make</th>
+                <th>Model</th>
+                <th>Color</th>
+                <th>Year</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in res %}
+            <tr>
+                <td>{{ i[0] }}</td>
+                <td>{{ i[1] }}</td>
+                <td>{{ i[2] }}</td>
+                <td>{{ i[3] }}</td>
+                <td>{{ i[4] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+</body>
+</html>
