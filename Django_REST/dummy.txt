@@ -1,0 +1,1 @@
+Github neleidžia kelti daugiau, negu 100 failų vienu kartu.
