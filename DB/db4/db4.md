@@ -6,7 +6,7 @@ Sukurkime paprastą lentelę:
 CREATE TABLE coder (
     f_name VARCHAR(50),
     l_name VARCHAR(50),
-    email VARCHAR(100)
+    email VARCHAR(100),
     age INT,
     xp_years INT
 )
