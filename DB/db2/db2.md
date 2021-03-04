@@ -90,6 +90,9 @@ SELECT * FROM cars WHERE (make = "Volvo" OR make = "Ford") AND price NOT BETWEEN
 ```
 ![](orandnot.png)
 
+
+![](sql_pirmenybes.png)
+
 ## ORDER BY, DESC
 
 nustato, kaip turi būti išrūšiuoti duomenys užklausos rezultate. Pvz.:
