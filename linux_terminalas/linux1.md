@@ -1222,3 +1222,7 @@ kitos systemctl naudojimo galimybės:
 * enable - nustato, kad komanda startuos įrenginiui užsikrovus
 * disable - atvirkštinis nustatymas - nestartuos.
 * list-units - galima paskaityti, kokie servisai šiuo metu dirba.
+
+
+
+*TODO: > operator, cat multiple files into one, cat as file writer, echo, less reader, running in background, pipelines*
