@@ -21,19 +21,6 @@ class User(db.Model):
         return self.name
 
     
-
-# class UserSchema(ma.SQLAlchemySchema):
-#     class Meta:
-#         model = User
-#     id = ma.auto_field()
-#     name = ma.auto_field()
-#     posts = ma.auto_field()
-    
-
-
-# user_schema = UserSchema()
-# users_schema = UserSchema(many=True)
-
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column('title', db.String)
@@ -49,7 +36,6 @@ class UserSchema(ma.SQLAlchemySchema):
     posts = ma.auto_field()
     
 
-
 user_schema = UserSchema()
 users_schema = UserSchema(many=True)
 
@@ -62,7 +48,6 @@ class PostSchema(ma.SQLAlchemyAutoSchema):
 post_schema = PostSchema()
 posts_schema = PostSchema(many=True)
 
-#sukurti user
 
 @app.route('/create_user', methods=['POST'])
 def create_user():
