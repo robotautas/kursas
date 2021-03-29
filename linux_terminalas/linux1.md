@@ -1225,4 +1225,4 @@ kitos systemctl naudojimo galimybės:
 
 
 
-*TODO: > operator, cat multiple files into one, cat as file writer, echo, less reader, running in background, pipelines*
+*TODO: > operator, cat multiple files into one, cat as file writer, echo, less reader, running in background, pipelines, ufw*
