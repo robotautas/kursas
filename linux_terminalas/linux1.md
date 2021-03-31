@@ -331,10 +331,7 @@ vartotojas@j4sq:~$ ls darbai/programos/
 labas.py  puslapis
 ```
 Buvo panaudotas argumentas -p (parent). 
-Ištrinkime neseniai sukurtus katalogus:vartotojas@j4sq:~$ find svarbu -iname 'DarbaS*.*'
-svarbu/darbai/darbas1.txt
-svarbu/darbai/darbas2.txt
-
+Ištrinkime neseniai sukurtus katalogus:
 
 ```bash
 vartotojas@j4sq:~$ rmdir  vienas du trys keturi penki
@@ -369,10 +366,7 @@ vartotojas@j4sq:~$ ls
 ataskaitos  darbai  info.txt  naujas.txt  rasiniai  skaiciai.txt
 ```
 
-Galime sukurti nurodant pilną kelią arba subkataloguose, pvz:vartotojas@j4sq:~$ find svarbu -iname 'DarbaS*.*'
-svarbu/darbai/darbas1.txt
-svarbu/darbai/darbas2.txt
-
+Galime sukurti nurodant pilną kelią arba subkataloguose, pvz:
 
 ```bash
 vartotojas@j4sq:~$ touch darbai/programos/helloworld.py
@@ -458,9 +452,6 @@ Failų (o praktiškai ir katalogų) trynimui naudojama komanda rm.
 * *rm failo_vardas* - ištrinamas failas
 * *rm -rf katalogo_pavadinimas* - ištrinamas katalogas su turiniu (jau darėme)
 * *rm -f failo_pavadinimas* - trynimas per jėgą (force). Naudojamas, kai sistema nenori leisti trinti ir norint išvengti įvairių dialogų.
-vartotojas@j4sq:~$ find svarbu -iname 'DarbaS*.*'
-svarbu/darbai/darbas1.txt
-svarbu/darbai/darbas2.txt
 
 Išsibandykite. Trinti taip pat galima ir po kelis failus, nurodant jų pavadinimus:
 
@@ -479,9 +470,6 @@ vartotojas@j4sq:~$ rm *.py
 vartotojas@j4sq:~$ ls
 ataskaita  naujas.txt  rasiniai  skaiciai.txt  svarbu
 ```
-vartotojas@j4sq:~$ find svarbu -iname 'DarbaS*.*'
-svarbu/darbai/darbas1.txt
-svarbu/darbai/darbas2.txt
 
 jeigu norite vykdyti didelę operaciją ir bijote suklysti su filtrais, iš pradžių galite prafiltruoti su ls:
 
