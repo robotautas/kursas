@@ -119,7 +119,7 @@ def search(request):
     search_results = Book.objects.filter(Q(title__icontains=query) | Q(summary__icontains=query))
     return render(request, 'search.html', {'books': search_results, 'query': query})
 ```
-Apie q daugiau informacijos rasita [dokumentacijoje](https://docs.djangoproject.com/en/3.2/topics/db/queries/#complex-lookups-with-q-objects).
+Apie Q daugiau informacijos rasite [dokumentacijoje](https://docs.djangoproject.com/en/3.2/topics/db/queries/#complex-lookups-with-q-objects).
 Sukurkime naują šabloną *search.html*:
 
 ```html
