@@ -150,7 +150,7 @@ sukurkime logout logged_out.html:
 ![](logged_out.png)
 
 
-Papildomai galime susikonfiguruoti meniu base.html faile, kad veiktų prisijungimo ir atsijungimo nuorodos ir atitinkamai jos būtų nerodomos, kai jų neveikia:
+Papildomai galime susikonfiguruoti meniu base.html faile, kad veiktų prisijungimo ir atsijungimo nuorodos ir atitinkamai jos būtų nerodomos, kai jų nereikia:
 
 ```html
           {% if user.is_authenticated %}
