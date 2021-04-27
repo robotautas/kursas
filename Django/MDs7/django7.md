@@ -101,7 +101,7 @@ Exception Value: registration/login.html
   
   {% if next %}
     {% if user.is_authenticated %}
-      <p>Neturite prieigos prie šiopassword_reset_email.html turite prisijungti.</p>
+      <p>Neturite prieigos prie šios informacijos. Turite prisijungti.</p>
     {% endif %}
   {% endif %}
   
