@@ -116,7 +116,7 @@ Reikės šablono:
     </ul>
 
     {% else %}
-      <p>There are no books borrowed.</p>
+      <p>Šiuo metu iš mūsų nesate paėmę knygų.</p>
     {% endif %}       
 {% endblock %}
 ```
