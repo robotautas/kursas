@@ -1,6 +1,6 @@
 # Views
 
-Toliau dirbsime su views. Django turi du views įgyvendinimo mechanizmus, vienas iš jų yra *function based*, kitas - *class based views*. Plačiau apie privalumus ir trūkumus ir kodėl apskritai taip yra, jeigu įdomu, pasiskaitykite [čia](https://simpleisbetterthancomplex.com/article/2017/03/21/class-based-views-vs-function-based-views.html), arba django dokumentacijoje. Mūsų pavyzdys leidžia pademosntruoti abu būdus, tad tą ir padarysime. Pradėsime nuo intuityvesnio, function based.
+Toliau dirbsime su views. Django turi du views įgyvendinimo mechanizmus, vienas iš jų yra *function based*, kitas - *class based views*. Plačiau apie privalumus ir trūkumus ir kodėl apskritai taip yra, jeigu įdomu, pasiskaitykite [čia](https://simpleisbetterthancomplex.com/article/2017/03/21/class-based-views-vs-function-based-views.html), arba django dokumentacijoje. Mūsų pavyzdys leidžia pademonstruoti abu būdus, tad tą ir padarysime. Pradėsime nuo intuityvesnio, function based.
 
 papildykime */library/urls.py*:
 
