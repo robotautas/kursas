@@ -101,6 +101,8 @@ Turime tokį rezultatą:
 
 ![](single_author.png)
 
+# Class Based Views
+
 Dabar pamėginkime knygas views'uose išdėlioti per klases. 
 Pirmiausiai papildykime urlpatterns sąrašą:
 
