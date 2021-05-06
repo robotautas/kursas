@@ -209,3 +209,34 @@ Nurodėme, kad tik registruoti vartotojai gali naudotis API.
 Jeigu norime prileisti anonimus be teisės daryti pakeitimus duomenų bazėje, vietoje 
 leidimo *IsAuthenticated* turime nurodyti *IsAuthenticatedOrReadOnly*.
 
+# Idėja žinių pritaikymui (užduotis)
+
+Modeliai:
+
+Band
+* name
+
+Album
+* name
+* band_id(FK)
+
+Song
+* name
+* duration
+* album_id(FK)
+
+AlbumReview
+* user(FK User)
+* album_id(FK)
+* content
+* score (pvz 8/10)
+
+AlbumReviewComment
+* user(FK User)
+* album_review_id(FK)
+* content
+
+AlbumReviewLike
+* user(FK User)
+* album_review_id(FK)
+
