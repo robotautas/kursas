@@ -30,6 +30,8 @@ path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 Tam kad galėtumėm trinti ir koreguoti tik savo pranešimus, *PostDetail* klasę turime papildyti metodais:
 
 ```python
+from rest_framework.exceptions import ValidationError
+
     def delete(self, request, *args, **kwargs):
         post = Post.objects.filter(pk=kwargs['pk'], user=self.request.user)
         if post.exists():
