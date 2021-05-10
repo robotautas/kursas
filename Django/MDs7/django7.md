@@ -212,6 +212,8 @@ The 127.0.0.1:8000 team
 
 Ši konfigūracija yra *development only*, todėl realių laiškų kol kas nesiųs, tačiau konsolėje gautas įrašas rodo, kad nustatymai veikia.  
 
+Dėmesio! Slaptažodžio priminimo laiškas bus išsiųstas (arba parodytas konsolėje) tik tuo atveju, jei priminimo formoje įvesite tą el. pašto adresą, kuris priskirtas vienam iš Django vartotojų.
+
 Anksčiau minėjau, kad galima perrašyti standartinius django slaptažodžių priminimo šablonus. Jeigu norėsite slaptažodžių keitime turėti savo dizainą ir galbūt kažkokios papildomos logikos, reikės perrašyti django numatytuosius šablonus (pavyzdžiai su minimaliu dizainu):
 
 /templates/registration/password_reset_form.html:
