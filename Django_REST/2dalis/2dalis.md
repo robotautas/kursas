@@ -161,7 +161,7 @@ path('comments/<int:pk>', CommentDetail.as_view()),
 
 Komentarus trinsime/taisysime tiesiog pagal komentaro id.
 
-Jeigu norime, kad pranešimuose matytųsi komentarai, modelyje *Comment* į post lauko parametrus pridėkime *related_name='comments'*, numigruokime.
+Jeigu norime, kad pranešimuose matytųsi komentarai, modelyje *Comment* į post lauko parametrus pridėkime *related_name='comments'*, numigruokime. Serializatoriaus laukų sąrašą papildykime 'comments' lauku.
 
 ![](comments3.png)
 
