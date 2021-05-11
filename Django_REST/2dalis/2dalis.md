@@ -206,10 +206,10 @@ class PostSerializer(serializers.ModelSerializer):
         model = Post
         fields = ['id', 'user', 'user_id', 'title', 'body', 'comment_count', 'comments', 'created']
 
-    def get_comment_count(self, post):
-        return Comment.objects.filter(post=post).count()
+    def get_comment_count(self, obj):
+        return Comment.objects.filter(post=obj).count()
 ```
-kai norime turėti lauką, kurio rezultatą grąžina funkcija, reikia naudoti *SerializerMethodField()*. Iš jo susikuriame objektą, o žemiau metodą, kuris vadinasi atititinkamai (comment_count --> get_comment_count()). Šiuo atveju nurodėme, kad grąžintų sumą *Comment* klasėje esančių objektų, kuriuose post sutampa su iteruojamu Post objektu.
+kai norime turėti lauką, kurio rezultatą grąžina funkcija, reikia naudoti *SerializerMethodField()*. Iš jo susikuriame objektą, o žemiau metodą, kuris vadinasi atititinkamai (comment_count --> get_comment_count()). Šiuo atveju nurodėme, kad grąžintų sumą *Comment* klasėje esančių objektų, kuriuose modelio post laukas sutampa su iteruojamu Post objektu.
 
 ![](count.png)
 
