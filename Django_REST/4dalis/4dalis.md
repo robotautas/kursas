@@ -244,7 +244,7 @@ pabaigai sukurkime galimybę vartotojui pašalinti savo paskyrą, prie *UserCrea
 sutikrinome, ar vartotojas, kurį norime ištrinti egzistuoja (kitaip galima būtų vykdyti post užklausas neprisijungus, kad ir nerezultatyviai), ir delete() metodo pagalba jį šaliname. 
 
 ```bash
-PS C:\Users\jotau> http DELETE http://127.0.0.1:8000/signup "Authorization: Token 8f67be08970bee4fe766bd586a2a8cb719224fc1"
+PS C:\Users\jotau> http DELETE http://127.0.0.1:8000/signup/ "Authorization: Token 8f67be08970bee4fe766bd586a2a8cb719224fc1"
 HTTP/1.1 204 No Content
 Allow: POST, DELETE, OPTIONS
 Content-Length: 0
