@@ -66,6 +66,9 @@ Enter the new value, or press ENTER for the default
         Home Phone []:
         Other []:
 Is the information correct? [Y/n] y
+```
+Pridėkime sukurtą vartotoją prie sudo grupės:
+```
 ubuntu@tight-dane:~$ sudo adduser jt sudo
 Adding user `jt' to group `sudo' ...
 Adding user jt to group sudo
