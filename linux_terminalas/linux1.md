@@ -490,8 +490,7 @@ Archyvavimui naudojama tar programa. Dažniausi jos argumentai:
 * x - išarchyvuoti
 * t - atvaizduoti archyvo turinį
 * z - naudoti kompresiją (siekiant sutaupyti vietos)
-* f *failo_pavadinimas* - naudoti šį failą
-raspberri pi
+* f - failo_pavadinimas
 
 ```bash
 vartotojas@j4sq:~/svarbu$ ls
