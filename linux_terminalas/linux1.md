@@ -670,6 +670,8 @@ Welcome to Ubuntu 18.04.4 LTS (GNU/Linux 4.15.0-29-generic x86_64)
 
 Todėl rekomenduotina slaptažodžius kurti kiek sudėtingesnius, paprasta rekomendacija - ne mažiau kaip 8 simbolių, įtraukiant ne tik mažąsias raides, bet ir didžiąsias, bei skaičius. Geriau perteklinis saugumas, negu ieškiniai ir kiti nemalonumai :)
 
+### vartotojų failas
+
 Taigi, dabar pažiūrėkime, kokie yra vartotojai sistemoje. Jie yra faile /etc/passwd :
 
 ```bash
