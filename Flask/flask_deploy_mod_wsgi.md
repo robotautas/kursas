@@ -1,5 +1,7 @@
 ## Flask diegimas su Apache
 
+diegsime paprastą testų [programėlę](https://github.com/robotautas/kursas/blob/master/konsultacijos/testu_programa.zip).
+
 prisijungę prie serverio, /var kataloge sukurkime katalogą www.
 
 ```
