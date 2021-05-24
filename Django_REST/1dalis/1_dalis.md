@@ -17,7 +17,7 @@ django-admin startproject api_example
 prie projekto prikabinkime aplikaciją *postit_api*:
 
 ```bash
-python3 manage.py startapp postit_api
+python manage.py startapp postit_api
 ```
 
 *settings.py* užregistruokime mūsų app'są, ir Django Rest karkasą:
