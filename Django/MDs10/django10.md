@@ -95,8 +95,8 @@ cd mysite/
 dabar reikės sukonfigūruoti apache serverį. Mūsų aplikacijai reikės sukurti konfigūracinį failą, *nano /etc/apache2/sites-enabled/django_app.conf*:
 
 ```apache
-<VirtualHost *:80>
-    ServerName 192.168.43.186
+<VirtualHost *:80><VirtualHost *:80>
+    ServerName 192.168.1.2
 
     ErrorLog ${APACHE_LOG_DIR}/django-err.log
     CustomLog ${APACHE_LOG_DIR}/django-acc.log combined
@@ -106,7 +106,7 @@ dabar reikės sukonfigūruoti apache serverį. Mūsų aplikacijai reikės sukurt
     WSGIScriptAlias / /var/www/mysite/mysite/wsgi.py
 
 
-    Alias /media /var/www/mysite/myblog/media
+    Alias /media /var/www/mysite/library/media
     Alias /static /var/www/mysite/static
 
     <Directory /var/www/mysite/mysite>
@@ -119,9 +119,11 @@ dabar reikės sukonfigūruoti apache serverį. Mūsų aplikacijai reikės sukurt
         Require all granted
     </Directory>
 
-    <Directory /var/www/mysite/myblog/media>
+    <Directory /var/www/mysite/library/media>
         Require all granted
     </Directory>
+
+
 </VirtualHost>
 
 ```
