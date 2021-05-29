@@ -95,7 +95,7 @@ cd mysite/
 dabar reikės sukonfigūruoti apache serverį. Mūsų aplikacijai reikės sukurti konfigūracinį failą, *nano /etc/apache2/sites-enabled/django_app.conf*:
 
 ```apache
-<VirtualHost *:80><VirtualHost *:80>
+<VirtualHost *:80>
     ServerName 192.168.1.2
 
     ErrorLog ${APACHE_LOG_DIR}/django-err.log
