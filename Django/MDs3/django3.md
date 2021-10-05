@@ -165,7 +165,7 @@ Tęsti kurti Django užduotį – [Autoservisas](https://github.com/robotautas/k
 * Padaryti, kad užsakymo formoje būtų matomos ir užsakymo eilutės (į jas galima būtų įrašyti informaciją)
 * Padaryti, kad užsakymo sąraše būtų matomi automobilio ir datos stulpeliai
 * Padaryti, kad automobilių sąraše būtų matomi kliento, automobilio, valstybinio numerio ir VIN numerio stulpeliai
-* Padaryti, kad Paslaugos kainos sąraše būtų matoma paslaugos ir kainos stulpeliai
+* Padaryti, kad Paslaugų sąraše būtų matomi paslaugos pavadinimų ir kainų stulpeliai
 * Į Automobilių sąrašą įdėti filtrą pagal klientą ir automobilio modelį*
 * Į Automobilių sąrašą įdėti paiešką pagal valstybinį numerį ir VIN kodą
 
