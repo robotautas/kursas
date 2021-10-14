@@ -168,7 +168,7 @@ urlpatterns = [
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 ```
 
-Jinja2 šablonų komentavimas:
+#Jinja2 šablonų (html failų) komentavimas:
 
 Deja Jinja2 neatpažįsta įprasto PyCharm komentavimo. Tad jei užkomentavote kodą html įprastu būdu - greičiausiai jis vis vien bus matomas ir gali mesti klaidas. Todėl panaudokite kitą komentavimo būdą.
 
