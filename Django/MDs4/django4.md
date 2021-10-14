@@ -168,6 +168,21 @@ urlpatterns = [
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 ```
 
+Jinja2 šablonų komentavimas:
+
+Deja Jinja2 neatpažįsta įprasto PyCharm komentavimo. Tad jei užkomentavote kodą html įprastu būdu - greičiausiai jis vis vien bus matomas ir gali mesti klaidas. Todėl panaudokite kitą komentavimo būdą.
+
+Trumpam komentarui įdėti:
+```html
+{# some text #}
+```
+
+Kelioms eilutėms ar kitam kodui užkomentuoti:
+```html
+{% comment 'comment_name' %}
+{% endcomment %}
+```
+
  ## Užduotis
 Tęsti kurti Django užduotį – [Autoservisas](https://github.com/robotautas/kursas/wiki/Django-u%C5%BEduotis:-Autoservisas):
 * Padaryti, kad programa matytų templates ir static katalogus
