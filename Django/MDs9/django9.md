@@ -241,6 +241,6 @@ Tęsti kurti Django užduotį – [Autoservisas](https://github.com/robotautas/k
 * Padaryti vartotojo registracijos formą pagal šioje pamokoje išmoktus žingsnius.
 * Prie užsakymo eilutės modelio pridėti lauką sumą (per @property), kuri būtų automatiškai paskaičiuota, padauginus kiekį iš kainos.
 * Pakeisti, kad užsakymo laukas suma būtų automatiškai paskaičiuojamas pagal realias užsakymo eilučių sumas
-* Padaryti, kad prisijungusiam vartotojui leistų palikti komentarus prie savo užsakymų (administratorius galėtų atsakyti į komentarus per administratoriaus puslapį).
+* Padaryti, kad prisijungusiam vartotojui leistų palikti komentarus prie bet kurio užsakymo.
 
 [Atsakymas](https://github.com/DonatasNoreika/autoservisas)
