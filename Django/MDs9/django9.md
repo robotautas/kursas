@@ -198,12 +198,6 @@ class BookDetailView(FormMixin, generic.DetailView):
     # nurodome, kur atsidursime komentaro sėkmės atveju.
     def get_success_url(self):
         return reverse('book-detail', kwargs={'pk': self.object.id})
-    
-    # įtraukiame formą į kontekstą, inicijuojame pradinę 'book' reikšmę.
-    def get_context_data(self, *args, **kwargs):
-       context = super(BookDetailView, self).get_context_data(**kwargs)
-       context['form'] = BookReviewForm(initial={'book': self.object})
-       return context
 
     # standartinis post metodo perrašymas, naudojant FormMixin, galite kopijuoti tiesiai į savo projektą.
     def post(self, request, *args, **kwargs):
