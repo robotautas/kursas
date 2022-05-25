@@ -134,6 +134,16 @@ urlpatterns = [
 
 *PostSerializer* laukų sąrašą papildykime 'image'.
 
+
+```python
+...
+        fields = ['id', 'user_id', 'user', 'title', 'body', 'created', 'comments', 'comment_count', 'likes', 'image']
+...
+
+
+
+```
+
 ![](geles.png)
 
 Gauname nuorodą į paveikslėlį:
