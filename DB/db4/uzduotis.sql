@@ -43,7 +43,6 @@ CREATE TABLE `product_order` (
 -- JOIN product_order on order_.id = product_order.order_id 
 -- JOIN product on product.id = product_order.product_id
 -- JOIN customer on customer.id = order_.customer_id
--- GROUP BY product_order.product_id
 
 -- uzklausa 2  
 
