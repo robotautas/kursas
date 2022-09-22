@@ -35,6 +35,16 @@ CREATE TABLE `product_order` (
 
 -- uzklausa 1 
 
+SELECT 	order_.id as "order id", 
+		order_.date_ as "date", 
+		customer.l_name as "customer",
+        sum(product_order.quantity * product.price) as "price"
+FROM product_order
+JOIN order_ on order_.id = product_order.order_id 
+JOIN product on product.id = product_order.product_id
+JOIN customer on customer.id = order_.customer_id
+GROUP by order_id
+
 -- SELECT 	order_.id as "order id", 
 -- 		order_.date_ as "date", 
 -- 		customer.l_name as "customer", 
