@@ -10,7 +10,7 @@
 
 * kad rezultate matytųsi užsakymo id, užsakovo pavardė, data, bendra užsakymo suma:
 
-![](query1.png)
+![](query1_real.png)
 
 * kad rezultate matytųsi užsakymo id, pozicijos su kiekiais, kainomis ir bendra pozicijos suma:
 
