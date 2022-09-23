@@ -68,3 +68,10 @@ GROUP by order_id
 -- JOIN product_order ON order_.id = product_order.order_id
 -- JOIN product ON product.id = product_order.product_id 
 -- GROUP BY product.name
+
+SELECT my_order.id, my_order.date, customer.f_name, product.name, product.price, order_line.quantity, product.price * order_line.quantity as "sum"
+FROM my_order
+JOIN customer on my_order.customer_id = customer.id
+JOIN status on my_order.status_id = status.id
+JOIN order_line on order_line.order_id = my_order.id
+JOIN product on order_line.product_id = product.id
