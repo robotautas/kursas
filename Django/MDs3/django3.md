@@ -75,7 +75,7 @@ dabar knygų modelį papildykime taip, kad atsidarę knygos aprašymus matytumė
 ```python
 class BooksInstanceInline(admin.TabularInline):
     model = BookInstance
-    extra = 0 # išjungia placeholder'ius
+    extra = 0 # išjungia papildomas tuščias eilutes įvedimui
 
 class BookAdmin(admin.ModelAdmin):
     list_display = ('title', 'author', 'display_genre')
