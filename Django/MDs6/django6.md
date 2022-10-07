@@ -66,7 +66,7 @@ na, o šablone galime pritaikyti taip pat kiek kitokį variantą:
                 {% for i in authors.paginator.page_range %}
                     {% if authors.number == i %}
                         <li class="page-item active">
-                            <a class="page-link" href">{{ i }}</a>
+                            <a class="page-link">{{ i }}</a>
                         </li>
                     {% else %}
                         <li class="page-item">
