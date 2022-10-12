@@ -76,6 +76,8 @@ def register(request):
                 else:
                     # jeigu viskas tvarkoje, sukuriame naują vartotoją
                     User.objects.create_user(username=username, email=email, password=password)
+                    messages.info(request, f'Vartotojas {username} užregistruotas!')
+                    return redirect('login')
         else:
             messages.error(request, 'Slaptažodžiai nesutampa!')
             return redirect('register')
