@@ -136,6 +136,8 @@ class BookReview(models.Model):
     content = models.TextField('Atsiliepimas', max_length=2000)
 ```
 
+*Dėmesio!* Užtikrinkite, kad prie ryšinių laukų (book ir reviewer) būtų parametrai null=True ir blank=True. Kitaip formos negalės validuoti prieš priskiriant book ir reviewer.
+
 pridėkime į administratoriaus svetainę:
 
 ```python
