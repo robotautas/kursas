@@ -195,8 +195,8 @@ some_id = UserId(524313)
 
 ## Užduotys
 
-1. Sutipuokite visas funkcijas šiame faile (nuoroda)
-2. Sutipuokite asmens kodo tikrinimo/generavimo funkcijas
-3. Sutipuokite biudžeto programą.
+1. Sutipuokite visas funkcijas šiame [faile](https://github.com/DonatasNoreika/python1lygis/blob/master/Programos/Funkcijos/1uzduotis.py)
+2. Sutipuokite asmens kodo tikrinimo/generavimo [funkcijas](https://github.com/DonatasNoreika/python1lygis/blob/master/Programos/Funkcijos/asmens_kodas.py)
+3. Sutipuokite biudžeto [programą](https://github.com/DonatasNoreika/python1lygis/blob/master/Programos/Objektinis%20programavimas%20II/biudzetas2-0.py)
 
 **Tikrinimui naudokite sugriežtintą komandą: mypy --disallow-untyped-defs jusu_programa.py**
