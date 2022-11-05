@@ -11,7 +11,7 @@
 ## Sprendimas
 * Nuo 3.5 versijos, Pythone prasidėjo *gradual typing* - tarpinio (laipsniško, hibridinio) tipavimo vystymas.
 * Tarpinis tipavimas leidžia išgaudyti tipavimo klaidas pateikiant kodą *type checker'iui* (tokiam, kaip *mypy*);
-* Mypy analizuoja kodą, kuriame naudojame *type hinting*.
+* Mypy analizuoja kodą, kuriame naudojame *type hinting* sintaksę.
 
 ## Savybės
 
