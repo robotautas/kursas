@@ -575,7 +575,7 @@ vartotojas@j4sq:~$ find svarbu -name 'd*' -ls
 
 # Teksto redagavimas
 
-Linux konsolėje yra keli populiarūs redaktoriai, tarp jų - vim ir nano. Vim yra labai galingas redaktorius, kurį galima sukonfogūruoti kaip IDE, ir programuoti bet kokiomis programavimo kalbomis, su eilučių numeravimu, klaidų paieška, keletu langų, užbaigimo sufleriu ir t.t. Privalumas - greitis, nes nenaudojama grafinė aplinka. Taip pat galime dirbti praktiškai bet kur, kur yra linux. Resursų pakaks netgi prieštvaniniame raspberry pi. Dalis žmonių pabandę vim atsisako grafinių redaktorių savo Mac'uose, ir dirba konsolėje. Tai nėra šios tema, bet žinoti verta, nes galbūt susidursite su situacija, kai reikės IDE ten, kur nėra grafinės aplinkos.
+Linux konsolėje yra keli populiarūs redaktoriai, tarp jų - vim ir nano. Vim yra labai galingas redaktorius, kurį galima sukonfigūruoti kaip IDE, ir programuoti bet kokiomis programavimo kalbomis, su eilučių numeravimu, klaidų paieška, keletu langų, užbaigimo sufleriu ir t.t. Privalumas - greitis, nes nenaudojama grafinė aplinka. Taip pat galime dirbti praktiškai bet kur, kur yra linux. Resursų pakaks netgi prieštvaniniame raspberry pi. Dalis žmonių pabandę vim atsisako grafinių redaktorių savo Mac'uose, ir dirba konsolėje. Tai nėra šios tema, bet žinoti verta, nes galbūt susidursite su situacija, kai reikės IDE ten, kur nėra grafinės aplinkos.
 
 Mes aptarsime kur kas paprastesnį - nano redaktorių. 
 
