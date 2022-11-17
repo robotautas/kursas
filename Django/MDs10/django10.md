@@ -173,6 +173,7 @@ Toliau - reikia leisti vartotojui www-data pasiekti visus resusrsus mūsų aplik
 ```bash
 sudo chown www-data /var/www/mysite
 sudo chown www-data /var/www/mysite/db.sqlite3 
+sudo chown www-data -R /var/www/mysite/library/media
 ```
 
 visada, norėdami matyti pasikeitimus, perkraudinėkime serverį (systemctl restart apache2). Dabar viskas iš pažiūros veikia, tačiau užėjus į administratoriaus puslapį, matome 'nuogą' html'ą:
