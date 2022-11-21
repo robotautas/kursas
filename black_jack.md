@@ -2,8 +2,8 @@
 sukurkite black jack žaidimą konsolėje. Galima veiksmų eiga:
 1. Reikės 4-ių klasių - Card, Deck, Player, Dealer, Game.
 2. Card turi turėti savybes:
- * suite: viena iš ♦ ♥ ♣ ♠
- * rank: viena iš 2 3 4 5 6 7 8 9 10 J Q K A
+ * suite (♦ ♥ ♣ ♠)
+ * rank  (2 3 4 5 6 7 8 9 10 J Q K A)
  * points - kiek taškų turi kokia korta (nuo 2 iki 10 pagal skaičių, J Q K po 10 taškų, A - 11)
  * __repr__
 3. Deck - turi turėti visas kortas klasės kintamąjame cards, taip pat:
