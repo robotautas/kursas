@@ -1,7 +1,5 @@
-import os
-from random import shuffle, choice
+from random import shuffle
 import time
-from tkinter import Y
 
 
 class Card:
@@ -64,15 +62,12 @@ class Player:
     @property
     def points(self):
         total_points = sum(self.cards)
-        if total_points > 21 and self.qty_of_aces > 0:
+        if total_points > 21 and self.qty_of_aces:
             for i in range(self.qty_of_aces):
                 total_points -= 10
                 if total_points <= 21:
                     break
         return total_points
-
-    def check_gt_21(self):
-        return self.points > 21
 
     def draw(self):
         self.cards.append(self.deck.take_out())
@@ -84,19 +79,14 @@ class Dealer(Player):
         self.player = player
         self.cards = []
 
-    @staticmethod
-    def deicide_with_probability(percent):
-        acceptable_numbers = [10, 20, 30, 40, 50, 60, 70, 80, 90]
-        assert percent in acceptable_numbers
-        choose_from = [True for i in range(
-            int(percent/10))] + [False for i in range(int((100-percent)/10))]
-        return choice(choose_from)
-
     def make_decision(self):
+        counter = 1
         while True:
             if self.player.points > self.points:
                 self.draw()
-                print(f'made decision! my cards now {self.cards}')
+                print(f'{counter}. Dealer hits! {self.cards} ({self.points}pts)')
+                time.sleep(2)
+                counter += 1
             else:
                 break
 
@@ -111,13 +101,13 @@ class Game:
     dealer = Dealer(deck=deck, player=player)
 
     def show_table(self, dealer_card_hidden):
-        # os.system('clear')
+        print('-------------------------------')
         if dealer_card_hidden:
             print(f"Dealer's cards: [??, {self.dealer.cards[1]}]")
-            print(f"Player's cards: {self.player.cards}, {self.player.points} points;")
         else:
             print(f"Dealer's cards: {self.dealer.cards}, {self.dealer.points} points;")
-            print(f"Player's cards: {self.player.cards}, {self.player.points} points;")
+        print(f"Player's cards: {self.player.cards}, {self.player.points} points;")
+        print('-------------------------------')
 
     def play(self):
         self.deck.shuffle_deck()
@@ -125,18 +115,16 @@ class Game:
         self.show_table(dealer_card_hidden=True)
         
         while True:
-            decision = input("Draw? (y/n): ")
+            decision = input("Hit? (y/n): ")
             if decision == 'y':
                 self.player.draw()
+                self.show_table(dealer_card_hidden=True)
                 if self.player.points > 21:
-                    self.show_table(dealer_card_hidden=True)
                     print('You Lost!')
                     return
                 elif self.player.points == 21:
-                    self.show_table(dealer_card_hidden=True)
                     print('Black Jack!')
                     break
-                self.show_table(dealer_card_hidden=True)
             else:
                 break
         self.show_table(dealer_card_hidden=False)
@@ -147,21 +135,13 @@ class Game:
             self.show_table(dealer_card_hidden=False)
             if self.dealer.points > 21:
                 print('You win!')
-                return
             elif self.dealer.points > self.player.points:
                 print('You lost!')
-                return
             elif self.dealer.points == self.player.points:
                 print('Tie!')
-                return
+            return
 
 
 if __name__ == "__main__":
     game = Game()
     game.play()
-
-
-
-
-
-
