@@ -20,6 +20,6 @@ sukurkite black jack žaidimą konsolėje. Galima veiksmų eiga:
 5. class Dealer(Player):
 * savybės - deck, player (surišam su kitų klasių objektais)
 * savybė cards
-* metodas make_decision (nusprendžia ar traukti dar vieną kortą)
-* metodas deal (padalina sau ir playeriui)
+* metodas make_decision - kompiuteris nusprendžia nusprendžia ar traukti dar vieną kortą
+* metodas deal - padalina sau ir žaidėjui po 2 kortas
 ---TO BE CONTINUED---
