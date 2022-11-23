@@ -22,4 +22,12 @@ sukurkite black jack žaidimą konsolėje. Galima veiksmų eiga:
 * savybė cards
 * metodas make_decision - kompiuteris nusprendžia nusprendžia ar traukti dar vieną kortą
 * metodas deal - padalina sau ir žaidėjui po 2 kortas
----TO BE CONTINUED---
+6. Klasė Game gali prasidėti taip:
+```python
+class Game:
+    deck = DeckOfCards()
+    player = Player(deck=deck)
+    dealer = Dealer(deck=deck, player=player)
+```
+* metodas show_table (rodo dylerio ir žaidėjo kortas)
+* metodas play - jame visa žaidimo logika, while ciklai ir t.t.
