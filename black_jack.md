@@ -7,7 +7,7 @@ sukurkite black jack žaidimą konsolėje. Žaidžia žaidėjas(Player) prieš k
 Tikslas - surinkti daugiau už žaidėją, bet neperrinkti.
 * Tūzas yra "minkšta" korta - gali turėti 11 arba 1 tašką - kaip naudingiau žaidėjams.
 
-*Supaprastintos taisyklės reiškia, kad atsisakoma statymų, double, split, pasidavimo ir draudimo pirkimo veiksmų.*
+*Supaprastintos taisyklės reiškia, kad atsisakoma statymų, double, split, pasidavimo ir draudimo pirkimo veiksmų. Dyleris tiesiog bando įveikti žaidėją, surinkdamas daugiau taškų.*
  
 Galima veiksmų eiga:
 1. Reikės 4-ių klasių - Card, Deck, Player, Dealer, Game.
