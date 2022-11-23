@@ -25,7 +25,7 @@ sukurkite black jack žaidimą konsolėje. Galima veiksmų eiga:
 6. Klasė Game gali prasidėti taip:
 ```python
 class Game:
-    deck = DeckOfCards()
+    deck = Deck()
     player = Player(deck=deck)
     dealer = Dealer(deck=deck, player=player)
 ```
