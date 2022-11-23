@@ -15,7 +15,7 @@ sukurkite black jack žaidimą konsolėje. Galima veiksmų eiga:
 * savybės - cards (listas)
 * deck - rišam žaidėją prie kaladės
 * @property qty_of_aces(taškų skaičiavimui)
-* @property points
+* @property points - su visa tūzų, kaip "minkštos" kortos logika.
 * metodas draw (arba hit) - žaidėjas pasirenka traukti papildomą kortą
 5. class Dealer(Player):
 * savybės - deck, player (surišam su kitų klasių objektais)
