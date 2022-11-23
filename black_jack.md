@@ -41,3 +41,5 @@ class Game:
 ```
 * metodas show_table (rodo dylerio ir žaidėjo kortas)
 * metodas play - jame visa žaidimo logika, while ciklai ir t.t.
+
+##[Atsakymas](https://github.com/robotautas/kursas/blob/master/black_jack.py)
