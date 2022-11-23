@@ -1,5 +1,15 @@
 # Užduotis
-sukurkite black jack žaidimą konsolėje. Galima veiksmų eiga:
+sukurkite black jack žaidimą konsolėje. Žaidžia žaidėjas(Player) prieš kompiuterį(Dealer). Žaidimo eiga (taisyklės supaprastintos): 
+1. Kompiuteris padalija sau ir žaidėjui po 2 kortas.
+* Žaidėjo tikslas surinkti kuo daugiau taškų iki 21, tačiau viršijus pralaimima.
+3. Žaidėjui duodama galimybė traukti papildomas kortas, kol jis nuspręs kad gana, arba perrinks ir pralaimės.
+4. Kompiuteris sprendžia ar jam reikia papildomų kortų, kad surinktų daugiau už žaidėją. Jeigu reikia - traukia. 
+Tikslas - surinkti daugiau už žaidėją, bet neperrinkti.
+* Tūzas yra "minkšta" korta - gali turėti 11 arba 1 tašką - kaip naudingiau žaidėjams.
+
+*Supaprastintos taisyklės reiškia, kad atsisakoma statymų, double, split, pasidavimo ir draudimo pirkimo veiksmų.*
+ 
+Galima veiksmų eiga:
 1. Reikės 4-ių klasių - Card, Deck, Player, Dealer, Game.
 2. Card turi turėti savybes:
  * suite (kortos rūšis)
