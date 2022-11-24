@@ -10,7 +10,7 @@ Tikslas - surinkti daugiau už žaidėją, bet neperrinkti.
 *Supaprastintos taisyklės reiškia, kad atsisakoma statymų, double, split, pasidavimo ir draudimo pirkimo veiksmų. Dyleris tiesiog bando įveikti žaidėją, surinkdamas daugiau taškų.*
  
 Galima veiksmų eiga:
-1. Reikės 4-ių klasių - Card, Deck, Player, Dealer, Game.
+1. Reikės 5-ių klasių - Card, Deck, Player, Dealer, Game.
 2. Card turi turėti savybes:
  * suite (kortos rūšis)
  * rank  (kortos rangas)
