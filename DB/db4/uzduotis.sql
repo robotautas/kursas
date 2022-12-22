@@ -54,8 +54,13 @@ GROUP by order_id
 
 -- uzklausa 3
 
--- SELECT product.name, sum(product_order.quantity) as quantity, product.price, sum(product_order.quantity) * product.price as "total"
+-- SELECT 
+-- 	order_.id, 
+-- 	product.name, 
+-- 	sum(product_order.quantity) as "QTY", 
+-- 	product.price, 
+-- 	sum(product_order.quantity) * product.price as "total"
 -- FROM order_
 -- JOIN product_order ON order_.id = product_order.order_id
--- JOIN product ON product.id = product_order.product_id 
--- GROUP BY product.name
+-- JOIN product ON product.id = product_order.product_id
+-- group by product_order.product_id
