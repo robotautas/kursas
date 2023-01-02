@@ -34,6 +34,7 @@ CREATE TABLE `product_order` (
 );
 
 -- uzklausa 1 
+-- kad rezultate matytųsi užsakymo id, užsakovo pavardė, data, bendra užsakymo suma
 
 SELECT 	order_.id as "order id", 
 		order_.date_ as "date", 
@@ -46,6 +47,7 @@ JOIN customer on customer.id = order_.customer_id
 GROUP by order_id
 
 -- uzklausa 2  
+-- kad rezultate matytųsi užsakymo id, pozicijos su kiekiais, kainomis ir bendra pozicijos suma:
 
 -- SELECT 
 -- 	order_.id, 
@@ -58,6 +60,7 @@ GROUP by order_id
 -- JOIN product ON product.id = product_order.product_id 
 
 -- uzklausa 3
+-- prieš tai buvusios užklausos pagrindu sukurkite užklausą, kurioje matytųsi, kiek ir kokio produkto buvo užsakyta:
 
 -- SELECT 
 -- 	order_.id, 
