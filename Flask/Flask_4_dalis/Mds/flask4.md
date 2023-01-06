@@ -120,7 +120,7 @@ Alma Littera [Katekizmas]
 Matome, kad įrašai kuriasi, ryšiai veikia. Atkreipkite dėmesį, kai iteravome knygas, nurodėme spausdinti *i.publisher*, 
 nors tokio stulpelio ir nėra. Tai reikšmė iš back reference parametro, galima ją taip naudoti.
 
-## Many2One
+## Many2Many
 
 Pasitaiko, kad knygos turi ne po vieną autorių. Gaunasi situacija, daug knygų - daug autorių. 
 Pabandykime sumodeliuoti:
