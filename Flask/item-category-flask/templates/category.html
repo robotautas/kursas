@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form method="post" action="#">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+        {{ form.name.label(class="form-control-label") }}
+        {{ form.name(class="form-control") }}
+    </div>
+    {{ form.submit }}
+</form>
+<hr>
+<h3>Kategorijos:</h3>
+{% for cat in cats %}
+    <p>{{ cat.name }}</p>
+{% endfor %}
+{% endblock %}
