@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form method="post" action="#">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+        {{ form.name.label(class="form-control-label") }}
+        {{ form.name(class="form-control") }}
+    </div>
+    <div class="form-group">
+        {{ form.categories.label(class="form-control-label") }}
+        {{ form.categories(class="form-control") }}
+    </div>
+    {{ form.submit }}
+</form>
+<hr>
+<h3>Items:</h3>
+{% for item in items %}
+    <p>{{ item.name }}::  <span> {{ item.get_string_of_categories() }}</span> <span><a href="/delete_item/{{ item.id }}">Delete</a></span><span><a href="/update_item/{{ item.id }}">Update</a></span></p>
+{% endfor %}
+{% endblock %}
