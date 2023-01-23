@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Add Notes!</legend>
+                <div class="form-group">
+                    {{ form.body.label(class="form-control-label") }}
+                    {% if form.body.errors %}
+                        {{ form.body(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.body.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.body(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+        </form>
+        {% for note in current_user.notes[::-1] %}
+        <hr>
+        <strong>{{ note.date.strftime('%Y-%m-%d %H:%M:%S') }}</strong>
+        <p>{{ note.body }}</p>
+        {% endfor %}
+    </div>
+{% endblock content %}
