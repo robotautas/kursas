@@ -136,6 +136,11 @@ class BookReview(models.Model):
     reviewer = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
     content = models.TextField('Atsiliepimas', max_length=2000)
+    
+    class Meta:
+        verbose_name = "Atsiliepimas"
+        verbose_name_plural = 'Atsiliepimai'
+        ordering = ['-date_created']
 ```
 
 *Dėmesio!* Užtikrinkite, kad prie ryšinių laukų (book ir reviewer) būtų parametrai null=True ir blank=True. Kitaip formos negalės validuoti prieš priskiriant book ir reviewer.
@@ -197,9 +202,6 @@ class BookDetailView(FormMixin, generic.DetailView):
     model = Book
     template_name = 'book_detail.html'
     form_class = BookReviewForm
-
-    class Meta:
-        ordering = ['title']
 
     # nurodome, kur atsidursime komentaro sėkmės atveju.
     def get_success_url(self):
