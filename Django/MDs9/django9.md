@@ -187,7 +187,7 @@ Kadangi komentuoti galės tik prisijungęs vartotojas, o knyga visuomet bus ta, 
 Dabar perrašykime *BookDetailView*  *view*'są taip:
 
 ```python
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, reverse, get_object_or_404, reverse
 from .forms import BookReviewForm
 
 # Importuojame FormMixin, kurį naudosime BookDetailView klasėje
