@@ -126,6 +126,8 @@ Turėsime tokį rezultatą:
 
 Taip pat neveikia slaptažodžio sudėtingumo tikrinimas, savo projekte pamėginkite tikrinti slaptažodį pagal regex šabloną. Taipogi galima sėkmingos registracijos atveju nukreipti vartotoją į prisijungimo puslapį su sėkmės žinute, kad registracija pavyko ir kviečiame prisijungti. 
 
+## Dedame atsiliepimus prie knygos
+
 Pabandykime padaryti taip, kad užsiregistravęs skaitytojas galėtų palikti atiliepimą apie knygą. Pirmiausiai sukurkime atsiliepimų modelį:
 
 ```python
