@@ -106,6 +106,8 @@ Kadangi komentarų 'patiktukinimas' yra beveik identiškas procesas, šios dalie
 Mūsų pranešimas gali turėti vieną arba kelias nuotraukas. Keleto nuotraukų atveju turėtumėm sukurti papildomą modelį, jame sukurti kintamąjį post, kaip foreign key, tuomet kurti atskirą serializerį, rodinį, ir t.t. Visą tai mes jau darėme, todėl įsivaizduosime, kad mūsų atvejui užteks vienos nuotraukos :) Settings.py pabaigoje susikurkime media kintamuosius:
 
 ```python
+import os
+
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 ```
