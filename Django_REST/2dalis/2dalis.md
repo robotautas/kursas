@@ -186,7 +186,7 @@ Taip pat galime rodyti tai, ką grąžina *Comments* klasės __str__ metodas.
 Tam mums reikės sukurti __str__ metodą, bei pakeisti kintamojo reikšmę Serializatoriuje taip:
 
 ```python
-comments = serializers.StringRelatedField(many=True)
+comments = serializers.StringRelatedField(many=True, read_only=True)
 ```
 
 ![](comments5.png)
