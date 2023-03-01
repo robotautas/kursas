@@ -201,3 +201,10 @@ https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 
 Būtinai perskaitykite šitą, nepalikite savo kode secret key, slaptažodžių ir t.t., yra botai kurie skanuoja visą githubą ieškodami būtent šitų eilučių. 
+
+
+## Jei svetainė rodoma, bet yra neaktyvi (nepersijungia meniu, ilgai, krauna)
+
+Faile /etc/apache2/apache2.conf, pabaigoje, reikia įrašyti:
+
+WSGIApplicationGroup %{GLOBAL}
