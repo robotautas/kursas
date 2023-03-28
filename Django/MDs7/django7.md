@@ -128,7 +128,7 @@ Exception Value: registration/login.html
 
 ![](login.png)
 
-Django daro prielaidą, kad mus reikia nukrepti į */profile* puslapį, kurio mes neturime ir nežadame turėti.
+Django daro prielaidą, kad mus reikia nukrepti į */profile* puslapį, kurio mes neturime ir nežadame turėti (šioje paskaitoje :)).
 
 pakeiskime tai, *settings.py* pridėję eilutę:
 
