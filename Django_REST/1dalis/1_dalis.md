@@ -97,7 +97,7 @@ python manage.py createsuperuser
 
 ## Serializers
 
-Serializatoriai pertvarko duomenų bazės objektus į *python* objektus iš kurių paskui formuoja JSON. Tai yra serializacija. Deserializacija yra atvirkštinis procesas. Aplikacijos aplanke susikurkime serializers.py:
+Serializatoriai pertvarko *python* objektus į JSON formatą. Tai yra serializacija. Deserializacija yra atvirkštinis procesas. Aplikacijos aplanke susikurkime serializers.py:
 
 ```python
 from rest_framework import serializers
