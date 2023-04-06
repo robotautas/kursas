@@ -134,6 +134,16 @@ urlpatterns = [
     path('posts', PostList.as_view()),
 ]
 ```
+įtraukime aplikacijos postit_api urlpattern'us į projekto lygyje esantį *urls.py*:
+```python
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('postit_api.urls'))
+]
+```
 
 sukurkime porą post'ų per administratoriaus prieigą, išbandykime :)
 
