@@ -107,7 +107,7 @@ Kokie yra Apple automobilių numeriai?
 ```sql
 SELECT plate, name
 FROM person
-LEFT JOIN car ON person.car_id = car.id
+JOIN car ON person.car_id = car.id
 JOIN company ON person.company_id = company.id
 WHERE company.name = "Apple"
 ```
