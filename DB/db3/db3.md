@@ -91,7 +91,7 @@ GROUP BY company.name
 
 ![](company_count.png)
 
-Atrinkime tik tas kompanijas, kuriose dirba daugiau, negu 3 automobilių savininkai:
+Atrinkime tik tas kompanijas, kuriose dirba daugiau, negu 3 asmenys:
 
 ```sql
 SELECT company.name, count()
