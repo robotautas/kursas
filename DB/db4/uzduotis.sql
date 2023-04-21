@@ -52,7 +52,7 @@ ARBA:
 -- JOIN product_order ON order_.id = product_order.order_id
 -- JOIN product ON product.id = product_order.product_id 
 
--- uzklausa 1 
+-- uzklausa 2 
 -- kad rezultate matytųsi užsakymo id, užsakovo pavardė, data, bendra užsakymo suma
 
 SELECT 	order_.id as "order id", 
@@ -66,8 +66,8 @@ JOIN customer on customer.id = order_.customer_id
 GROUP by order_id
 
 
--- uzklausa 2
--- prieš tai buvusios užklausos pagrindu sukurkite užklausą, kurioje matytųsi, kiek ir kokio produkto buvo užsakyta:
+-- uzklausa 3
+-- pirmos užklausos pagrindu sukurkite užklausą, kurioje matytųsi, kiek ir kokio produkto buvo užsakyta:
 
 SELECT product_order.order_id, product.name, sum(product_order.qty) as "Qty", product.price, sum(product_order.qty) * product.price as "Total" 
 FROM product_order
