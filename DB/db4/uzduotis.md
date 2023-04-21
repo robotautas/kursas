@@ -6,7 +6,7 @@
 
 2. Užpildykite duomenimis - bent 3 klientai, bent 5 užsakymai, kiekviename jų po 1-3 pozicijas, keletas produktų, keletas užsakymo statusų (pvz, patvirtintas, vykdomas, įvykdytas, atmestas).
 
-3. suformuokite porą užklausų:
+3. suformuokite keletą užklausų:
 
 * kad rezultate matytųsi užsakymo id, užsakovo pavardė, data, bendra užsakymo suma:
 
