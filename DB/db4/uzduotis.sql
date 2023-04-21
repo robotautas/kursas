@@ -69,6 +69,13 @@ GROUP by order_id
 -- uzklausa 2
 -- prieš tai buvusios užklausos pagrindu sukurkite užklausą, kurioje matytųsi, kiek ir kokio produkto buvo užsakyta:
 
+SELECT product_order.order_id, product.name, sum(product_order.qty) as "Qty", product.price, sum(product_order.qty) * product.price as "Total" 
+FROM product_order
+JOIN product ON product_order.product_id = product.id
+group by product_order.product_id
+
+ARBA:
+
 -- SELECT 
 -- 	order_.id, 
 -- 	product.name, 
