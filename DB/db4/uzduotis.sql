@@ -33,6 +33,25 @@ CREATE TABLE `product_order` (
    FOREIGN KEY (`product_id`) REFERENCES `product` (`id`)
 );
 
+-- uzklausa 1  
+-- kad rezultate matytųsi užsakymo id, pozicijos su kiekiais, kainomis ir bendra pozicijos suma:
+
+SELECT product_order.order_id, product.name, product_order.qty, product.price, product_order.qty * product.price as "Total" 
+FROM product_order
+JOIN product ON product_order.product_id = product.id
+
+ARBA:
+
+-- SELECT 
+-- 	order_.id, 
+-- 	product.name, 
+-- 	product_order.quantity, 
+-- 	product.price, 
+-- 	product_order.quantity * product.price as "total"
+-- FROM order_
+-- JOIN product_order ON order_.id = product_order.order_id
+-- JOIN product ON product.id = product_order.product_id 
+
 -- uzklausa 1 
 -- kad rezultate matytųsi užsakymo id, užsakovo pavardė, data, bendra užsakymo suma
 
@@ -46,20 +65,8 @@ JOIN product on product.id = product_order.product_id
 JOIN customer on customer.id = order_.customer_id
 GROUP by order_id
 
--- uzklausa 2  
--- kad rezultate matytųsi užsakymo id, pozicijos su kiekiais, kainomis ir bendra pozicijos suma:
 
--- SELECT 
--- 	order_.id, 
--- 	product.name, 
--- 	product_order.quantity, 
--- 	product.price, 
--- 	product_order.quantity * product.price as "total"
--- FROM order_
--- JOIN product_order ON order_.id = product_order.order_id
--- JOIN product ON product.id = product_order.product_id 
-
--- uzklausa 3
+-- uzklausa 2
 -- prieš tai buvusios užklausos pagrindu sukurkite užklausą, kurioje matytųsi, kiek ir kokio produkto buvo užsakyta:
 
 -- SELECT 
