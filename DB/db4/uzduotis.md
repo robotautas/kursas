@@ -15,6 +15,6 @@
 
 ![](query1_real.png)
 
-* prieš tai buvusios užklausos pagrindu sukurkite užklausą, kurioje matytųsi, kiek ir kokio produkto buvo užsakyta:
+* pirmos užklausos pagrindu sukurkite užklausą, kurioje matytųsi, kiek ir kokio produkto buvo užsakyta:
 
 ![](query3.png)
