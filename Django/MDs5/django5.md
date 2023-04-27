@@ -242,5 +242,6 @@ Tęsti kurti Django užduotį – [Autoservisas](https://github.com/robotautas/k
 * Paspaudus ant automobilio nuorodos, būtų rodoma detali informacija apie automobilį (savininkas, automobilio modelis, valstybinis numeris, VIN kodas)
 * Sukurti puslapį (per klasę views faile), pvz. autoservice/uzsakymai, kuriame būtų atvaizduoti visi serviso užsakymai.
 * Paspaudus ant užsakymo nuorodos, būtų rodoma detali informacija apie užsakymą. Čia pat būtų matomos ir užsakymo eilučių informacija.
+* PAPILDOMAI: padaryti, kad prie užsakymo eilutės būtų rodoma jos suma. O prie užsakymo - bendra užsakymo suma.
 
 [Atsakymas](https://github.com/DonatasNoreika/autoservisas)
