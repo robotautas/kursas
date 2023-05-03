@@ -141,7 +141,7 @@ sukurkime logout logged_out.html:
 ```html
 {% extends "base.html" %}
 
-{% block content %}
+{% block "content" %}
   <p>Sėkmingai atsijungėte!</p>  
   <a href="{% url 'login'%}">Prisijungti iš naujo.</a>
 {% endblock %}
