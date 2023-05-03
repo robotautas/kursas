@@ -221,7 +221,7 @@ Anksčiau minėjau, kad galima perrašyti standartinius django slaptažodžių p
 ```html
 {% extends "base.html" %}
 
-{% block content %}
+{% block "content" %}
   <form action="" method="post">
   {% csrf_token %}
   {% if form.email.errors %}
@@ -238,7 +238,7 @@ Anksčiau minėjau, kad galima perrašyti standartinius django slaptažodžių p
 ```html
 {% extends "base.html" %}
 
-{% block content %}
+{% block "content" %}
   <p>Slaptažodžio pakeitimo nuorodą išsiuntėme jums el.paštu!</p>
 {% endblock %}
 ```
@@ -255,7 +255,7 @@ Kažkas mums atsiuntė užklausą slaptažodio keitimui. Jeigu tai buvote Jūs, 
 ```html
 {% extends "base.html" %}
 
-{% block content %}
+{% block "content" %}
     {% if validlink %}
         <p>Įveskite naują slaptažodį ir pakartokite.</p>
         <form action="" method="post">
@@ -289,7 +289,7 @@ Kažkas mums atsiuntė užklausą slaptažodio keitimui. Jeigu tai buvote Jūs, 
 ```html
 {% extends "base.html" %}
 
-{% block content %}
+{% block "content" %}
   <h1>Slaptažodis pakeistas!</h1>
   <p><a href="{% url 'login' %}">prisijungti iš naujo</a></p>
 {% endblock %}
