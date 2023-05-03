@@ -93,7 +93,7 @@ Exception Value: registration/login.html
 ```html
 {% extends "base.html" %}
 
-{% block content %}
+{% block "content" %}
 
   {% if form.errors %}
     <p>Prisijungimo klaida, bandykite dar kartą!</p>
