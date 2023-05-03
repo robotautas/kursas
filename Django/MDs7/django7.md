@@ -227,7 +227,8 @@ Anksčiau minėjau, kad galima perrašyti standartinius django slaptažodžių p
   {% if form.email.errors %}
     {{ form.email.errors }}
   {% endif %}
-      <p>{{ form.email }}</p> 
+      <p>Pamiršote slaptažodį? Įrašykite el. pašto adresą ir mes atsiųsime slaptažodžio keitimo instrukcijas.</p>
+      <p>El. pašto adresas: {{ form.email }}</p>
     <input type="submit" class="btn btn-default btn-lg" value="Reset password">
   </form>
 {% endblock %}
