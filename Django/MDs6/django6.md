@@ -161,6 +161,8 @@ MEDIA_URL = '/media/'
 dabar, pagrindiniame (projekto) kataloge, atidarykite *urls.py* ir pridėkite eilutę prie pagrindinio sąrašo:
 
 ```python
+from django.conf.urls.static import static, settings
+
 urlpatterns = [
     path('library/', include('library.urls')),
     path('admin/', admin.site.urls),
