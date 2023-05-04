@@ -174,7 +174,7 @@ urlpatterns = [
 papildykime *Book* modelį taip, kad jis galėtų turėti paveikslėlius:
 
 ```python
-cover = models.ImageField('Viršelis', upload_to='covers', null=True)
+cover = models.ImageField('Viršelis', upload_to='covers', null=True, blank=True)
 ```
 nuotraukų procesavimui django naudoja pillow biblioteką, todėl:
 ```bash
