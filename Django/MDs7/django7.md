@@ -93,6 +93,8 @@ Exception Value: registration/login.html
 ```html
 {% extends "base.html" %}
 
+{% block "title" %}Prisijungimas{% endblock %}
+
 {% block "content" %}
 
   {% if form.errors %}
@@ -140,6 +142,8 @@ sukurkime logout logged_out.html:
 
 ```html
 {% extends "base.html" %}
+
+{% block "title" %}Atsijungimas{% endblock %}
 
 {% block "content" %}
   <p>Sėkmingai atsijungėte!</p>  
@@ -221,6 +225,8 @@ Anksčiau minėjau, kad galima perrašyti standartinius django slaptažodžių p
 ```html
 {% extends "base.html" %}
 
+{% block "title" %}Slaptažodžio keitimas{% endblock %}
+
 {% block "content" %}
   <form action="" method="post">
   {% csrf_token %}
@@ -239,6 +245,8 @@ Anksčiau minėjau, kad galima perrašyti standartinius django slaptažodžių p
 ```html
 {% extends "base.html" %}
 
+{% block "title" %}Slaptažodžio keitimas{% endblock %}
+
 {% block "content" %}
   <p>Slaptažodžio pakeitimo nuorodą išsiuntėme jums el.paštu!</p>
 {% endblock %}
@@ -247,6 +255,8 @@ Anksčiau minėjau, kad galima perrašyti standartinius django slaptažodžių p
 LAIŠKO TURINYS! /templates/registration/password_reset_email.html:
 
 ```html
+Sveiki,
+
 Kažkas mums atsiuntė užklausą slaptažodio keitimui. Jeigu tai buvote Jūs, sekite nuoroda žemiau:
 {{ protocol}}://{{ domain }}{% url 'password_reset_confirm' uidb64=uid token=token %}
 ```
@@ -255,6 +265,8 @@ Kažkas mums atsiuntė užklausą slaptažodio keitimui. Jeigu tai buvote Jūs, 
 
 ```html
 {% extends "base.html" %}
+
+{% block "title" %}Slaptažodžio keitimas{% endblock %}
 
 {% block "content" %}
     {% if validlink %}
@@ -289,6 +301,8 @@ Kažkas mums atsiuntė užklausą slaptažodio keitimui. Jeigu tai buvote Jūs, 
 
 ```html
 {% extends "base.html" %}
+
+{% block "title" %}Slaptažodžio keitimas{% endblock %}
 
 {% block "content" %}
   <h1>Slaptažodis pakeistas!</h1>
