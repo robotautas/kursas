@@ -120,7 +120,7 @@ Reikės šablono:
 {% endblock %}
 ```
 
-Čia matome, kaip praktikoje veikia mūsų anksčiau sukurtas *@property*. Jis leidžia tikrinti, ar vėluojame grąžinti knygą. Jeigu vėluojame - knyga tekste bus žymima raudonu tekstu. 
+Čia matome, kaip praktikoje veikia mūsų anksčiau sukurtas metodas *is_overdue*. Jis leidžia tikrinti, ar vėluojame grąžinti knygą. Jeigu vėluojame - knyga tekste bus žymima raudonu tekstu. 
 
 Belieka tik įdėti nuorodą į aukščiau sukurtą šabloną faile *base.html* (taip pat prie prisijungusio skaitytojo pridėjome ikonėlę, kad navigacijos meniu viskas tilptų):
 
