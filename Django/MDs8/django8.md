@@ -259,6 +259,7 @@ Tęsti kurti Django užduotį – [Autoservisas](https://github.com/robotautas/k
 * Į administratoriaus puslapį pridėti šiuos du laukus.
 * Į užsakymo modelį įdėti @property metodą, kuris pasibaigus automobilio gražinimo terminui, gražintų True.
 * Padaryti meniu punktą "Mano Užsakymai", kuris vestų į puslapį, kuriame prisijungęs vartotojas galėtų matyti tik savo užsakymus.
+* Paspaudus ant užsakymo, vartotojas patektų į išsamų jo aprašymą (galima - į anksčiau sukurtą).
 * Padaryti, kad jei automobilio gražinimo laikas praėjo, užsakymas būtų pažymimas raudona spalva.
 * Į automobilio (konkretaus, su savininku, valstybiniu numeriu, VIN kodu) modelį įdėti aprašymo lauką. Jame būtų leidžiama įvesti html kodą (padaryti teksto redagavimą su tinyMCE).
 * Padaryti, kad HTML aprašymas būtų teisingai atvaizduojamas automobilio formoje (puslapyje, ne admin).
