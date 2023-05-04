@@ -33,7 +33,6 @@ reader = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=Tru
 toje pačioje klasėje pridėkime *@property* dekoratorių. Jo paskirtį išsiaiškinsime kiek vėliau:
 
 ```python
-@property
 def is_overdue(self):
     if self.due_back and date.today() > self.due_back:
         return True
