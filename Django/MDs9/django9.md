@@ -7,7 +7,9 @@ Pradėkime nuo šablono *register.html* sukūrimo:
 ```html
 {% extends "base.html" %}
 
-{% block content %}
+{% block "title" %}Registracija{% endblock %}
+
+{% block "content" %}
 
     <div class="container register">
         <h3>Registracija</h3><br/>
@@ -36,7 +38,7 @@ Pradėkime nuo šablono *register.html* sukūrimo:
             </div>
             <button type="submit" class="btn btn-primary register-button">Registruotis</button>
         </form>
-        <p>Jeigu užsiregistravote anksčiau, <a href="/login"><strong>prisijunkite.</strong></a></p>
+        <p>Jeigu užsiregistravote anksčiau, <a href="{% url 'login' %}"><strong>prisijunkite.</strong></a></p>
     </div>
 
 {% endblock %}
