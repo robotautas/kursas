@@ -101,7 +101,7 @@ Reikės šablono:
 ```html
 {% extends "base.html" %}
 
-{% block content %}
+{% block "content" %}
     <h1>Mano paimtos knygos</h1>
 
     {% if bookinstance_list %}
