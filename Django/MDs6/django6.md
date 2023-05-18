@@ -125,7 +125,7 @@ Sukurkime naują šabloną *search.html*:
 ```html
 {% extends "base.html" %}
 
-{% block content %}
+{% block "content" %}
   <h1>Paieškos pagal "{{query}}" rezultatai:</h1>
   </br>
   {% if books %}
