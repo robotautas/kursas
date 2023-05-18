@@ -29,7 +29,7 @@ Sukurkime šabloną:
 ```html
 {% extends "base.html" %}
 
-{% block content %}
+{% block "content" %}
   <h1>Autoriai</h1>
   <p>Mūsų knygų autorių sąrašas.</p>
   {% for a in authors %}
@@ -82,7 +82,7 @@ belieka sukurti *author.html*:
 ```html
 {% extends "base.html" %}
 
-{% block content %}
+{% block "content" %}
     <div class="container author">
     <h4>{{ author.first_name }} {{ author.last_name }}</h4>
     <hr/>
@@ -125,7 +125,7 @@ class BookListView(generic.ListView):
 ```html
 {% extends "base.html" %}
 
-{% block content %}
+{% block "content" %}
   <h1>Knygų sąrašas</h1>
   {% if book_list %}
   <ul>
@@ -196,7 +196,7 @@ path('books/<int:pk>', views.BookDetailView.as_view(), name='book-detail'),
 ```html
 {% extends "base.html" %}
 
-{% block content %}
+{% block "content" %}
   <h1>{{ book.title }}</h1>
 
   <p><strong>Autorius:</strong> <a href="{% url 'author' book.author.pk %}">{{ book.author }}</a></p>
@@ -227,7 +227,7 @@ Rezultatas:
 Paskutinis dalykas - tai nesujinginėta navigacija. Sutvarkykime base.html:
 
 ```html
-{% block sidebar %}
+{% block "sidebar" %}
         <ul class="sidebar-nav">
           <li><a href="{% url 'index' %}">Pradžia</a></li>
           <li><a href="{% url 'books' %}">Visos knygos</a></li>
