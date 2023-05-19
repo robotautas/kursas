@@ -1,6 +1,6 @@
 # Šablonai
 
-Django (kaip ir Flask) naudoja Jinja 2 šablonų kūrimo kalbą. Visas django puslapių veikimo mechanizmas atsispindi šiame paveikslėlyje:
+Django naudoja DjangoTemplates šablonų kūrimo kalbą. Ji panaši į Jinja2, naudojamą dirbant su Flask, bet šiek tiek ir skiriasi. Visas django puslapių veikimo mechanizmas atsispindi šiame paveikslėlyje:
 
 ![](basic-django.png)
 
@@ -88,7 +88,7 @@ Kol kas palikime taip, eigoje kažkiek keisime. Atkreipkite dėmesį į 5 eilut�
 {% endblock %}
 ```
 
-Taip veikia Jinja2 šablonų paveldėjimo mechanizmas. 
+Taip veikia DjangoTemplates šablonų paveldėjimo mechanizmas. 
 
 * *{% extends "base.html" %}* - nurodome, kad šį turinį talpinsime į base.html 'apvalkalą'.
 * *{% block content %} ir {% endblock %}* - rodo, kur bus mūsų 'įterpinio' pradžia ir pabaiga.
@@ -168,9 +168,9 @@ urlpatterns = [
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 ```
 
-# Jinja2 šablonų (html failų) komentavimas:
+# Django templates šablonų (html failų) komentavimas:
 
-Deja Jinja2 neatpažįsta įprasto PyCharm komentavimo. Tad jei užkomentavote kodą html įprastu būdu - greičiausiai jis vis vien bus matomas ir gali mesti klaidas. Todėl panaudokite kitą komentavimo būdą.
+Deja Django templates neatpažįsta įprasto PyCharm komentavimo. Tad jei užkomentavote kodą html įprastu būdu - greičiausiai jis vis vien bus matomas ir gali mesti klaidas. Todėl panaudokite kitą komentavimo būdą.
 
 Trumpam komentarui įdėti:
 ```html
