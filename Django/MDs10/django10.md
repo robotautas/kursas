@@ -156,6 +156,7 @@ sudo systemctl restart apache2
 užeikime į puslapį:
 ![](django_error.png)
 
+Jei matome 500 klaidą, žiūrime kas nutiko faile /var/log/apache2# nano django-err.log
 
 Pirmas dalykas, ką reikia pataisyti - mūsų settings.py:
 
