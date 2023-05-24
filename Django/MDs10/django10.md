@@ -123,7 +123,7 @@ dabar reikės sukonfigūruoti apache serverį. Mūsų aplikacijai reikės sukurt
         Require all granted
     </Directory>
 
-
+    WSGIApplicationGroup %{GLOBAL}
 </VirtualHost>
 
 ```
