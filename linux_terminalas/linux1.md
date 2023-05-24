@@ -1194,7 +1194,13 @@ Jo serveris neperskaito, nes numatytuoju būdu yra sukonfigūruotas skaityti ind
 vartotojas@j4sq:/etc/apache2$ sudo nano apache2.conf 
 ```
 
-ir pačioje failo pabaigoje prirašome eilutę *DirectoryIndex home.html*. Išsaugome.
+ir pačioje failo pabaigoje prirašome:
+```
+<Directory /var/www/html>
+  DirectoryIndex home.html
+</Directory>
+```
+Išsaugome.
 
 pabandę perkrauti puslapį, jokių pokyčių nepamatysime, nes serveris iš inercijos naudoja į atmintį nuskaitytus konfigūracijos failus. Ir tik perkrovę serverį:
 
