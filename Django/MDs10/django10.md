@@ -4,6 +4,10 @@
 
 Šiame pavyzdyje diegsime Django projektą mysite, kuriame yra program myblog (mysite/myblog).
 
+Autoserviso diegimo į serverį todo sąrašas:
+
+https://github.com/robotautas/kursas/blob/master/Django%20diegimas%20%C4%AF%20server%C4%AF_2.docx
+
 Taigi pradėkime:
 
 prisijunkime per ssh:
