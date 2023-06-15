@@ -1,15 +1,15 @@
 # Užduotis
 sukurkite black jack žaidimą konsolėje. Žaidžia žaidėjas(Player) prieš kompiuterį(Dealer). Žaidimo eiga (taisyklės supaprastintos): 
-1. Kompiuteris padalija sau ir žaidėjui po 2 kortas.
-* Žaidėjo tikslas surinkti kuo daugiau taškų iki 21, tačiau viršijus pralaimima.
+1. Kompiuteris padalija sau ir žaidėjui po 2 kortas. Matome tik vieną iš dviejų kortų, kurias turi kompiuteris (dyleris).
+2. Žaidėjo tikslas surinkti kuo daugiau taškų iki 21, tačiau viršijus pralaimima.
 3. Žaidėjui duodama galimybė traukti papildomas kortas, kol jis nuspręs kad gana, arba perrinks ir pralaimės.
 4. Kompiuteris sprendžia ar jam reikia papildomų kortų, kad surinktų daugiau už žaidėją. Jeigu reikia - traukia. 
-Tikslas - surinkti daugiau už žaidėją, bet neperrinkti.
+Tikslas - surinkti daugiau už žaidėją, nesurenkant daugiau, negu 21.
 * Tūzas yra "minkšta" korta - gali turėti 11 arba 1 tašką - kaip naudingiau žaidėjams.
 
 *Supaprastintos taisyklės reiškia, kad atsisakoma statymų, double, split, pasidavimo ir draudimo pirkimo veiksmų. Dyleris tiesiog bando įveikti žaidėją, surinkdamas daugiau taškų.*
  
-Galima veiksmų eiga:
+GALIMA programavimo eiga:
 1. Reikės 5-ių klasių - Card, Deck, Player, Dealer, Game.
 2. Card turi turėti savybes:
  * suite (kortos rūšis)
