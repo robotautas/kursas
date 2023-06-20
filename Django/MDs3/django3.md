@@ -57,7 +57,7 @@ class BookInstanceAdmin(admin.ModelAdmin):
     list_filter = ('status', 'due_back')
 
     fieldsets = (
-        ('General', {'fields': ('uuid', 'book')}),
+        ('General', {'fields': ('id', 'book')}),
         ('Availability', {'fields': ('status', 'due_back')}),
     )
 ```
