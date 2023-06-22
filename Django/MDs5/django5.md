@@ -75,7 +75,7 @@ pakoreguokime *authors.html* taip, kad kiekvienas autorius būtų nuoroda į sav
   {% endfor %}
 ```
 
-* *{% url 'author' a.id %}* perduoda skaičiuką į *views.py* funkciją. Kuri savo ruožtu pasidalina tuo numeriuku su *urls.py*, todėl URL adrese matysima kažką panašaus į 127.0.0.1:8000/authors/2
+* *{% url 'author' a.id %}* - suformuoja galinį adresą nuorodai į autoriaus aprašymą, pvz /author/3
 
 belieka sukurti *author.html*:
 
