@@ -56,4 +56,4 @@ index.html norimoje atvaizduoti vietoje:
 
 rezultatas:
 
-![](image/plotly_django/1687756980662.png)
+![](https://github.com/robotautas/kursas/blob/master/Django/plotly_django/result.png)
