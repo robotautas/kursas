@@ -65,7 +65,7 @@ import uuid
 
 class BookInstance(models.Model):
     """Modelis, aprašantis konkrečios knygos kopijos būseną"""
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, help_text='Unikalus ID knygos kopijai')
+    uuid = models.UUIDField(default=uuid.uuid4, help_text='Unikalus ID knygos kopijai')
     book = models.ForeignKey('Book', on_delete=models.SET_NULL, null=True) 
     due_back = models.DateField('Bus prieinama', null=True, blank=True)
 
