@@ -208,16 +208,12 @@ path('books/<int:pk>', views.BookDetailView.as_view(), name='book-detail'),
     <h4>Kopijos:</h4>
 
     {% for copy in book.bookinstance_set.all %}
-      <hr>
-      <p class="{% if copy.status == 'a' %}text-success{% elif copy.status == 'm' %}text-danger{% else %}text-warning{% endif %}">
-        {{ copy.get_status_display }}
-      </p>
-      {% if copy.status != 'a' %}
-        <p><strong>Bus grąžinta:</strong> {{ copy.due_back }}</p>
-      {% endif %}
-      <p class="text-muted"><strong>Id:</strong> {{ copy.id }}</p>
-    {% endfor %}
-  </div>
+     <p>{{ copy.uuid }}</p>
+    <p class="{% if copy.status == 'a' %}text-success{% elif copy.status == 'p' %}text-danger{% else %}text-warning{% endif %}">{{ copy.get_status_display }}</p>
+    {% if copy.status != 'a' and copy.status != 'g' %}
+    <p><strong>{{ copy.due_back }}</strong></p>
+    {% endif %}
+    <hr>
 {% endblock %}
 ```
 Rezultatas:
