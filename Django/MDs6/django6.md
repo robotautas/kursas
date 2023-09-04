@@ -132,7 +132,7 @@ Sukurkime naują šabloną *search.html*:
   <ul>
     {% for book in books %}
       <li>
-        <a href="{% url 'book-detail' book.id %}">{{ book.title }}</a> ({{book.author}})
+        <a href="{% url 'book' book.id %}">{{ book.title }}</a> ({{book.author}})
       </li>
     {% endfor %}
   </ul>
