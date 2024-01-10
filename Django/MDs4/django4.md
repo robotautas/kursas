@@ -35,6 +35,9 @@ def index(request):
     return render(request, 'index.html', context=context)
 ```
 
+Kaip rašyti Django ORM (SQL) užklausas:
+https://docs.djangoproject.com/en/5.0/topics/db/queries/
+
 Trumpus paaiškinimus rasite komentaruose. 
 
 Dabar reikia pasirašyti šabloną *base.html*, kurį naudosime dar daug kartų, jis saugos kiekviename šablone atsikartojančius komponentus, tokius kaip navigacijos skydelis, footer'is ir pan.:
