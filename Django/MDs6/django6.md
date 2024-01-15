@@ -29,8 +29,7 @@ Taip pat reikia pakoreguoti šabloną, pačioje pabaigoje, prieš *endblock*:
             <a href="?page={{ page_obj.paginator.num_pages }}">paskutinis &raquo;</a>
         {% endif %}
     </span>
-</div>       
-{% endblock %}
+</div>
 ```
 Logika tokia:
  1. Jeigu puslapio objektas turi puslapių prieš tai (naudojame metodą *has_previous*) - atvaizduokime nuorodą *pirmas* (kuri nukreipia į patį pirmą puslapį) ir nuorodą "atgal" - ji nukreips į puslapį, esantį prieš tai.
