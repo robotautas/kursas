@@ -165,6 +165,8 @@ Tęsti kurti Django užduotį – [Autoservisas](https://github.com/robotautas/k
 * Padaryti, kad Paslaugų sąraše būtų matomi paslaugos pavadinimų ir kainų stulpeliai
 * Į Automobilių sąrašą įdėti filtrą pagal klientą ir automobilio modelį*
 * Į Automobilių sąrašą įdėti paiešką pagal valstybinį numerį ir VIN kodą
+* Prie užsakymo eilutės modelio pridėti lauką „kaina“ (per funkciją), kuris būtų automatiškai paskaičiuotas, padauginus kiekį iš paslaugos kainos.
+* Pakeisti (arba sukurti), kad užsakymo laukas „suma“ būtų automatiškai paskaičiuojamas pagal realias užsakymo eilučių sumas.
 
 
 [Atsakymas](https://github.com/DonatasNoreika/autoservisas)
