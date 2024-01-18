@@ -30,7 +30,7 @@ tuomet papildykime klasę *BookInstance* skaitytoju:
 reader = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
 ```
 
-toje pačioje klasėje pridėkime *@property* dekoratorių. Jo paskirtį išsiaiškinsime kiek vėliau:
+toje pačioje klasėje pridėkime metodą, kuris grąžina True, jei yra pasirinkta data ir ji yra ankstesnė, nei šiandienos data:
 
 ```python
 def is_overdue(self):
@@ -150,7 +150,6 @@ Kai @property metode lyginame datas su laiku (ne tik datas), galime gauti šią 
 import pytz
 utc=pytz.UTC
 
-    @property
     def praejes_terminas(self):
         if self.grazinimo_laikas and datetime.today().replace(tzinfo=utc) > self.grazinimo_laikas.replace(tzinfo=utc):
             return True
