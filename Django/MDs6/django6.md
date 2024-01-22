@@ -117,10 +117,20 @@ def search(request):
     didžiosios/mažosios.
     """
     query = request.GET.get('query')
-    search_results = Book.objects.filter(Q(title__icontains=query) | Q(summary__icontains=query))
-    return render(request, 'search.html', {'books': search_results, 'query': query})
+    book_search_results = Book.objects.filter(
+        Q(title__icontains=query) | Q(summary__icontains=query) | Q(isbn__icontains=query) | Q(
+            author__first_name__icontains=query) | Q(author__last_name__icontains=query))
+    author_search_results = Author.objects.filter(
+        Q(first_name__icontains=query) | Q(last_name__icontains=query) | Q(description__icontains=query))
+    context = {
+        "query": query,
+        "books": book_search_results,
+        "authors": author_search_results,
+    }
+    return render(request, template_name="search.html", context=context)
 ```
 Apie Q daugiau informacijos rasite [dokumentacijoje](https://docs.djangoproject.com/en/3.2/topics/db/queries/#complex-lookups-with-q-objects).
+
 Sukurkime naują šabloną *search.html*:
 
 ```html
