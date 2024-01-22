@@ -192,11 +192,10 @@ from django import forms
 class BookReviewForm(forms.ModelForm):
     class Meta:
         model = BookReview
-        fields = ('content', 'book', 'reviewer',)
-        widgets = {'book': forms.HiddenInput(), 'reviewer': forms.HiddenInput()}
+        fields = ['content']
 ```
 
-Kadangi komentuoti galės tik prisijungęs vartotojas, o knyga visuomet bus ta, po kuria komentuojamama, *book* ir *reviewer* laukus paslėpėme.
+Kadangi komentuoti galės tik prisijungęs vartotojas, o knyga visuomet bus ta, po kuria komentuojamama, *book* ir *reviewer* laukų nenurodėme.
 
 Dabar perrašykime *BookDetailView*  *view*'są taip:
 
