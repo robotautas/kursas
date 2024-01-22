@@ -74,7 +74,7 @@ class MyBookInstanceListView(LoginRequiredMixin, generic.ListView):
 
 * importuojame *LoginRequiredMixin*, ir keliame jį į klasės parametrus. Jis django nurodo, kad *view'*sas bus prieinamas tik prisiregistravusiam vartotojui. Jei naudotumėm funkcinį *view*'są, prieš jį dėtumėm dekoratorių *@login_required*.
 
-* *override*'inam *get_queryset* funkciją ir nurodome, kad *Bookinstance* modelį filtruosime pagal prisiregistravusį skaitytoją, pagal statusą 'p'(paimta), ir išrūšiuosime pagal *due_back* lauką.
+* *override*'inam *get_queryset* funkciją ir nurodome, kad *Bookinstance* modelį filtruosime pagal prisiregistravusį skaitytoją.
 
 užregistruokime *view*'są *urls.py*:
 
