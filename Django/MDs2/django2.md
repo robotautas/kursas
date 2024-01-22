@@ -39,11 +39,11 @@ from django.urls import reverse #Papildome imports
 
 class Book(models.Model):
     """Modelis reprezentuoja knygą (bet ne specifinę knygos kopiją)"""
-    title = models.CharField(verbose_name='Pavadinimas', max_length=200)
-    author = models.ForeignKey(to='Author', verbose_name="Autorius", on_delete=models.SET_NULL, null=True)
-    summary = models.TextField(verbose_name='Aprašymas', max_length=1000, help_text='Trumpas knygos aprašymas')
-    isbn = models.CharField(verbose_name='ISBN', max_length=13, help_text='13 Simbolių <a href="https://www.isbn-international.org/content/what-isbn">ISBN kodas</a>')
-    genre = models.ManyToManyField(to="Genre", help_text='Išrinkite žanrą(us) šiai knygai')
+    title = models.CharField(verbose_name="Pavadinimas", max_length=200)
+    author = models.ForeignKey(to="Author", verbose_name="Autorius", on_delete=models.SET_NULL, null=True, blank=True, related_name='books')
+    summary = models.TextField(verbose_name="Aprašymas", max_length=1000, help_text='Trumpas knygos aprašymas')
+    isbn = models.CharField(verbose_name="ISBN", max_length=13, help_text='13 Simbolių <a href="https://www.isbn-international.org/content/what-isbn">ISBN kodas</a>')
+    genre = models.ManyToManyField(to="Genre", verbose_name="Žanrai", help_text='Išrinkite žanrą(us) šiai knygai')
 
     def __str__(self):
         return self.title
@@ -72,13 +72,7 @@ class BookInstance(models.Model):
         ('r', 'Rezervuota'),
     )
 
-    status = models.CharField(
-        max_length=1,
-        choices=LOAN_STATUS,
-        blank=True,
-        default='a',
-        help_text='Statusas',
-    )
+    status = models.CharField(max_length=1, choices=LOAN_STATUS, blank=True, default="a", help_text='Statusas')
 
     class Meta:
         ordering = ['due_back']
@@ -87,15 +81,15 @@ class BookInstance(models.Model):
         return f'{self.id} ({self.book.title})'
 ```
 
-UUIDField generuos unikalų identifikacinį numerį, pvz. 81afcd8c-7544-4c0e-b2df-838c0c8c3446. Tai yra alternatyva įprasto id naudojimui. Vėliau pamatysime, kaip tai atrodo praktikoje. Meta klasėje nurodėme, kaip rūšiuosime atvejus.
+UUIDField generuos unikalų identifikacinį numerį, pvz. 81afcd8c-7544-4c0e-b2df-838c0c8c3446. Meta klasėje nurodėme, kaip rūšiuosime atvejus.
 
 Pridėkime modelį Author: 
 
 ```python
 class Author(models.Model):
     """Model representing an author."""
-    first_name = models.CharField('Vardas', max_length=100)
-    last_name = models.CharField('Pavardė', max_length=100)
+    first_name = models.CharField(verbose_name='Vardas', max_length=100)
+    last_name = models.CharField(verbose_name='Pavardė', max_length=100)
 
     class Meta:
         ordering = ['last_name', 'first_name']
