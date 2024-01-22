@@ -25,7 +25,7 @@ from django.contrib import admin
 from .models import Author, Genre, Book, BookInstance
 
 class BookAdmin(admin.ModelAdmin):
-    list_display = ('title', 'author', 'display_genre')
+    list_display = ['title', 'author', 'display_genre']
 
 admin.site.register(Book, BookAdmin) 
 admin.site.register(Author)
@@ -37,7 +37,7 @@ mėginame perdaryti, kad matytumėm daugiau informacijos knygų aprašymo lentel
 
 ```python
         def display_genre(self):
-            return ', '.join(genre.name for genre in self.genre.all()[:3])
+            return ', '.join(genre.name for genre in self.genre.all())
 
         display_genre.short_description = 'Žanras'
 ```
@@ -49,12 +49,12 @@ Sukurkime klasę ir BookInstance modeliui:
 
 ```python
 class BookAdmin(admin.ModelAdmin):
-    list_display = ('title', 'author', 'display_genre')
+    list_display = ['title', 'author', 'display_genre']
 
 
 class BookInstanceAdmin(admin.ModelAdmin):
-    list_display = ('book', 'status', 'due_back')
-    list_filter = ('status', 'due_back')
+    list_display = ['book', 'status', 'due_back']
+    list_filter = ['status', 'due_back']
 
     fieldsets = (
         ('General', {'fields': ('id', 'book')}),
@@ -78,7 +78,7 @@ class BooksInstanceInline(admin.TabularInline):
     extra = 0 # išjungia papildomas tuščias eilutes įvedimui
 
 class BookAdmin(admin.ModelAdmin):
-    list_display = ('title', 'author', 'display_genre')
+    list_display = ['title', 'author', 'display_genre']
     inlines = [BooksInstanceInline]
 ```
 
@@ -91,7 +91,7 @@ Jei nenorite, kad knygų modelyje leistų ištrinti ar redaguoti egzempliorius, 
 ```python
 class BooksInstanceInline(admin.TabularInline):
     model = BookInstance
-    readonly_fields = ('id',)
+    readonly_fields = ['uuid']
     can_delete = False
     extra = 0
 ```
@@ -100,7 +100,7 @@ Taip pat norėtųsi, kad autorių sąraše matytųsi, kokias kokias jo knygas bi
 
 ```python
     def display_books(self):
-        return ', '.join(book.title for book in self.books.all()[:3])
+        return ', '.join(book.title for book in self.books.all())
 
     display_books.short_description = 'Knygos'
 ```
@@ -108,16 +108,16 @@ Taip pat norėtųsi, kad autorių sąraše matytųsi, kokias kokias jo knygas bi
 Modelyje *Books* prie lauko *author*, parametruose reikia įrašyti:
 
 ```python
-author = models.ForeignKey('Author', on_delete=models.SET_NULL, null=True, related_name='books')
+author = models.ForeignKey(to='Author', on_delete=models.SET_NULL, null=True, related_name='books')
 ```
 
-tokiu būdu sukūrėme ryšį, leidžiantį iš objekto author gauti knygų sąrašą. *related_name='books'* leido mums prašyti autoriaus knygų per *self.**books**.all()[:3]*.
+tokiu būdu sukūrėme ryšį, leidžiantį iš objekto author gauti knygų sąrašą. *related_name='books'* leido mums prašyti autoriaus knygų per *self.**books**.all()*.
 
 admin.py reikia sukurti naują klasę:
 
 ```python
 class AuthorAdmin(admin.ModelAdmin):
-    list_display = ('last_name', 'first_name', 'display_books')
+    list_display = ['last_name', 'first_name', 'display_books']
 ```
 
 ir nepamiršti ją užregistruoti:
@@ -133,7 +133,7 @@ Mūsų autorių sąrašas dabar atrodo taip:
 kai bibliotekoje prisikaups daugybė knygų, administratoriui bus pravartu turėti paiešką. Tai nesudėtingai įgyvendinama pridedant tokią eilutę (prie modelio BookInstanceAdmin):
 
 ```python
-search_fields = ('id', 'book__title')
+search_fields = ['id', 'book__title']
 ```
 
 atkreipkite dėmesį, kaip reikia nurodyti paieškomą lauką, kai tas laukas yra reliacinis. Dabar turime veikiančią paiešką:
@@ -150,10 +150,10 @@ Jei norime, kad pačiame knygų egzempliorių sąraše galima būtų redaguoti s
 
 ```python
 class BookInstanceAdmin(admin.ModelAdmin):
-    list_display = ('book', 'due_back', 'id', 'status')
-    list_editable = ('due_back', 'status')
-    list_filter = ('status', 'due_back')
-    search_fields = ('id', 'book__title')
+    list_display = ['book', 'due_back', 'id', 'status']
+    list_editable = ['due_back', 'status']
+    list_filter = ['status', 'due_back']
+    search_fields = ['id', 'book__title']
 ```
 
  ## Užduotis
