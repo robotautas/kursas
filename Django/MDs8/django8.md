@@ -186,7 +186,7 @@ sakykime, kad norime autorių aprašymus daryti pilno straipsnio pobūdžio. Mum
 ```python
 from tinymce.models import HTMLField
 
-description = HTMLField()
+description = HTMLField(verbose_name="Aprašymas", max_length=3000, default="")
 ```
 
 Administratoriaus svetainėjė turime tokį rezultatą:
