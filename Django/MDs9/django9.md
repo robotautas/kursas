@@ -120,16 +120,24 @@ Pagrindinės (ne visos!) registracijos funkcijos veikia:
 
 ![](registracija_admin.png)
 
-Nors su formomis dar nebaigėme, dabar geras metas panagrinėti django pranešimų sistemą. Jeigu pamenate, *views.py* jau importavome *messages* ir į registracijos *view*'są įterpėme šiek tiek logikos su pranešimais. Bet jie neveikia - todėl, kad jų nenurodėme šablone. Pamėginkime sutvarkyti *base.html*:
+Nors su formomis dar nebaigėme, dabar geras metas panagrinėti django pranešimų sistemą. Jeigu pamenate, *views.py* jau importavome *messages* ir į registracijos *view*'są įterpėme šiek tiek logikos su pranešimais. Bet jie neveikia - todėl, kad jų nenurodėme šablone. Sutvarkykime *base.html*:
 
 ```html
-{% if messages %}
-    {% for message in messages %}
-        <div class="alert alert-{% if message.tags == 'error' %}danger{% elif message.tags == 'info' %}success{% endif %}" role="alert">
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-sm">
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-{% if message.tags == 'error' %}danger{% elif message.tags == 'info' %}success{% endif %}"
+                 role="alert">
                 {{ message }}
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% block "content" %}{% endblock %}
         </div>
-    {% endfor %}
-{% endif %}
+    </div>
+</div>
 ```
 
 Turėsime tokį rezultatą:
