@@ -87,22 +87,13 @@ Reikės šablono:
 ```html
 {% extends "base.html" %}
 
+{% block "title" %}Mano knygos{% endblock %}
+
 {% block "content" %}
-    <h1>Mano paimtos knygos</h1>
-
-    {% if bookinstance_list %}
-    <ul>
-
-      {% for bookinst in bookinstance_list %} 
-      <li class="{% if bookinst.is_overdue %}text-danger{% endif %}">
-        <a href="{% url 'book-detail' bookinst.book.pk %}">{{bookinst.book.title}}</a> ({{ bookinst.due_back }})        
-      </li>
-      {% endfor %}
-    </ul>
-
-    {% else %}
-      <p>Šiuo metu iš mūsų nesate paėmę knygų.</p>
-    {% endif %}       
+<h1>Mano paimtos knygos:</h1>
+{% for instance in instances %}
+<p class="{% if instance.is_overdue %}text-danger{% endif %}">{{ instance }}</p>
+{% endfor %}
 {% endblock %}
 ```
 
