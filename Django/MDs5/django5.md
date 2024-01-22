@@ -119,21 +119,24 @@ from django.views import generic
 
 class BookListView(generic.ListView):
     model = Book
-    template_name = 'book_list.html'
+    template_name = "books.html"
+    context_object_name = "books"
 ```
 
-...ir book_list.html:
+...ir books.html:
 
 ```html
 {% extends "base.html" %}
 
+{% block "title" %}Knygos{% endblock %}
+
 {% block "content" %}
-  <h1>Knygų sąrašas</h1>
-  {% if book_list %}
+  <h1>Mūsų knygos:</h1>
+  {% if books %}
   <ul>
-    {% for book in book_list %}
+    {% for book in books %}
       <li>
-        <a href="{{ book.id }}">{{ book.title }}</a> ({{book.author}})
+        <a href="{{ book.id }}">{{ book.title }}</a> ({{ book.author }})
       </li>
     {% endfor %}
   </ul>
@@ -185,12 +188,13 @@ Dabar sukursime klasę pavienių knygų aprašymams:
 ```python
 class BookDetailView(generic.DetailView):
     model = Book
-    template_name = 'book_detail.html'
+    template_name = "book.html"
+    context_object_name = "book"
 ```
 
 Papildykime urlpatterns sąrašą (urls.py):
 ```python
-path('books/<int:pk>', views.BookDetailView.as_view(), name='book-detail'),
+path('books/<int:pk>', views.BookDetailView.as_view(), name='book'),
 ```
 
 ...ir book_detail.html:
@@ -209,7 +213,7 @@ path('books/<int:pk>', views.BookDetailView.as_view(), name='book-detail'),
   <div style="margin-left:20px;margin-top:20px">
     <h4>Kopijos:</h4>
 
-    {% for copy in book.bookinstance_set.all %}
+    {% for copy in book.instances.all %}
      <p>{{ copy.uuid }}</p>
     <p class="{% if copy.status == 'a' %}text-success{% elif copy.status == 'p' %}text-danger{% else %}text-warning{% endif %}">{{ copy.get_status_display }}</p>
     {% if copy.status != 'a' and copy.status != 'g' %}
@@ -225,13 +229,21 @@ Rezultatas:
 Paskutinis dalykas - tai nesujinginėta navigacija. Sutvarkykime base.html:
 
 ```html
-{% block "sidebar" %}
-        <ul class="sidebar-nav">
-          <li><a href="{% url 'index' %}">Pradžia</a></li>
-          <li><a href="{% url 'books' %}">Visos knygos</a></li>
-          <li><a href="{% url 'authors' %}">Visi autoriai</a></li>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <div class="container-fluid">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link active" href="{% url 'index' %}">HOME</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="{% url 'authors' %}">Autoriai</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="{% url 'books' %}">Knygos</a>
+            </li>
         </ul>
-{% endblock %}
+    </div>
+</nav>
 ```
 
  ## Užduotis
