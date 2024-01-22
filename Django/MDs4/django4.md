@@ -55,7 +55,6 @@ Dabar reikia pasirašyti šabloną *base.html*, kurį naudosime dar daug kartų,
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
-{# some text #}
 <div class="p-5 bg-primary text-white text-center">
     <h1>Mūsų rajono biblioteka</h1>
     <p>Demo projektas!</p>
