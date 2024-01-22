@@ -145,28 +145,7 @@ class BookListView(generic.ListView):
 {% endblock %}
 ```
 
-Atrodo ganėtinai paprasta ir mažiau kodo. Viską sugeneruoja automatiškai, pagal tam tikras taisykles. Tačiau, jei prireiktų nestandartinių dalykų, tektų pakeitimus nurodyti klasės atributuose. Tarkime:
-
-```python
-class BookListView(generic.ListView):
-    model = Book
-    # patys galite nustatyti šablonui kintamojo vardą
-    context_object_name = 'my_book_list'
-    # gauti sąrašą 3 knygų su žodžiu pavadinime 'ir'
-    queryset = Book.objects.filter(title__icontains='ir')[:3] 
-    # šitą jau panaudojome. Neįsivaizduojate, kokį default kelią sukuria :)
-    template_name = 'books/my_arbitrary_template_name_list.html'  
-```
-
-Taip pat yra galimybė koreguoti modelio metodus per paveldėjimą:
-
-```python
-class BookListView(generic.ListView):
-    model = Book
-
-    def get_queryset(self):
-        return Book.objects.filter(title__icontains='ir')[:3] 
-```
+Atrodo ganėtinai paprasta ir mažiau kodo. Viską sugeneruoja automatiškai, pagal tam tikras taisykles. Tačiau, jei prireiktų nestandartinių dalykų, tektų pakeitimus nurodyti klasės atributuose.
 
 Jei, tarkime, į kontekstą prireiktų pridėti kintamąjį, nesusijusį su pačiu modeliu, galėtume daryti taip:
 
