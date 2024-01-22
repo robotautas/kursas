@@ -1,23 +1,10 @@
 # Vartotojai - autorizuotas turinys
 
-Pagrindinis dinaminių tinklalapių požymis - jų gebėjimas bendrauti su kiekvienu vartotoju atskirai, pateikiant jam aktualų turinį. Mūsų atveju, tinklalapio vartotojai bus bibliotekos skaitytojai. Iš pradžių pertvarkykime *base.html* taip, kad vartotojas matytų, ar jis yra prisijungęs:
-
-```html
-        <ul class="navbar-nav ml-auto">
-          {% if user.is_authenticated %}
-            <li class="nav-item"><a class="nav-link" href="#">Esate prisijungęs, kaip: {{ user.get_username }}</a></li>
-            <li class="nav-item"><a class="nav-link" href="{% url 'logout'%}">Atsijungti</a></li>   
-          {% else %}
-            <li class="nav-item"><a class="nav-link" href="{% url 'login'%}">Prisijungti</a></li>   
-          {% endif %}
-        </ul>
-```
+Pagrindinis dinaminių tinklalapių požymis - jų gebėjimas bendrauti su kiekvienu vartotoju atskirai, pateikiant jam aktualų turinį. Mūsų atveju, tinklalapio vartotojai bus bibliotekos skaitytojai.
 
 ![](esate_prisijunges.png)
 
-jeigu paeksperimentuotumėte su atskirų vartotojų prisijungimais, atsijungimais, pastebėtumėte, kad apsilankymų skaitliukas kinta, priklausomai nuo to, koks vartotojas prisijungęs. 
-
-pamėginkime pertvarkyti *BookInstance* modelį taip, kad kiekviena paimta kopija būtų priskirta tam tikram vartotojui. Pirmiausiai, į *models.py** importuokime *User* klasę, bei *datetime* biblioteką.
+Pertvarkykite *BookInstance* modelį taip, kad kiekviena paimta kopija būtų priskirta tam tikram vartotojui. Pirmiausiai, į *models.py** importuokime *User* klasę, bei *datetime* biblioteką.
 
 ```python
 from django.contrib.auth.models import User
