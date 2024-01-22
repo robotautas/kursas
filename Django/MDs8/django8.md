@@ -6,9 +6,9 @@ Pagrindinis dinaminių tinklalapių požymis - jų gebėjimas bendrauti su kiekv
         <ul class="navbar-nav ml-auto">
           {% if user.is_authenticated %}
             <li class="nav-item"><a class="nav-link" href="#">Esate prisijungęs, kaip: {{ user.get_username }}</a></li>
-            <li class="nav-item"><a class="nav-link" href="{% url 'logout'%}?next={{request.path}}">Atsijungti</a></li>   
+            <li class="nav-item"><a class="nav-link" href="{% url 'logout'%}">Atsijungti</a></li>   
           {% else %}
-            <li class="nav-item"><a class="nav-link" href="{% url 'login'%}?next={{request.path}}">Prisijungti</a></li>   
+            <li class="nav-item"><a class="nav-link" href="{% url 'login'%}">Prisijungti</a></li>   
           {% endif %}
         </ul>
 ```
