@@ -76,6 +76,13 @@ def register(request):
                     messages.error(request, f'Vartotojas su el. paštu {email} jau užregistruotas!')
                     return redirect('register')
                 else:
+                    try:
+                        password_validation.validate_password(password)
+                    except password_validation.ValidationError as e:
+                        for error in e:
+                            messages.error(request, error)
+                        return redirect('register')
+
                     # jeigu viskas tvarkoje, sukuriame naują vartotoją
                     User.objects.create_user(username=username, email=email, password=password)
                     messages.info(request, f'Vartotojas {username} užregistruotas!')
@@ -83,7 +90,7 @@ def register(request):
         else:
             messages.error(request, 'Slaptažodžiai nesutampa!')
             return redirect('register')
-    return render(request, 'register.html')
+    return render(request, 'registration/register.html')
 ```
 
 Šiek tiek paaiškinimų rasite kodo komentaruose.
