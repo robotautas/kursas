@@ -85,18 +85,17 @@ belieka sukurti *author.html*:
 ```html
 {% extends "base.html" %}
 
+{% block "title" %}Autorius{% endblock %}
+
 {% block "content" %}
-    <div class="container author">
-    <h4>{{ author.first_name }} {{ author.last_name }}</h4>
-    <hr/>
-    <p>{{ author.description }}</p>
-    </hr>
-    </br>
-    <h5>Mes turime šias {{ author.first_name }} {{ author.last_name }} knygas:</h5>
-    {% for i in author.books.all %}
-       <li>{{ i.title }}</li> 
-    {% endfor %}
-    </div>
+<p><strong>Vardas: </strong>{{ author.first_name }}</p>
+<p><strong>Pavardė: </strong>{{ author.last_name }}</p>
+<p>{{ author.description|safe }}</p>
+<hr>
+<p><strong>Jo knygos:</strong></p>
+{% for book in author.books.all %}
+<p>{{ book.title }}</p>
+{% endfor %}
 {% endblock %}
 ```
 
@@ -106,7 +105,7 @@ Turime tokį rezultatą:
 
 # Class Based Views
 
-Dabar pamėginkime knygas views'uose išdėlioti per klases. 
+Dabar išdėliokite knygas views'uose per klases. 
 Pirmiausiai papildykime urlpatterns sąrašą:
 
 ```python
