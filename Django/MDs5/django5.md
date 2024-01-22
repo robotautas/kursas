@@ -61,7 +61,7 @@ from django.shortcuts import render
 
 def author(request, author_id):
     author = Author.objects.get(pk=author_id)
-    return render(request, template_name='author.html', {'author': author})
+    return render(request, template_name='author.html', context={'author': author})
 ```
 
 * importuojame funkciją, kuri pagal nurodytą *primary key* traukia konkretų objektą iš modelio *Author*.
