@@ -175,29 +175,24 @@ Papildykime urlpatterns sąrašą (urls.py):
 path('books/<int:pk>', views.BookDetailView.as_view(), name='book'),
 ```
 
-...ir book_detail.html:
+...ir book.html:
 
 ```html
 {% extends "base.html" %}
 
+{% block "title" %}Knyga{% endblock %}
+
 {% block "content" %}
-  <h1>{{ book.title }}</h1>
-
-  <p><strong>Autorius:</strong> <a href="{% url 'author' book.author.pk %}">{{ book.author }}</a></p>
-  <p><strong>Aprašymas:</strong> {{ book.summary }}</p>
-  <p><strong>ISBN:</strong> {{ book.isbn }}</p> 
-  <p><strong>Žanras:</strong> {{ book.genre.all|join:", " }}</p>  
-
-  <div style="margin-left:20px;margin-top:20px">
-    <h4>Kopijos:</h4>
-
-    {% for copy in book.instances.all %}
-     <p>{{ copy.uuid }}</p>
-    <p class="{% if copy.status == 'a' %}text-success{% elif copy.status == 'p' %}text-danger{% else %}text-warning{% endif %}">{{ copy.get_status_display }}</p>
-    {% if copy.status != 'a' and copy.status != 'g' %}
-    <p><strong>{{ copy.due_back }}</strong></p>
-    {% endif %}
-    <hr>
+<p><strong>Pavadinimas: </strong>{{ book.title }}</p>
+<p><strong>Autorius: </strong>{{ book.author }}</p>
+<p><strong>ISBN: </strong>{{ book.isbn }}</p>
+<p><strong>Žanras (-ai): </strong>{{ book.display_genre }}</p>
+<p>{{ book.summary }}</p>
+<p><strong>Egzemplioriai:</strong></p>
+{% for instance in book.instances.all %}
+<p class="{% if instance.status == 'g' %}text-success{% elif instance.status == 'p'%}text-danger{% elif instance.status == 'r'%}text-warning{% endif %}">{{ instance }}</p>
+{% endfor %}
+{% endblock %}
 {% endblock %}
 ```
 Rezultatas:
