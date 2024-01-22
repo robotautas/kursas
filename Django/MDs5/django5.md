@@ -14,6 +14,8 @@ urlpatterns = [
 atsidarykime *views.py* ir sukurkime funkciją autorių sąrašui:
 
 ```python
+from .models import Author
+
 def authors(request):
     
     authors = Author.objects.all()
@@ -58,6 +60,7 @@ kaip sufleruoja šios elutės parametrai, reikia sukurti funkciją *author* fail
 
 ```python
 from django.shortcuts import render
+from .models import Author
 
 def author(request, author_id):
     author = Author.objects.get(pk=author_id)
