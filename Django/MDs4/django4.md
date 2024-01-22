@@ -32,7 +32,7 @@ def index(request):
     }
 
     # renderiname index.html, su duomenimis kintamąjame context
-    return render(request, 'index.html', context=context)
+    return render(request, template_name='index.html', context=context)
 ```
 
 Kaip rašyti Django ORM (SQL) užklausas:
