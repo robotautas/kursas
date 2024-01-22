@@ -152,11 +152,11 @@ Pabandykime padaryti taip, kad užsiregistravęs skaitytojas galėtų palikti at
 
 ```python
 class BookReview(models.Model):
-    book = models.ForeignKey('Book', on_delete=models.SET_NULL, null=True, blank=True)
-    reviewer = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
-    date_created = models.DateTimeField(auto_now_add=True)
-    content = models.TextField('Atsiliepimas', max_length=2000)
-    
+    book = models.ForeignKey(to="Book", verbose_name="Knyga", on_delete=models.SET_NULL, null=True, blank=True, related_name="reviews")
+    reviewer = models.ForeignKey(to=User, verbose_name="Komentatorius", on_delete=models.SET_NULL, null=True, blank=True)
+    date_created = models.DateTimeField(verbose_name="Data", auto_now_add=True)
+    content = models.TextField(verbose_name="Atsiliepimas", max_length=2000)
+
     class Meta:
         verbose_name = "Atsiliepimas"
         verbose_name_plural = 'Atsiliepimai'
@@ -169,25 +169,21 @@ pridėkime į administratoriaus svetainę:
 
 ```python
 class BookReviewAdmin(admin.ModelAdmin):
-    list_display = ('book', 'date_created', 'reviewer', 'content')
+    list_display = ['book', 'date_created', 'reviewer', 'content']
 
 admin.site.register(BookReview, BookReviewAdmin)
 ```
 
-padarykime atsiliepimus matomus šablone *book_detail.html* po knygos aprašymu:
+padarykime atsiliepimus matomus šablone *book.html* po knygos aprašymu:
 
 ```html
-</br>
-  <h4>Atsiliepimai:</h4>
-  {% if book.bookreview_set.all %}
-    {% for review in book.bookreview_set.all %}
-      <hr>
-      <strong>{{ review.reviewer }}</strong>, <em>{{ review.date_created}}</em>
-      <p>{{ review.content }}</p>
-    {% endfor %}
-  {% else %}
-    <p>Knyga neturi atsiliepimų</p>
-  {% endif %}
+<hr>
+<p><strong>Komentarai:</strong></p>
+{% for review in book.reviews.all %}
+<strong>{{ review.reviewer }}</strong>, <em>{{ review.date_created }}</em>
+<p>{{ review.content }}</p>
+<hr>
+{% endfor %}
 ```
 
 susimuliuokime atsiliepimą per administratoriaus svetainę:
@@ -219,12 +215,13 @@ from django.views.generic.edit import FormMixin
 
 class BookDetailView(FormMixin, generic.DetailView):
     model = Book
-    template_name = 'book_detail.html'
+    template_name = "book.html"
+    context_object_name = "book"
     form_class = BookReviewForm
 
     # nurodome, kur atsidursime komentaro sėkmės atveju.
     def get_success_url(self):
-        return reverse('book-detail', kwargs={'pk': self.object.id})
+        return reverse("book", kwargs={"pk": self.object.id})
 
     # standartinis post metodo perrašymas, naudojant FormMixin, galite kopijuoti tiesiai į savo projektą.
     def post(self, request, *args, **kwargs):
@@ -246,17 +243,17 @@ class BookDetailView(FormMixin, generic.DetailView):
 čia iš karto susiduriame su situacija, kai *CBV (class based views*) parodo mažiau gražią savo pusę - *view*'sas tapo griozdiškas ir sunkiai suprantamas. Mes *override*'iname keletą funkcijų, ir turime žinoti, kaip ir kokias iš jų perrašyti. Na ir paskutiniai pakeitimai bus *book_detail.html* šablone:
 
 ```html
-  {% if user.is_authenticated %}
-  <div class="fieldWrapper">
+{% if user.is_authenticated %}
+<div class="fieldWrapper">
     <hr><br/>
-    <h4>Palikite atsiliepimą:</h4>
+    <h1>Palikite atsiliepimą</h1>
     <form action="" method="post">
-      {% csrf_token %}
-      {{ form.content }}</br>
-      <input type="submit" value="Išsaugoti">
+        {% csrf_token %}
+        {{ form.content }}<br/>
+        <input type="submit" value="Paskelbti">
     </form>
-  </div>
-  {% endif %}
+</div>
+{% endif %}
 ```
 
 rezultatas:
