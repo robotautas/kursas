@@ -229,7 +229,7 @@ class BookDetailView(FormMixin, generic.DetailView):
         form.instance.book = self.object
         form.instance.reviewer = self.request.user
         form.save()
-        return super(BookDetailView, self).form_valid(form)
+        return super().form_valid(form)
 ```
 
 čia iš karto susiduriame su situacija, kai *CBV (class based views*) parodo mažiau gražią savo pusę - *view*'sas tapo griozdiškas ir sunkiai suprantamas. Mes *override*'iname keletą funkcijų, ir turime žinoti, kaip ir kokias iš jų perrašyti. Na ir paskutiniai pakeitimai bus *book_detail.html* šablone:
