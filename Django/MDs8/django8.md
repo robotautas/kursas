@@ -61,13 +61,13 @@ views.py:
 ```python
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-class LoanedBooksByUserListView(LoginRequiredMixin,generic.ListView):
+class MyBookInstanceListView(LoginRequiredMixin, generic.ListView):
     model = BookInstance
-    template_name ='user_books.html'
-    paginate_by = 10
+    template_name = "my_books.html"
+    context_object_name = "instances"
     
     def get_queryset(self):
-        return BookInstance.objects.filter(reader=self.request.user).filter(status__exact='p').order_by('due_back')
+        return BookInstance.objects.filter(reader=self.request.user)
 ```
 
 šiek tiek paaiškinimų:
@@ -79,7 +79,7 @@ class LoanedBooksByUserListView(LoginRequiredMixin,generic.ListView):
 užregistruokime *view*'są *urls.py*:
 
 ```python
-path('mybooks/', views.LoanedBooksByUserListView.as_view(), name='my-borrowed')
+path("mybooks/", views.MyBookInstanceListView.as_view(), name="mybooks"),
 ```
 
 Reikės šablono:
