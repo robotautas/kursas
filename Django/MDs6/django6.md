@@ -205,32 +205,29 @@ $ pip install pillow
 Dabar jau galime pridėti nuotraukas per *admin panel*. jeigu atkrepėte dėmesį, 
 failų struktūroje atsirado naujas katalogas 'media' o jame 'covers'.
 
-perrašėme *book_list.html*:
+perrašėme *books.html*:
 
 ```html
- {% load static %}
-    <h1>Knygų sąrašas</h1></br>
-    {% if my_book_list %}
-    <div class="row">
-      {% for book in my_book_list %}
-        <div class="col-md-4 d-flex align-items-stretch">
-          <div class="card mb-4 shadow-sm">
+{% load static %}
+<h1>Mūsų knygos:</h1>
+<br>
+<div class="row">
+    {% for book in books %}
+    <div class="col-md-4 d-flex align-items-stretch">
+        <div class="card mb-4 shadow-sm" style="width:300px">
             {% if book.cover %}
-              <img src="{{ book.cover.url }}" class="card-img-top" alt="...">
+            <img src="{{ book.cover.url }}" class="card-img-top" alt="...">
             {% else %}
-              <img src="{% static 'img/no-image.png' %}" class="card-img-top">
+            <img src="{% static 'img/no-image.png' %}" class="card-img-top">
             {% endif %}
             <div class="card-body">
-              <h6 class="card-subtitle mb-2 text-muted">{{ book.author }}</h6>
-              <p class="card-text"><a href="{{ book.id }}">{{ book.title }}</a></p>
+                <h6 class="card-subtitle mb-2 text-muted">{{ book.author }}</h6>
+                <p class="card-text"><a href="{{ book.id }}">{{ book.title }}</a></p>
             </div>
-          </div>
         </div>
-      {% endfor %}
     </div>
-    {% else %}
-      <p>Bibliotekoje knygų nėra.</p>
-    {% endif %}
+    {% endfor %}
+</div>
 ```
 
 Tuo pačiu šiek tiek pagyvinome navigaciją, ir turime tokį vaizdą:
