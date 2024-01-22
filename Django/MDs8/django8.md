@@ -27,7 +27,7 @@ from datetime import date
 tuomet papildykime klasę *BookInstance* skaitytoju:
 
 ```python
-reader = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+reader = models.ForeignKey(to=User, verbose_name="Skaitytojas", on_delete=models.SET_NULL, null=True, blank=True)
 ```
 
 toje pačioje klasėje pridėkime metodą, kuris grąžina True, jei yra pasirinkta data ir ji yra ankstesnė, nei šiandienos data:
@@ -46,15 +46,14 @@ Skaitytojo laukelį integruokime ir į administratoriaus svetainę:
 ```python
 class BookInstanceAdmin(admin.ModelAdmin):
     
-    list_display = ('book', 'status', 'reader', 'due_back', 'id')
-    list_editable = ('status', 'due_back')
-    list_filter = ('status', 'due_back')
-    search_fields = ('id', 'book__title')
-
+    list_display = ['book', 'status', 'reader', 'due_back', 'id']
+    list_filter = ['status', 'due_back']
+    search_fields = ['uuid', 'book__title']
+    list_editable = ['status', 'due_back']
     
     fieldsets = (
         (None, {
-            'fields': ('book', 'id')
+            'fields': ('uuid', 'book')
         }),
         ('Availability', {
             'fields': ('status', 'due_back', 'reader')
