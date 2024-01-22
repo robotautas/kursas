@@ -70,7 +70,6 @@ Dabar reikia pasirašyti šabloną *base.html*, kurį naudosime dar daug kartų,
     </div>
 </nav>
 
-
 <div class="container mt-4">
     <div class="row">
         <div class="col-sm">
@@ -92,10 +91,10 @@ Kol kas palikime taip, eigoje kažkiek keisime. Atkreipkite dėmesį į 5 eilut�
 ```html
 {% extends "base.html" %}
 
+{% block "title" %}HOME{% endblock %}
+
 {% block "content" %}
-  <h1>Rajono biblioteka</h1>
-  <p>Sveiki atvykę į knygų rojų!</p>
-  <p>Šiuo metu turime:</p>
+  <h1>Šiuo metu turime:</h1>
   <ul>
     <li><strong>Knygų:</strong> {{ num_books }}</li>
     <li><strong>Egzempliorių:</strong> {{ num_instances }}</li>
@@ -110,7 +109,7 @@ Taip veikia DjangoTemplates šablonų paveldėjimo mechanizmas.
 * *{% extends "base.html" %}* - nurodome, kad šį turinį talpinsime į base.html 'apvalkalą'.
 * *{% block "content" %} ir {% endblock %}* - rodo, kur bus mūsų 'įterpinio' pradžia ir pabaiga.
 
-Taip pat settings.py reikia nurodyti, kur bus mūsų templates katalogas:
+Taip pat settings.py galime nurodyti, kur bus mūsų templates katalogas (to nenurodyti nebūtina, tada templates katalogas turi būti mūsų app'so (library) kataloge):
 
 ```python
 TEMPLATES = [
@@ -133,12 +132,12 @@ TEMPLATES = [
 Dar vienas dalykas, kurio reikia nepamiršti - statinių failų susiejimas su programa. Sukurkime */library/static/css/styles.css*:
 
 ```css
-.sidebar-nav {
-    margin-top: 20px;
-    padding: 0;
-    list-style: none;
+h1 {
+    color: red;
 }
 ```
+
+Dabar visų svetainėje esančių h1 tagų tekstai turėtų nusidažyti raudona spalva.
 
 */mysite/urls.py* perrašykime sekančiai:
 
