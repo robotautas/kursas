@@ -124,9 +124,6 @@ Belieka tik įdėti nuorodą į aukščiau sukurtą šabloną faile *base.html* 
             <li class="nav-item">
                 <a class="nav-link active" href="{% url 'login' %}">Prisijungti</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="">Registruotis</a>
-            </li>
             {% endif %}
 ```
 
