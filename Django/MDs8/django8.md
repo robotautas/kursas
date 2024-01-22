@@ -144,7 +144,7 @@ rezultatas:
 
 ## Kaip išvengti klaidos "Can't compare naive and aware"?
 
-Kai @property metode lyginame datas su laiku (ne tik datas), galime gauti šią ar panašią klaidą "Can't compare naive and aware datetime.now() <= challenge.datetime_end". Ją galima išspręsti taip:
+Kai modelio metode lyginame datas su laiku (ne tik datas), galime gauti šią ar panašią klaidą "Can't compare naive and aware datetime.now() <= challenge.datetime_end". Ją galima išspręsti taip:
 
 ```python
 import pytz
