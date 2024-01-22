@@ -117,11 +117,14 @@ def search(request):
     didžiosios/mažosios.
     """
     query = request.GET.get('query')
+
     book_search_results = Book.objects.filter(
         Q(title__icontains=query) | Q(summary__icontains=query) | Q(isbn__icontains=query) | Q(
             author__first_name__icontains=query) | Q(author__last_name__icontains=query))
+
     author_search_results = Author.objects.filter(
         Q(first_name__icontains=query) | Q(last_name__icontains=query) | Q(description__icontains=query))
+
     context = {
         "query": query,
         "books": book_search_results,
@@ -136,22 +139,29 @@ Sukurkime naują šabloną *search.html*:
 ```html
 {% extends "base.html" %}
 
-{% block "content" %}
-  <h1>Paieškos pagal "{{query}}" rezultatai:</h1>
-  </br>
-  {% if books %}
-  <ul>
-    {% for book in books %}
-      <li>
-        <a href="{% url 'book' book.id %}">{{ book.title }}</a> ({{book.author}})
-      </li>
-    {% endfor %}
-  </ul>
-  {% else %}
-    <p>Oops. Nieko neradome :(</p>
-  {% endif %}
+{% block "title" %}Paieškos rezultatai{% endblock %}
 
-  {% endblock %}
+{% block "content" %}
+<h1>Knygos, rastos pagal paiešką "{{ query }}":</h1>
+<br>
+{% if books %}
+{% for book in books %}
+<p><a href="{% url 'book' book.pk %}">{{ book }}</a></p>
+{% endfor %}
+{% else %}
+<p>Oops. Nieko neradome.</p>
+{% endif %}
+<h1>Autoriai, rasti pagal paiešką "{{ query }}":</h1>
+<br>
+{% if authors %}
+{% for author in authors %}
+<p><a href="{% url 'author' author.pk %}">{{ author }}</a></p>
+
+{% endfor %}
+{% else %}
+<p>Oops. Nieko neradome.</p>
+{% endif %}
+{% endblock %}
 ```
 ![](paieska.png)
 
