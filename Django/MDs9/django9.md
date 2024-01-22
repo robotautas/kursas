@@ -104,9 +104,12 @@ path('register/', views.register, name='register')
 Taip pat, *base.html*, reikės nuorodos į registracijos formą. Iš karto po navigacijos meniu punkto "prisijungti" įterpkime:
 
 ```html
-{% if not user.is_authenticated %}
-    <li class="nav-item"><a class="nav-link" href="{% url 'register'%}">Registruotis</a></li>
-{% endif %}
+            <li class="nav-item">
+                <a class="nav-link active" href="{% url 'login' %}">Prisijungti</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="{% url 'register' %}">Registruotis</a>
+            </li>
 ```
 
 Jeigu viskas pasisekė, turėsime štai tokią formą:
