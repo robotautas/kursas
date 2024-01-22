@@ -237,7 +237,9 @@ Tuo pačiu šiek tiek pagyvinome navigaciją, ir turime tokį vaizdą:
 Parodykime viršelius ir atskirų knygų aprašymuose. Prieš pavadinimo bloką tiesiog įterpkime: 
 
 ```html
-<img src="{{ book.cover.url }}" style="margin-bottom: 20px;">
+{% if book.cover %}
+<img class="card-img-top; max-width: 20%" src="{{ book.cover.url }}" >
+{% endif %}
 ```
 
 ![](knyga-png.png)
