@@ -21,10 +21,10 @@ def authors(request):
         'authors': authors
     }
     print(authors)
-    return render(request, 'authors.html', context=context)
+    return render(request, template_name='authors.html', context=context)
 ```
 
-Sukurkime šabloną:
+Sukurkime šabloną authors.html:
 
 ```html
 {% extends "base.html" %}
@@ -32,8 +32,8 @@ Sukurkime šabloną:
 {% block "content" %}
   <h1>Autoriai</h1>
   <p>Mūsų knygų autorių sąrašas.</p>
-  {% for a in authors %}
-    <li>{{a.first_name}} {{a.last_name}}</li>
+  {% for author in authors %}
+    <p>{{author.first_name}} {{author.last_name}}</p>
     {% endfor %}
 {% endblock %}
 ```
@@ -45,7 +45,7 @@ Tiesiog banaliai išvardinome autorius, rezultatas atrodo štai taip:
 Sekantis logiškas žingsnis būtų, kad paspaudus ant autoriaus vardo-pavardės mus nuvestų į jo aprašymą. Kadangi mūsų autoriai turi labai mažai laukų, kad jų anketos nebūtų labai nykios, sukurkime jiems tekstinį lauką 'description', ir praleiskime migracijas. 
 
 ```python
-description = models.TextField('Aprašymas', max_length=2000, default='')
+description = HTMLField(verbose_name="Aprašymas", max_length=3000, default="")
 ```
 
 Po to reikia sukurti dinaminį URL maršrutą pavieniams autoriams. Įterpkime eilutę į urlpatterns sąrašą faile /library/urls.py:
@@ -57,11 +57,11 @@ path('authors/<int:author_id>', views.author, name='author'),
 kaip sufleruoja šios elutės parametrai, reikia sukurti funkciją *author* faile *views.py*:
 
 ```python
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
 
 def author(request, author_id):
-    single_author = get_object_or_404(Author, pk=author_id)
-    return render(request, 'author.html', {'author': single_author})
+    author = Author.objects.get(pk=author_id)
+    return render(request, template_name='author.html', {'author': author})
 ```
 
 * importuojame funkciją, kuri pagal nurodytą *primary key* traukia konkretų objektą iš modelio *Author*.
@@ -70,12 +70,12 @@ def author(request, author_id):
 pakoreguokime *authors.html* taip, kad kiekvienas autorius būtų nuoroda į savo paties aprašymą:
 
 ```html
-  {% for a in authors %}
-    <li><a href="{% url 'author' a.id %}">{{a.first_name}} {{a.last_name}}</a></li>
+  {% for author in authors %}
+    <p><a href="{% url 'author' author.id %}">{{author.first_name}} {{author.last_name}}</a></p>
   {% endfor %}
 ```
 
-* *{% url 'author' a.id %}* - suformuoja galinį adresą nuorodai į autoriaus aprašymą, pvz /author/3
+* *{% url 'author' author.id %}* - suformuoja galinį adresą nuorodai į autoriaus aprašymą, pvz /author/3
 
 belieka sukurti *author.html*:
 
