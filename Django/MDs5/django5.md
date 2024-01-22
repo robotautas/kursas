@@ -90,7 +90,6 @@ belieka sukurti *author.html*:
 {% block "content" %}
 <p><strong>Vardas: </strong>{{ author.first_name }}</p>
 <p><strong>Pavardė: </strong>{{ author.last_name }}</p>
-<p>{{ author.description|safe }}</p>
 <hr>
 <p><strong>Jo knygos:</strong></p>
 {% for book in author.books.all %}
