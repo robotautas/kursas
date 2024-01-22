@@ -7,7 +7,7 @@ Faile *models.py*, modelio klasės apačioje, sukurkime Meta klasę ir įrašyki
 
 ```python
 class Genre(models.Model):
-    name = models.CharField('Pavadinimas', max_length=200, help_text='Įveskite knygos žanrą (pvz. detektyvas)')
+    name = models.CharField(verbose_name='Pavadinimas', max_length=200, help_text='Įveskite knygos žanrą (pvz. detektyvas)')
 
     def __str__(self):
         return self.name
