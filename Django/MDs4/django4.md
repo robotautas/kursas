@@ -137,7 +137,7 @@ h1 {
 }
 ```
 
-Dabar visų svetainėje esančių h1 tagų tekstai turėtų nusidažyti raudona spalva.
+Dabar visų svetainėje esančių h1 tagų tekstai turėtų nusidažyti raudona spalva. Čia pat galime apsirašyti daug papildomo CSS kodo, kuris keis svetainės dizainą.
 
 */mysite/urls.py* perrašykime sekančiai:
 
