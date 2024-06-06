@@ -188,11 +188,19 @@ path('books/<int:pk>', views.BookDetailView.as_view(), name='book'),
 <p><strong>ISBN: </strong>{{ book.isbn }}</p>
 <p><strong>Žanras (-ai): </strong>{{ book.display_genre }}</p>
 <p>{{ book.summary }}</p>
-<p><strong>Egzemplioriai:</strong></p>
-{% for instance in book.instances.all %}
-<p class="{% if instance.status == 'g' %}text-success{% elif instance.status == 'p'%}text-danger{% elif instance.status == 'r'%}text-warning{% endif %}">{{ instance }}</p>
-{% endfor %}
-{% endblock %}
+  <h2>Kopijos:</h2>
+    {% if book.instances.all %}
+    {% for copy in book.instances.all %}
+    <hr>
+<p class="{% if copy.status == 'g' %}text-success{% elif copy.status == 'p' %}text-danger{% elif copy.status == 'r' %}text-warning{% endif %}"><strong>{{ copy.get_status_display }}</strong></p>
+    {% if copy.due_back %}
+    <p><strong>Bus gražinta: </strong>{{ copy.due_back }}</p>
+    {% endif %}
+    <small class="text-muted"><strong>ID: </strong>{{ copy.uuid }}</small>
+    {% endfor %}
+    {% else %}
+    <p>Šios knygos kopijų neturime</p>
+    {% endif %}
 {% endblock %}
 ```
 Rezultatas:
