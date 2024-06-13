@@ -51,6 +51,7 @@ from django.shortcuts import redirect
 from django.contrib.auth.forms import User
 from django.views.decorators.csrf import csrf_protect
 from django.contrib import messages
+from django.contrib.auth import password_validation
 ```
 
 Ir dabar pačią registracijos funkciją:
