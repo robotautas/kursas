@@ -195,7 +195,7 @@ INSERT INTO "passwords" ("coder_id", "pwd") VALUES ('6', 'barzda');
 
 Galutinis mūsų duomenų bazės variantas atrodo taip:
 
-![](diagrama.png)
+![](diagrama_su_pavadinimais.png)
 
 
 
