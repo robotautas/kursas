@@ -304,6 +304,7 @@ Running migrations:
 ```
 
 gavome štai tokią schemą:
+
 ![](schema.png)
 
 # Administratoriaus svetainė
