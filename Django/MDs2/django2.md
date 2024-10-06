@@ -181,6 +181,10 @@ Siekiant išvengti painumo, gatavas kodas Github repozitorijoje perskeltas pusia
 
 Taip pat reikėtų suprasti, kad Django yra labai plati tema (apimtis turbūt panaši kaip visos python kalbos), todėl nepamirškite draugų - stackoverflow, dokumentacijos ir kitų:) Sėkmės!
 
+Programos schema:
+
+![](schema.png)
+
 # Modeliai
 
 Duomenų bazės modeliui imsime paprastą bibliotekos pavyzdį, kuris turi visus reliacinius ryšius:
@@ -302,10 +306,6 @@ Operations to perform:
 Running migrations:
   Applying library.0001_initial... OK
 ```
-
-gavome štai tokią schemą:
-
-![](schema.png)
 
 # Administratoriaus svetainė
 
