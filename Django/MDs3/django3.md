@@ -94,6 +94,7 @@ class BooksInstanceInline(admin.TabularInline):
     readonly_fields = ['uuid']
     can_delete = False
     extra = 0
+    fields = ['uuid', 'due_back', 'status']
 ```
 
 Taip pat norėtųsi, kad autorių sąraše matytųsi, kokias kokias jo knygas biblioteka turi. Panašiai darėme su žanrais, tačiau one2many atveju operacija šiek tiek skirsis. Tam pirmiausia pakoreguosime patį Author modelį:
