@@ -18,4 +18,4 @@ scipy==1.6.0
 seaborn==0.11.1
 six==1.15.0
 threadpoolctl==2.1.0
-Werkzeug==1.0.1
+Werkzeug==2.2.3
