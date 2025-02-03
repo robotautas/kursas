@@ -62,10 +62,10 @@ SELECT * FROM person WHERE date_of_birth > date('1980-01-01') ORDER BY company D
 Rezultatus galime grupuoti:
 
 ```sql
-SELECT * FROM person GROUP BY gender, last_name;
+SELECT gender, count() FROM person GROUP BY gender;
 ```
 
-![](group_by.png)
+![](group1.png)
 
 ```sql
 SELECT
