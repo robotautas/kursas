@@ -211,6 +211,16 @@ Darant kompleksiškas užklausas, reikėtų laikytis tokio eiliškumo:
 tarkime:
 
 ```sql
+SELECT make, count(*) 
+FROM cars
+WHERE year > 1990
+GROUP BY make
+HAVING count(*) > 1
+ORDER BY count(*) DESC
+```
+![](having1.png)
+
+```sql
 SELECT make, model, year, max(price)
 FROM cars
 WHERE make NOT IN ("Toyota", "Mercury", "Volvo")
