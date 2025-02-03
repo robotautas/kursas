@@ -216,19 +216,20 @@ FROM cars
 WHERE year > 1990
 GROUP BY make
 HAVING count(*) > 1
-ORDER BY count(*) DESC
+ORDER BY count(*) DESC;
 ```
 ![](having1.png)
 
+arba:
+
 ```sql
-SELECT make, model, year, max(price)
+SELECT make, model, year, price
 FROM cars
-WHERE make NOT IN ("Toyota", "Mercury", "Volvo")
-GROUP BY price
-HAVING year > 2007
-ORDER BY make;
+WHERE make NOT IN ("Toyota", "Mercury", "Volvo") 
+AND year > 2007
+ORDER BY price DESC;
 ```
 
-![](kompleksine.png)
+![](having2.png)
 
-Išrinktos brangiausios mašinos, kurių tarpe nėra toyotų, mercury ir volvo. Išfiltruotos tos, kurios senesnės už 2007m. Išrūšiuotos pagal gamintoją.
+Išrinktos mašinos, kurių tarpe nėra toyotų, mercury ir volvo. Išfiltruotos tos, kurios senesnės už 2007m. Išrūšiuotos pagal gamintoją.
