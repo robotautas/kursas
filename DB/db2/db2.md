@@ -220,6 +220,8 @@ ORDER BY count(*) DESC;
 ```
 ![](having1.png)
 
+Išrinkta, kiek kiekvieno gamintojo automobilių yra lentelėje. Išrūšiuota mažėjančia tvarka. Nerodoma tų automobilių, kurių yra po vieną.
+
 arba:
 
 ```sql
