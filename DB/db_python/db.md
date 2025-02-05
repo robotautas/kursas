@@ -211,6 +211,41 @@ CREATE TABLE lentele(
 ....
 ```
 
+## Pilnos draugų programos pavyzdys:
 
+```python
+import sqlite3
 
+conn = sqlite3.connect("zmones.db")
+c = conn.cursor()
 
+query = '''
+CREATE TABLE IF NOT EXISTS draugai (
+    f_name VARCHAR(50),
+    l_name VARCHAR(50),
+    email VARCHAR(100)
+);
+'''
+
+with conn:
+    c.execute(query)
+
+while True:
+    veiksmas = int(input("1 - peržiūrėti\n2 - įvesti\n3 - išeiti\n"))
+    match veiksmas:
+        case 1:
+            with conn:
+                c.execute("SELECT * FROM draugai")
+                print(c.fetchall())
+        case 2:
+            print("Įveskite draugą")
+            firstname = input("Vardas: ")
+            lastname = input("Pavardė: ")
+            email = input("El. pašto adresas: ")
+            with conn:
+                c.execute("INSERT INTO draugai VALUES (?, ?, ?)", (firstname, lastname, email))
+
+        case 3:
+            print("Viso gero")
+            break
+```
