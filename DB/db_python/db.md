@@ -161,7 +161,7 @@ with conn:
 [('Domantas', 'Rutkauskas', 'd.rutkauskas@imone.lt')]
 ```
 ```bash
-Įveskite vardą: OR 1=1--
+Įveskite vardą: 'OR 1=1--
 nėra tokio vardo!
 ```
 
