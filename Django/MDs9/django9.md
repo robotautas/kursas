@@ -91,7 +91,7 @@ def register(request):
         else:
             messages.error(request, 'Slaptažodžiai nesutampa!')
             return redirect('register')
-    return render(request, 'registration/register.html')
+    return render(request, 'register.html')
 ```
 
 Šiek tiek paaiškinimų rasite kodo komentaruose.
