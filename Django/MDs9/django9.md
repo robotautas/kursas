@@ -179,7 +179,7 @@ padarykime atsiliepimus matomus šablone *book.html* po knygos aprašymu:
 <hr>
 <p><strong>Komentarai:</strong></p>
 {% for review in book.reviews.all %}
-<strong>{{ review.reviewer }}</strong>, <em>{{ review.date_created }}</em>
+<p><strong>{{ review.reviewer }}</strong>, <em>{{ review.date_created }}</em></p>
 <p>{{ review.content }}</p>
 <hr>
 {% endfor %}
