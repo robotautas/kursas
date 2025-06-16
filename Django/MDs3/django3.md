@@ -134,7 +134,7 @@ Mūsų autorių sąrašas dabar atrodo taip:
 kai bibliotekoje prisikaups daugybė knygų, administratoriui bus pravartu turėti paiešką. Tai nesudėtingai įgyvendinama pridedant tokią eilutę (prie modelio BookInstanceAdmin):
 
 ```python
-search_fields = ['id', 'book__title']
+search_fields = ['uuid', 'book__title']
 ```
 
 atkreipkite dėmesį, kaip reikia nurodyti paieškomą lauką, kai tas laukas yra reliacinis. Dabar turime veikiančią paiešką:
