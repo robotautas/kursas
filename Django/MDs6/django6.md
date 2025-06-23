@@ -60,10 +60,10 @@ def authors(request):
 na, o šablone galime pritaikyti taip pat kiek kitokį variantą:
 
 ```html
-<div class="container puslapiai">
+<div class="container">
     <nav aria-label="...">
         {% if authors.has_other_pages %}
-            <ul class="pagination pagination-sm justify-content-end">
+            <ul class="pagination pagination-sm justify-content-center">
                 {% for i in authors.paginator.page_range %}
                     {% if authors.number == i %}
                         <li class="page-item active">
