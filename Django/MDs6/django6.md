@@ -172,6 +172,8 @@ Paminėtina tai, jog patogumo dėlei mūsų naudojama SQLite numatytoji duomenų
 Nuotraukas django gali saugoti duomenų bazėje, arba diske. Saugoti nuotraukas duomenų bazėje nerekomenduojama, kadangi ilgainiui tai apsunkina duomenų bazės greitą veikimą. Dažniausiai, ypač programai 'užaugus', mes norėsime kuo greitesnės duombazės. Todėl pamėginkime išspręsti nuotraukų klausimą teisingai. Pradėsime nuo settings.py:
 
 ```python
+import os
+
 # media folder settings
 MEDIA_ROOT = os.path.join(BASE_DIR, 'library/media')
 
