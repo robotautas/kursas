@@ -260,7 +260,7 @@ LAIŠKO TURINYS! /templates/registration/password_reset_email.html:
 ```html
 Sveiki,
 
-Kažkas mums atsiuntė užklausą slaptažodio keitimui. Jeigu tai buvote Jūs, sekite nuoroda žemiau:
+Kažkas mums atsiuntė užklausą slaptažodžio keitimui. Jeigu tai buvote Jūs, sekite nuoroda žemiau:
 {{ protocol}}://{{ domain }}{% url 'password_reset_confirm' uidb64=uid token=token %}
 ```
 
