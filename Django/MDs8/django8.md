@@ -136,13 +136,10 @@ rezultatas:
 Kai modelio metode lyginame datas su laiku (ne tik datas), galime gauti šią ar panašią klaidą "Can't compare naive and aware datetime.now() <= challenge.datetime_end". Ją galima išspręsti taip:
 
 ```python
-import pytz
-utc=pytz.UTC
+from django.utils import timezone
 
-    def praejes_terminas(self):
-        if self.grazinimo_laikas and datetime.today().replace(tzinfo=utc) > self.grazinimo_laikas.replace(tzinfo=utc):
-            return True
-        return False
+def deadline_overdue(self):
+    return self.deadline and self.deadline < timezone.now()
 ```
 
 Daugiau sprendimo variantų rasite čia:
