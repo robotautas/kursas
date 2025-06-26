@@ -36,7 +36,7 @@ Pradėkime nuo šablono *register.html* sukūrimo:
                 <label for="password2">Pakartoti slaptažodį</label>
                 <input name="password2" type="password" class="form-control" id="password2" aria-describedby="pwd2Help">
             </div>
-            <button type="submit" class="btn btn-primary register-button">Registruotis</button>
+            <button type="submit" class="btn btn-primary register-button mt-2">Registruotis</button>
         </form>
         <p>Jeigu užsiregistravote anksčiau, <a href="{% url 'login' %}"><strong>prisijunkite.</strong></a></p>
     </div>
