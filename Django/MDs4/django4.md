@@ -79,7 +79,7 @@ Dabar reikia pasirašyti šabloną *base.html*, kurį naudosime dar daug kartų,
 </div>
 
 <div class="mt-5 p-4 bg-dark text-white text-center">
-    <p>© {{ now.year }} Code Academy</p>
+    <p>© My Library App</p>
 </div>
 
 </body>
