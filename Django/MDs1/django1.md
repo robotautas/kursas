@@ -166,3 +166,7 @@ Kol kas neturime jokių duomenų bazės modelių, tačiau django jau susikūrė 
 $ python manage.py makemigrations
 $ python manage.py migrate
 ```
+## Užduotis
+Pradėti kurti Django užduotį – [Autoservisas](https://github.com/robotautas/kursas/wiki/Django-u%C5%BEduotis:-Autoservisas):
+* Sukurti naują Django projektą su appsu autoservice
+* Jame sukurti statinį puslapį index su norimu tekstu
