@@ -48,7 +48,7 @@ Taip pat reikia pakoreguoti šabloną, pačioje pabaigoje, prieš *endblock*:
   {% endif %}
 </ul>
 ```
-Alternatyva
+Alternatyva:
 ```html
   <div class="pagination">
     <span class="step-links">
