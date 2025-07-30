@@ -167,8 +167,7 @@ Superuser created successfully.
 Prisijunkime prie 127.0.0.1:8000/admin ir susiveskime po keletą objektų!
 
 ## Užduotis
-Pradėti kurti Django užduotį – [Autoservisas](https://github.com/robotautas/kursas/wiki/Django-u%C5%BEduotis:-Autoservisas):
-* Sukurti naują Django projektą su appsu autoservice
+Tęsti kurti Django užduotį – [Autoservisas](https://github.com/robotautas/kursas/wiki/Django-u%C5%BEduotis:-Autoservisas):
 * Sukurti visus modelius pagal nurodytą programos DB struktūrą
 * Admin puslapyje sukurti meniu punktus visiems sukurtiems modeliams
 * Susikurti superuser vartotoją, prisijungti ir išbandyti įrašyti visų modelių įrašus
