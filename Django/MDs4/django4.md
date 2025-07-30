@@ -62,11 +62,15 @@ Dabar reikia pasirašyti šabloną *base.html*, kurį naudosime dar daug kartų,
 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <div class="container-fluid">
-        <ul class="navbar-nav">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mynavbar">
+        <ul class="navbar-nav me-auto">
             <li class="nav-item">
-                <a class="nav-link active" href="{% url 'index' %}">HOME</a>
+                <a class="nav-link" href="{% url 'index' %}">HOME</a>
             </li>
-        </ul>
+        </div>
     </div>
 </nav>
 
