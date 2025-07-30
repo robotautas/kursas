@@ -14,6 +14,42 @@ class BookListView(generic.ListView):
 Taip pat reikia pakoreguoti šabloną, pačioje pabaigoje, prieš *endblock*:
 
 ```html
+<ul class="pagination justify-content-center">
+  {% if page_obj.has_previous %}
+    <li class="page-item">
+      <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+    </li>
+  {% else %}
+    <li class="page-item disabled">
+      <span class="page-link">Previous</span>
+    </li>
+  {% endif %}
+
+  {% for num in paginator.page_range %}
+    {% if page_obj.number == num %}
+      <li class="page-item active">
+        <span class="page-link">{{ num }}</span>
+      </li>
+    {% else %}
+      <li class="page-item">
+        <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+      </li>
+    {% endif %}
+  {% endfor %}
+
+  {% if page_obj.has_next %}
+    <li class="page-item">
+      <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+    </li>
+  {% else %}
+    <li class="page-item disabled">
+      <span class="page-link">Next</span>
+    </li>
+  {% endif %}
+</ul>
+```
+Alternatyva
+```html
   <div class="pagination">
     <span class="step-links">
         {% if page_obj.has_previous %}
