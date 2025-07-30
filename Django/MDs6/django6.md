@@ -127,11 +127,26 @@ Tai bus ir nedidelė įžanga į formas, kadangi search taip pat yra forma.
 
 papildykime navigaciją paieškos laukeliu:
 ```html
-<li>
-    <form action="{% url 'search' %}" method="get" class="form-inline my-2 my-md-0">
-    <input name="query" class="form-control" type="text" placeholder="Paieška">
-    </form>
-</li>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mynavbar">
+        <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'index' %}">HOME</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'tasks' %}">Tasks</a>
+            </li>
+        </ul>
+        <form action="{% url 'search' %}" method="get" class="d-flex">
+            <input name="query" class="form-control me-2" type="text" placeholder="Paieška">
+        </form>
+        </div>
+    </div>
+</nav>
 ```
 
 papildykime *urlslist*'ą nauju endpoint'u:
