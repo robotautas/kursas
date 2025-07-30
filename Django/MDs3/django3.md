@@ -56,10 +56,10 @@ class BookInstanceAdmin(admin.ModelAdmin):
     list_display = ['book', 'status', 'due_back']
     list_filter = ['status', 'due_back']
 
-    fieldsets = (
+    fieldsets = [
         ('General', {'fields': ('id', 'book')}),
         ('Availability', {'fields': ('status', 'due_back')}),
-    )
+    ]
 ```
 
 Šį kartą sukūrėme filtrus:
