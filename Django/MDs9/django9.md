@@ -1,10 +1,11 @@
 # Formos
 
+## Vartotojo registracija
 Sukurkime naujo vartotojo registracijos formą.
 
 
 
-## Alternatyva per function-based view'ą
+## Vartotojo registracijos alternatyva per function-based view'ą
 Pradėkime nuo šablono *register.html* sukūrimo:
 
 ```html
