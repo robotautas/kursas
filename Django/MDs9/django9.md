@@ -1,11 +1,49 @@
 # Formos
 
 ## Vartotojo registracija
-Sukurkime naujo vartotojo registracijos formą.
 
+Pradėkime nuo vartotojo registracijos view'so sukūrimo views.py faile:
+```python
+from django.contrib.auth.forms import UserCreationForm
 
+class SignUpView(generic.CreateView):
+    form_class = UserCreationForm
+    template_name = "signup.html"
+    success_url = reverse_lazy("login")
+```
 
-## Vartotojo registracijos alternatyva per function-based view'ą
+Į library/urls.py pridedame naują kelią:
+
+```python
+    path('signup/', views.SignUpView.as_view(), name='signup'),
+```
+
+Taip pat sukūriame naują šabloną templates/signup.html:
+
+```html
+{% extends "base.html" %}
+
+{% block "title" %}Sign Up{% endblock %}
+
+{% block "content" %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <h2 class="mb-4 text-center">Sign Up</h2>
+            <form method="post">
+                {% csrf_token %}
+                {% load crispy_forms_tags %}
+                {{ form | crispy }}
+                <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+            </form>
+            <p><a href="{% url 'login' %}" class="btn btn-link w-100">Already Registered? Login</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+```
+
+## ALTERNATYVA: Vartotojo registracija per function-based view'ą
 Pradėkime nuo šablono *register.html* sukūrimo:
 
 ```html
