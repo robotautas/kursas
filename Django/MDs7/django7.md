@@ -370,11 +370,24 @@ Arba vaizdingiau:
 ```html
 {% extends "base.html" %}
 
-{% block "title" %}Slaptažodžio keitimas{% endblock %}
+{% block "title" %}Slaptažodžio keitimas įvykdytas{% endblock %}
 
 {% block "content" %}
-  <h1>Slaptažodis pakeistas!</h1>
-  <p><a href="{% url 'login' %}">prisijungti iš naujo</a></p>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h2 class="mb-4 text-center text-success">Slaptažodžio keitimas įvykdytas</h2>
+                    <p class="text-center">
+                        Jūsų slaptažodis pakeistas. Dabar galite prisijungti nauju slaptažodžiu.
+                    </p>
+                    <a href="{% url 'login' %}" class="btn btn-primary w-100 mt-3">Prisijungti</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
 ```
 
