@@ -143,6 +143,11 @@ sukurkime logout logged_out.html:
   <a href="{% url 'login'%}">Prisijungti iš naujo.</a>
 {% endblock %}
 ```
+Arba, į settings.py pridėkime:
+
+```python
+LOGOUT_REDIRECT_URL = '/'
+```
 
 ![](logged_out.png)
 
