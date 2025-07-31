@@ -8,7 +8,7 @@ Pertvarkykite *BookInstance* modelį taip, kad kiekviena paimta kopija būtų pr
 
 ```python
 from django.contrib.auth.models import User
-from datetime import date
+from django.utils import timezone
 ```
 
 tuomet papildykime klasę *BookInstance* skaitytoju:
@@ -21,9 +21,7 @@ toje pačioje klasėje pridėkime metodą, kuris grąžina True, jei yra pasirin
 
 ```python
 def is_overdue(self):
-    if self.due_back and date.today() > self.due_back:
-        return True
-    return False
+    return self.due_back and timezone.now() > self.due_back
 ```
 
 ...ir viską numigruokime.
