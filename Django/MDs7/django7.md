@@ -97,26 +97,26 @@ Exception Value: registration/login.html
 
 {% block "content" %}
 <div class="container mt-5">
-  <div class="row justify-content-center">
-    <div class="col-md-4">
-      <h2 class="mb-4 text-center">Login</h2>
-      <form method="post">
-        {% csrf_token %}
-        <div class="mb-3">
-          <label for="id_username" class="form-label">Vartotojo vardas</label>
-          <input type="text" name="username" autofocus required id="id_username" class="form-control">
-        </div>
-        <div class="mb-3">
-          <label for="id_password" class="form-label">Slaptažodis</label>
-          <input type="password" name="password" required id="id_password" class="form-control">
-        </div>
-        <button type="submit" class="btn btn-primary w-100">Prisijungti</button>
-        <input type="hidden" name="next" value="{{ next }}" />
-      </form>
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <h2 class="mb-4 text-center">Login</h2>
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="id_username" class="form-label">Vartotojo vardas</label>
+                    <input type="text" name="username" autofocus required id="id_username" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="id_password" class="form-label">Slaptažodis</label>
+                    <input type="password" name="password" required id="id_password" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Prisijungti</button>
+                <input type="hidden" name="next" value="{{ next }}"/>
+            </form>
 
-    <p><a href="{% url 'password_reset' %}" class="btn btn-link w-100">Pamiršote slaptažodį?</a></p>
+            <p><a href="{% url 'password_reset' %}" class="btn btn-link w-100">Pamiršote slaptažodį?</a></p>
+        </div>
     </div>
-  </div>
 </div>
 {% endblock %}
 ```
