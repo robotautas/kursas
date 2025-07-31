@@ -230,34 +230,33 @@ Anksčiau minėjau, kad galima perrašyti standartinius django slaptažodžių p
 
 {% block "content" %}
 <div class="container mt-5">
-  <div class="row justify-content-center">
-    <div class="col-md-5">
-      <h2 class="mb-4 text-center">Slaptažodžio keitimas</h2>
-      <form method="post">
-        {% csrf_token %}
-        {% if form.errors %}
-          <div class="alert alert-danger">
-            {% for field in form %}
-              {% for error in field.errors %}
-                <div>{{ error }}</div>
-              {% endfor %}
-            {% endfor %}
-            {% for error in form.non_field_errors %}
-              <div>{{ error }}</div>
-            {% endfor %}
-          </div>
-        {% endif %}
-        <div class="mb-3">
-          <label for="id_email" class="form-label">El. pašto adresas</label>
-          <input type="email" name="email" required id="id_email" class="form-control" autofocus>
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <h2 class="mb-4 text-center">Slaptažodžio keitimas</h2>
+            <form method="post">
+                {% csrf_token %}
+                {% if form.errors %}
+                <div class="alert alert-danger">
+                    {% for field in form %}
+                    {% for error in field.errors %}
+                    <div>{{ error }}</div>
+                    {% endfor %}
+                    {% endfor %}
+                    {% for error in form.non_field_errors %}
+                    <div>{{ error }}</div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                <div class="mb-3">
+                    <label for="id_email" class="form-label">El. pašto adresas</label>
+                    <input type="email" name="email" required id="id_email" class="form-control" autofocus>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Išsiųsti slaptažodžio keitimo el. laišką</button>
+            </form>
         </div>
-        <button type="submit" class="btn btn-primary w-100">Išsiųsti slaptažodžio keitimo el. laišką</button>
-      </form>
     </div>
-  </div>
 </div>
-{% endblock %}
-```
+{% endblock %}```
 
 /templates/registration/password_reset_done.html:
 
