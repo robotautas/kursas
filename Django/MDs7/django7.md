@@ -110,11 +110,11 @@ Exception Value: registration/login.html
           <label for="id_password" class="form-label">Slaptažodis</label>
           <input type="password" name="password" required id="id_password" class="form-control">
         </div>
-        <button type="submit" class="btn btn-primary w-100">Login</button>
+        <button type="submit" class="btn btn-primary w-100">Prisijungti</button>
         <input type="hidden" name="next" value="{{ next }}" />
       </form>
 
-    <p><a href="{% url 'password_reset' %}" class="btn btn-link w-100">Forgot Password?</a></p>
+    <p><a href="{% url 'password_reset' %}" class="btn btn-link w-100">Pamiršote slaptažodį?</a></p>
     </div>
   </div>
 </div>
