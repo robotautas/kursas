@@ -260,6 +260,25 @@ Anksčiau minėjau, kad galima perrašyti standartinius django slaptažodžių p
 
 ```html
 {% extends "base.html" %}
+{% block "content" %}
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-5">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h2 class="mb-4 text-center text-success">Check Your Email</h2>
+          <p class="text-center">
+            Jei paskyra nurodytu el. paštu egzistuoja, netrukus gausite laišką su slaptažodžio pakeitimo nuoroda.
+          </p>
+          <a href="{% url 'login' %}" class="btn btn-primary w-100 mt-3">Back to Login</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% extends "base.html" %}
 
 {% block "title" %}Slaptažodžio keitimas{% endblock %}
 
