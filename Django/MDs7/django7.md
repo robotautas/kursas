@@ -225,6 +225,9 @@ Anksčiau minėjau, kad galima perrašyti standartinius django slaptažodžių p
 
 ```html
 {% extends "base.html" %}
+
+{% block "title" %}Slaptažodžio keitimas{% endblock %}
+
 {% block "content" %}
 <div class="container mt-5">
   <div class="row justify-content-center">
@@ -260,13 +263,16 @@ Anksčiau minėjau, kad galima perrašyti standartinius django slaptažodžių p
 
 ```html
 {% extends "base.html" %}
+
+{% block "title" %}Patikrinkite savo el. paštą{% endblock %}
+
 {% block "content" %}
 <div class="container mt-5">
   <div class="row justify-content-center">
     <div class="col-md-5">
       <div class="card shadow-sm">
         <div class="card-body">
-          <h2 class="mb-4 text-center text-success">Check Your Email</h2>
+          <h2 class="mb-4 text-center text-success">Patikrinkite savo el. paštą</h2>
           <p class="text-center">
             Jei paskyra nurodytu el. paštu egzistuoja, netrukus gausite laišką su slaptažodžio pakeitimo nuoroda.
           </p>
@@ -276,14 +282,6 @@ Anksčiau minėjau, kad galima perrašyti standartinius django slaptažodžių p
     </div>
   </div>
 </div>
-{% endblock %}
-
-{% extends "base.html" %}
-
-{% block "title" %}Slaptažodžio keitimas{% endblock %}
-
-{% block "content" %}
-  <p>Slaptažodžio pakeitimo nuorodą išsiuntėme jums el.paštu!</p>
 {% endblock %}
 ```
 
