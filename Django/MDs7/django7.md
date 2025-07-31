@@ -96,35 +96,28 @@ Exception Value: registration/login.html
 {% block "title" %}Prisijungimas{% endblock %}
 
 {% block "content" %}
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <h2 class="mb-4 text-center">Login</h2>
+      <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="id_username" class="form-label">Vartotojo vardas</label>
+          <input type="text" name="username" autofocus required id="id_username" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label for="id_password" class="form-label">Slaptažodis</label>
+          <input type="password" name="password" required id="id_password" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Login</button>
+        <input type="hidden" name="next" value="{{ next }}" />
+      </form>
 
-  {% if form.errors %}
-    <p>Prisijungimo klaida, bandykite dar kartą!</p>
-  {% endif %}
-  
-  {% if next %}
-    {% if user.is_authenticated %}
-      <p>Neturite prieigos prie šios informacijos. Turite prisijungti.</p>
-    {% endif %}
-  {% endif %}
-  
-  <form method="post" action="{% url 'login' %}">
-    {% csrf_token %}
-    <table>
-      <tr>
-        <td>Vartotojas: </td>
-        <td>{{ form.username }}</td>
-      </tr>
-      <tr>
-        <td>Slaptažodis: </td>
-        <td>{{ form.password }}</td>
-      </tr>
-    </table>
-    <input type="submit" value="Prisijungti" />
-    <input type="hidden" name="next" value="{{ next }}" />
-  </form>
-  
-  <p><a href="{% url 'password_reset' %}">Pamiršote slaptažodį?</a></p>
-  
+    <p><a href="{% url 'password_reset' %}" class="btn btn-link w-100">Forgot Password?</a></p>
+    </div>
+  </div>
+</div>
 {% endblock %}
 ```
 
