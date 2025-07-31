@@ -330,31 +330,38 @@ Arba vaizdingiau:
 {% block "title" %}Slaptažodžio keitimas{% endblock %}
 
 {% block "content" %}
-    {% if validlink %}
-        <p>Įveskite naują slaptažodį ir pakartokite.</p>
-        <form action="" method="post">
-        {% csrf_token %}
-            <table>
-                <tr>
-                    <td>{{ form.new_password1.errors }}
-                        <label for="id_new_password1">Naujas slaptažodis:</label></td>
-                    <td>{{ form.new_password1 }}</td>
-                </tr>
-                <tr>
-                    <td>{{ form.new_password2.errors }}
-                        <label for="id_new_password2">Patvirtinkite:</label></td>
-                    <td>{{ form.new_password2 }}</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><input type="submit" value="Pakeisti slaptažodį" /></td>
-                </tr>
-            </table>
-        </form>
-    {% else %}
-        <h1>Nepavyko pakeisti slaptažodžio</h1>
-        <p>Slaptažodžio pakeitimo nuoroda negaliojanti. Prašome inicijuoti slaptažodžio keitimą iš naujo.</p>
-    {% endif %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <h2 class="mb-4 text-center">Įveskite naują slaptažodį ir pakartokite</h2>
+            <form method="post">
+                {% csrf_token %}
+                {% if form.errors %}
+                <div class="alert alert-danger">
+                    {% for field in form %}
+                    {% for error in field.errors %}
+                    <div>{{ error }}</div>
+                    {% endfor %}
+                    {% endfor %}
+                    {% for error in form.non_field_errors %}
+                    <div>{{ error }}</div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                <div class="mb-3">
+                    <label for="id_new_password1" class="form-label">Naujas slaptažodis</label>
+                    <input type="password" name="new_password1" required id="id_new_password1" class="form-control"
+                           autofocus>
+                </div>
+                <div class="mb-3">
+                    <label for="id_new_password2" class="form-label">Pakartokite naują slaptažodį</label>
+                    <input type="password" name="new_password2" required id="id_new_password2" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Pakeisti slaptažodį</button>
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock %}
 ```
 
