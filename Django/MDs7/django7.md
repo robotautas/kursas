@@ -256,7 +256,8 @@ Anksčiau minėjau, kad galima perrašyti standartinius django slaptažodžių p
         </div>
     </div>
 </div>
-{% endblock %}```
+{% endblock %}
+```
 
 /templates/registration/password_reset_done.html:
 
