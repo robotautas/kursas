@@ -1,5 +1,66 @@
 # Formos
 
+## Crispy Formos
+
+Vartotojo registracijai ir vėliau naudosime Crispy formas. Crispy leidžia pritaikyti Bootstrap dizainą automatinėms Django formoms.
+
+Jei dirbame su **Bootstrap4** (tai galima pasižiūrėti base.html failo viršuje):
+
+Reikės įsidiegti tai:
+```console
+pip install django-crispy-forms crispy-bootstrap4
+```
+
+Į settings.py įdėti:
+```python
+INSTALLED_APPS = [
+    'tinymce',
+    'library',
+    'crispy_forms',
+    'crispy_bootstrap4',
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+]
+```
+
+settings.py gale:
+```python
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+```
+
+Jei dirbame su **Bootstrap5**:
+
+Reikės įsidiegti tai:
+```console
+pip install django-crispy-forms crispy-bootstrap5
+```
+
+```python
+INSTALLED_APPS = [
+    'tinymce',
+    'library',
+    'crispy_forms',
+    'crispy_bootstrap5',
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+]
+```
+
+settings.py gale:
+```python
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
+```
+
 ## Vartotojo registracija
 
 Pradėkime nuo vartotojo registracijos view'so sukūrimo views.py faile:
