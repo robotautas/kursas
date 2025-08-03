@@ -61,11 +61,10 @@ pabaigoje rasime *'save'*, jį ir paspauskime.
 Pradėkime nuo *mysite/urls.py*. Pridėkime:
 ```python
 from django.urls import path, include
+```
 
-...
-
+```python
     path('accounts/', include('django.contrib.auth.urls')),
-
 ```
 
 pridėję šį vienintelį narį prie *urlpatterns* sąrašo, realiai gauname visą puokštę naudingų *endpoint*'ų, su gatava už jų esančia logika:
