@@ -293,13 +293,16 @@ admin.site.register(BookReview, BookReviewAdmin)
 padarykime atsiliepimus matomus šablone *book.html* po knygos aprašymu:
 
 ```html
-<hr>
-<p><strong>Komentarai:</strong></p>
+<h2>Komentarai:</h2>
+{% if book.reviews.all %}
 {% for review in book.reviews.all %}
 <p><strong>{{ review.reviewer }}</strong>, <em>{{ review.date_created }}</em></p>
 <p>{{ review.content }}</p>
 <hr>
 {% endfor %}
+{% else %}
+<p>Komentarų nėra</p>
+{% endif %}
 ```
 
 susimuliuokime atsiliepimą per administratoriaus svetainę:
