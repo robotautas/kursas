@@ -20,10 +20,10 @@ class Genre(models.Model):
 Mėginame perdaryti, kad matytumėm daugiau informacijos knygų aprašymo lentelėje. *title, author* laukai yra aiškūs. Taip pat norėtumėm matyti ir žanrą, tačiau django neleis taip pat paprastai jo įtraukti, nes gausis "database heavy" operacija. Taip yra su many2many laukais. Apribojimą galime apeiti šiek tiek pakoreguojant patį modelį Book - jame pridėkime šias eilutes:
 
 ```python
-        def display_genre(self):
-            return ', '.join(genre.name for genre in self.genre.all())
+    def display_genre(self):
+        return ", ".join(genre.name for genre in self.genre.all())
 
-        display_genre.short_description = 'Žanras'
+    display_genre.short_description = "Genre"
 ```
 
 Pakeiskime modelio Book vaizdavimą administratoriaus svetainėje, kad būtų informatyvesnis:
