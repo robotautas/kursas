@@ -61,7 +61,7 @@ class Author(models.Model):
         return f"{self.first_name} {self.last_name}"
 ```
 
-pridėkime knygos modelį:
+Pridėkime knygos modelį:
 ```python
 class Book(models.Model):
     title = models.CharField(verbose_name="Title", max_length=200)
