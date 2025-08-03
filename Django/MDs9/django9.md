@@ -5,6 +5,7 @@
 Pradėkime nuo vartotojo registracijos view'so sukūrimo views.py faile:
 ```python
 from django.contrib.auth.forms import UserCreationForm
+from django.urls import reverse_lazy
 
 class SignUpView(generic.CreateView):
     form_class = UserCreationForm
