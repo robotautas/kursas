@@ -353,7 +353,7 @@ class BookDetailView(FormMixin, generic.DetailView):
 
     # štai čia nurodome, kad knyga bus būtent ta, po kuria komentuojame, o vartotojas bus tas, kuris yra prisijungęs.
     def form_valid(self, form):
-        form.instance.book = self.object
+        form.instance.book = self.get_object()
         form.instance.reviewer = self.request.user
         form.save()
         return super().form_valid(form)
