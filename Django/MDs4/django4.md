@@ -18,7 +18,7 @@ def index(request):
     num_instances = BookInstance.objects.all().count()
     
     # Laisvos knygos (tos, kurios turi statusą 'g')
-    num_instances_available = BookInstance.objects.filter(status__exact='g').count()
+    num_instances_available = BookInstance.objects.filter(status__exact='a').count()
     
     # Kiek yra autorių    
     num_authors = Author.objects.count()
