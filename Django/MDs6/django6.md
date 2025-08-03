@@ -295,7 +295,7 @@ Parodykime viršelius ir atskirų knygų aprašymuose. Prieš pavadinimo bloką 
 
 ```html
 {% if book.cover %}
-<img class="card-img-top" style="max-width: 20%" src="{{ book.cover.url }}">
+<img class="card-img-top mb-3" style="max-width: 20%" src="{{ book.cover.url }}">
 {% endif %}
 ```
 
