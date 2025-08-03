@@ -72,7 +72,7 @@ class MyBookInstanceListView(LoginRequiredMixin, generic.ListView):
 užregistruokime *view*'są *urls.py*:
 
 ```python
-path("mybooks/", views.MyBookInstanceListView.as_view(), name="mybooks"),
+    path("mybooks/", views.MyBookInstanceListView.as_view(), name="mybooks"),
 ```
 
 Reikės šablono:
