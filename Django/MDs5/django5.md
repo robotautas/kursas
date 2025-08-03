@@ -144,7 +144,7 @@ class BookListView(generic.ListView):
 {% endblock %}
 ```
 
-Atrodo ganėtinai paprasta ir mažiau kodo. Viską sugeneruoja automatiškai, pagal tam tikras taisykles. Tačiau, jei prireiktų nestandartinių dalykų, tektų pakeitimus nurodyti klasės atributuose.
+PAPILDOMAI: Atrodo ganėtinai paprasta ir mažiau kodo. Viską sugeneruoja automatiškai, pagal tam tikras taisykles. Tačiau, jei prireiktų nestandartinių dalykų, tektų pakeitimus nurodyti klasės atributuose.
 
 Jei, tarkime, į kontekstą prireiktų pridėti kintamąjį, nesusijusį su pačiu modeliu, galėtume daryti taip:
 
