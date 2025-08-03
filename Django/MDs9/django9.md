@@ -281,6 +281,8 @@ class BookReview(models.Model):
 pridėkime į administratoriaus svetainę:
 
 ```python
+from .models import Genre, Author, Book, BookInstance, BookReview
+
 class BookReviewAdmin(admin.ModelAdmin):
     list_display = ['book', 'date_created', 'reviewer', 'content']
 
