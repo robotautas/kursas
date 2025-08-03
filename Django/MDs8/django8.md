@@ -75,7 +75,7 @@ užregistruokime *view*'są *urls.py*:
     path("mybooks/", views.MyBookInstanceListView.as_view(), name="mybooks"),
 ```
 
-Reikės šablono:
+Reikės šablono my_books.html:
 
 ```html
 {% extends "base.html" %}
