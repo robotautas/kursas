@@ -103,13 +103,13 @@ Taip pat norėtųsi, kad autorių sąraše matytųsi, kokias kokias jo knygas bi
     def display_books(self):
         return ', '.join(book.title for book in self.books.all())
 
-    display_books.short_description = 'Knygos'
+    display_books.short_description = 'Books'
 ```
 
 Modelyje *Books* prie lauko *author*, parametruose reikia įrašyti:
 
 ```python
-author = models.ForeignKey(to='Author', on_delete=models.SET_NULL, null=True, related_name='books')
+    author = models.ForeignKey(to="Author", verbose_name="Author", on_delete=models.SET_NULL, null=True, blank=True, related_name="books")
 ```
 
 tokiu būdu sukūrėme ryšį, leidžiantį iš objekto author gauti knygų sąrašą. *related_name='books'* leido mums prašyti autoriaus knygų per *self.**books**.all()*.
