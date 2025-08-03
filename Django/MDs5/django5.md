@@ -50,13 +50,7 @@ Sekantis logiškas žingsnis būtų, kad paspaudus ant autoriaus vardo-pavardės
     description = models.TextField(verbose_name="Description", max_length=3000, default="")
 ```
 
-Po to reikia sukurti dinaminį URL maršrutą pavieniams autoriams. Įterpkime eilutę į urlpatterns sąrašą faile /library/urls.py:
-
-```python
-    path('authors/<int:author_id>', views.author, name='author'),
-```
-
-kaip sufleruoja šios elutės parametrai, reikia sukurti funkciją *author* faile *views.py*:
+Sukuriame funkciją *author* faile *views.py*:
 
 ```python
 from django.shortcuts import render
@@ -66,12 +60,15 @@ def author(request, author_id):
     author = Author.objects.get(pk=author_id)
     return render(request, template_name='author.html', context={'author': author})
 ```
-
 * importuojame funkciją, kuri pagal nurodytą *primary key* traukia konkretų objektą iš modelio *Author*.
 * funkcijos parametruose įrašome *author_id*. Jį funkcija pasigaus iš naršyklės, priklausomai, ant kurio autoriaus paspausite.
 
-pakoreguokime *authors.html* taip, kad kiekvienas autorius būtų nuoroda į savo paties aprašymą:
+Po to reikia sukurti dinaminį URL maršrutą pavieniams autoriams. Įterpkime eilutę į urlpatterns sąrašą faile /library/urls.py:
+```python
+    path('authors/<int:author_id>', views.author, name='author'),
+```
 
+Pakoreguokime *authors.html* taip, kad kiekvienas autorius būtų nuoroda į savo paties aprašymą:
 ```html
   {% for author in authors %}
     <p><a href="{% url 'author' author.id %}">{{author.first_name}} {{author.last_name}}</a></p>
