@@ -70,6 +70,7 @@ Dabar reikia pasirašyti šabloną *base.html*, kurį naudosime dar daug kartų,
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'index' %}">HOME</a>
             </li>
+        </ul>
         </div>
     </div>
 </nav>
