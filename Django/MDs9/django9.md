@@ -294,6 +294,7 @@ padarykime atsiliepimus matomus šablone *book.html* po knygos aprašymu:
 
 ```html
 <h2>Komentarai:</h2>
+<br/>
 {% if book.reviews.all %}
 {% for review in book.reviews.all %}
 <p><strong>{{ review.reviewer }}</strong>, <em>{{ review.date_created }}</em></p>
@@ -361,15 +362,13 @@ class BookDetailView(FormMixin, generic.DetailView):
 
 ```html
 {% if user.is_authenticated %}
-<div class="fieldWrapper">
-    <hr><br/>
-    <h1>Palikite atsiliepimą</h1>
-    <form action="" method="post">
-        {% csrf_token %}
-        {{ form.content }}<br/>
-        <input type="submit" value="Paskelbti">
-    </form>
-</div>
+<h2>Palikite atsiliepimą</h2>
+<form method="post" class="mb-2">
+    {% csrf_token %}
+    {% load crispy_forms_tags %}
+    {{ form | crispy }}
+    <button type="submit" class="btn btn-primary">Paskelbti</button>
+</form>
 {% endif %}
 ```
 
