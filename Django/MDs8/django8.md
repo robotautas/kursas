@@ -30,20 +30,15 @@ Skaitytojo laukelį integruokime ir į administratoriaus svetainę:
 
 ```python
 class BookInstanceAdmin(admin.ModelAdmin):
-    
-    list_display = ['book', 'status', 'reader', 'due_back', 'id']
+    list_display = ['book', 'uuid', 'status', 'reader', 'due_back']
     list_filter = ['status', 'due_back']
+    list_editable = ['status', 'due_back', 'reader']
     search_fields = ['uuid', 'book__title']
-    list_editable = ['status', 'due_back']
-    
-    fieldsets = (
-        (None, {
-            'fields': ('uuid', 'book')
-        }),
-        ('Availability', {
-            'fields': ('status', 'due_back', 'reader')
-        }),
-    )
+
+    fieldsets = [
+        ('General', {'fields': ('book', 'uuid')}),
+        ('Availability', {'fields': ('status', 'due_back', 'reader')}),
+    ]
 ```
 
 Rezultatas atrodys taip:
