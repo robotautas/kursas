@@ -72,9 +72,9 @@ Po to reikia sukurti dinaminį URL maršrutą pavieniams autoriams. Įterpkime e
 
 Pakoreguokime *authors.html* taip, kad kiekvienas autorius būtų nuoroda į savo paties aprašymą:
 ```html
-  {% for author in authors %}
-    <p><a href="{% url 'author' author.id %}">{{author.first_name}} {{author.last_name}}</a></p>
-  {% endfor %}
+{% for author in authors %}
+<p><a href="{% url 'author' author.id %}">{{author.first_name}} {{author.last_name}}</a></p>
+{% endfor %}
 ```
 
 * *{% url 'author' author.id %}* - suformuoja galinį adresą nuorodai į autoriaus aprašymą, pvz /author/3
