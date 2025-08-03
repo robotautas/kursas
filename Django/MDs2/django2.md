@@ -51,6 +51,21 @@ class Genre(models.Model):
 * Nurodėme, kad žanro pavadinimas bus iki 200 eilučių string'as, pagalbinį tekstą, kuris matysis administratoriaus svetainėje.
 * def __str__ nurodėme, kaip reprezentuosis modelis. 
 
+Pridėkime modelį Author: 
+```python
+class Author(models.Model):
+    """Model representing an author."""
+    first_name = models.CharField(verbose_name='Vardas', max_length=100)
+    last_name = models.CharField(verbose_name='Pavardė', max_length=100)
+
+    class Meta:
+        ordering = ['last_name', 'first_name']
+
+    def __str__(self):
+        """String for representing the Model object."""
+        return f'{self.last_name} {self.first_name}'
+```
+
 pridėkime knygos modelį:
 ```python
 from django.urls import reverse #Papildome imports
@@ -100,22 +115,6 @@ class BookInstance(models.Model):
 ```
 
 UUIDField generuos unikalų identifikacinį numerį, pvz. 81afcd8c-7544-4c0e-b2df-838c0c8c3446. Meta klasėje nurodėme, kaip rūšiuosime atvejus.
-
-Pridėkime modelį Author: 
-
-```python
-class Author(models.Model):
-    """Model representing an author."""
-    first_name = models.CharField(verbose_name='Vardas', max_length=100)
-    last_name = models.CharField(verbose_name='Pavardė', max_length=100)
-
-    class Meta:
-        ordering = ['last_name', 'first_name']
-
-    def __str__(self):
-        """String for representing the Model object."""
-        return f'{self.last_name} {self.first_name}'
-```
 
 Modeliai paruošti, dabar paleisime migracijas.
 
