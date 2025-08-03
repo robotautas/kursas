@@ -165,7 +165,7 @@ Papildomai galime susikonfiguruoti meniu base.html faile, kad veiktų prisijungi
             <li class="nav-item">
                 <form method="post" action="{% url 'logout' %}">
                     {% csrf_token %}
-                    <button class="nav-link active" type="submit">Atsijungti</button>
+                    <button class="nav-link" type="submit">Atsijungti</button>
                 </form>
             </li>
           {% else %}
