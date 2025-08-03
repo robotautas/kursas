@@ -14,7 +14,7 @@ from django.utils import timezone
 tuomet papildykime klasę *BookInstance* skaitytoju:
 
 ```python
-reader = models.ForeignKey(to=User, verbose_name="Skaitytojas", on_delete=models.SET_NULL, null=True, blank=True)
+    reader = models.ForeignKey(to=User, verbose_name="Skaitytojas", on_delete=models.SET_NULL, null=True, blank=True)
 ```
 
 toje pačioje klasėje pridėkime metodą, kuris grąžina True, jei yra pasirinkta data ir ji yra ankstesnė, nei šiandienos data:
