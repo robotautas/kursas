@@ -53,7 +53,7 @@ Sekantis logiškas žingsnis būtų, kad paspaudus ant autoriaus vardo-pavardės
 Po to reikia sukurti dinaminį URL maršrutą pavieniams autoriams. Įterpkime eilutę į urlpatterns sąrašą faile /library/urls.py:
 
 ```python
-path('authors/<int:author_id>', views.author, name='author'),
+    path('authors/<int:author_id>', views.author, name='author'),
 ```
 
 kaip sufleruoja šios elutės parametrai, reikia sukurti funkciją *author* faile *views.py*:
