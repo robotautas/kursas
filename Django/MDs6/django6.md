@@ -260,7 +260,7 @@ nuotraukų procesavimui django naudoja pillow biblioteką, todėl:
 $ pip install pillow
 ```
 
-Dabar jau galime pridėti nuotraukas per *admin panel*. Kai per admin puslapį bent vienai knygai priskirsite viršelį, failų struktūroje turėtų atsirasti naujas katalogas 'media' o jame 'covers'. Taip pat į "static/img" katalogą įdėkite paveikslėlį pavadinimu "no-image.png", kuris būtų rodomas, kai knygai nepriskirtas joks viršelis.
+Dabar jau galime pridėti nuotraukas per *admin panel*. Kai per admin puslapį bent vienai knygai priskirsite viršelį, failų struktūroje turėtų atsirasti naujas katalogas 'media' o jame 'covers'. Taip pat į "static/img" katalogą įdėkite paveikslėlį pavadinimu "no-image.png", kuris būtų rodomas, kai knygai nepriskirtas joks viršelis. Kad jį matytumėte, gali tekti iš naujo paleisti Django.
 
 perrašėme *books.html*:
 
