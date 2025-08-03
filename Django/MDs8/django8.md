@@ -21,7 +21,7 @@ toje pačioje klasėje pridėkime metodą, kuris grąžina True, jei yra pasirin
 
 ```python
     def is_overdue(self):
-        return self.due_back and timezone.now() > self.due_back
+        return self.due_back and timezone.now().date() > self.due_back
 ```
 
 ...ir viską numigruokime.
