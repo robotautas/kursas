@@ -160,6 +160,12 @@ INSTALLED_APPS = [
 ]
 ```
 
+Čia pat, settings.py nustatome vietinę laiko zoną:
+```python
+# TIME_ZONE = 'UTC'
+TIME_ZONE = "Europe/Vilnius"
+```
+
 Kol kas neturime jokių duomenų bazės modelių, tačiau django jau susikūrė keletą lentelių vidiniam vartojimui, todėl reikia praleisti migracijas:
 
 ```bash
