@@ -47,12 +47,11 @@ Taip pat sukūriame naują šabloną templates/signup.html:
 Galiausiai pridedame registracijos mygtuką į meniu:
 
 ```html
-          {% else %}
-            <li class="nav-item"><a class="nav-link" href="{% url 'login'%}">Login</a></li>
-            <li class="nav-item"><a class="nav-link" href="{% url 'signup'%}">SignUp</a></li>
-          {% endif %}
-        </ul>
-
+                {% else %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'login'%}">Prisijungti</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'signup'%}">Registracija</a></li>
+                {% endif %}
+            </ul>
 ````
 
 ## ALTERNATYVA: Vartotojo registracija per function-based view'ą
