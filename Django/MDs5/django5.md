@@ -31,12 +31,14 @@ Sukurkime šabloną authors.html:
 ```html
 {% extends "base.html" %}
 
+{% block "title" %}Autoriai{% endblock %}
+
 {% block "content" %}
-  <h1>Autoriai</h1>
-  <p>Mūsų knygų autorių sąrašas.</p>
-  {% for author in authors %}
-    <p>{{author.first_name}} {{author.last_name}}</p>
-    {% endfor %}
+<h1>Autoriai</h1>
+<p>Mūsų knygų autorių sąrašas.</p>
+{% for author in authors %}
+<p>{{author.first_name}} {{author.last_name}}</p>
+{% endfor %}
 {% endblock %}
 ```
 
