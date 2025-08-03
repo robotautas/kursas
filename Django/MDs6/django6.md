@@ -98,9 +98,9 @@ def authors(request):
 na, o šablone galime pritaikyti taip pat kiek kitokį variantą:
 
 ```html
+{% if authors.has_other_pages %}
 <div class="container">
     <nav aria-label="...">
-        {% if authors.has_other_pages %}
             <ul class="pagination pagination-sm justify-content-center">
                 {% for i in authors.paginator.page_range %}
                     {% if authors.number == i %}
@@ -114,9 +114,9 @@ na, o šablone galime pritaikyti taip pat kiek kitokį variantą:
                     {% endif %}
                 {% endfor %}
             </ul>
-        {% endif %}
     </nav>
 </div>
+{% endif %}
 ```
 
 vaizdas bus toks:
