@@ -131,7 +131,13 @@ pakeiskime tai, *settings.py* pridėję eilutę:
 LOGIN_REDIRECT_URL = '/'
 ```
 
-sukurkime logout logged_out.html:
+Taip pat į settings.py pridėkime:
+
+```python
+LOGOUT_REDIRECT_URL = '/'
+```
+
+Arba sukurkime logout logged_out.html:
 
 ```html
 {% extends "base.html" %}
@@ -142,11 +148,6 @@ sukurkime logout logged_out.html:
   <p>Sėkmingai atsijungėte!</p>  
   <a href="{% url 'login'%}">Prisijungti iš naujo.</a>
 {% endblock %}
-```
-Arba, į settings.py pridėkime:
-
-```python
-LOGOUT_REDIRECT_URL = '/'
 ```
 
 ![](logged_out.png)
