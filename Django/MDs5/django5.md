@@ -107,7 +107,7 @@ Dabar išdėliokite knygas views'uose per klases.
 Pirmiausiai papildykime urlpatterns sąrašą:
 
 ```python
-  path('books/', views.BookListView.as_view(), name='books'),
+    path('books/', views.BookListView.as_view(), name='books'),
 ```
 
 Sukurkime klasę views.py:
@@ -171,7 +171,7 @@ class BookDetailView(generic.DetailView):
 
 Papildykime urlpatterns sąrašą (urls.py):
 ```python
-path('books/<int:pk>', views.BookDetailView.as_view(), name='book'),
+    path('books/<int:pk>', views.BookDetailView.as_view(), name='book'),
 ```
 
 ...ir book.html:
