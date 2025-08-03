@@ -42,7 +42,7 @@ išveskime rezultatą į naršyklę. *index.html* pabaigoje pridėkime eilutę:
 
 kaskartą perkrovus puslapį, skaičius paauga. Jeigu pabandytumėt užeiti iš kitos naršyklės, kad ir tame pačiame kompiuteryje, matytumėt kitą skaičių. Tokiu būdu sesijos leidžia kaupti informaciją apie anoniminius vartotojus. 
 
-# Vartotojai, prisijungimas, atsijungimas, slaptažodžio keitimas
+# Vartotojai, prisijungimas, atsijungimas
 
 Sesijų pagrindu sukurta visa django autentifikacijos ir autorizacijos sistema. Autentifikacijos sistema įjungiama automatiškai, inicijavus projektą (kuomet leidome komandą *django-admin startproject*), todėl papildomai jokių nustatymų daryti nereikės. Duomenų bazė jau paruošta vartotojų kūrimui nuo pat pirmosios migracijos. Užregistruokime bibliotekai skaitytojų!
 
@@ -173,9 +173,9 @@ Papildomai galime susikonfiguruoti meniu base.html faile, kad veiktų prisijungi
           {% endif %}
 
 ```
+# Slaptažodžio keitimo šablonai
 
-
-minimalus šablonų kiekis parašytas. Taip pat autentifikacijai reikalingi slaptažodžio keitimo mechanizmai. Šablonus jiems galima perrašyti patiems, tačiau iš pradžių naudosime django standartinius. Taip pat, keičiant slaptažodį reikia, kad django galėtų siųsti laiškus. Į settings.py įrašykime :
+Minimalus šablonų kiekis parašytas. Taip pat autentifikacijai reikalingi slaptažodžio keitimo mechanizmai. Šablonus jiems galima perrašyti patiems, tačiau iš pradžių naudosime django standartinius. Taip pat, keičiant slaptažodį reikia, kad django galėtų siųsti laiškus. Į settings.py įrašykime :
 
 ```python
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
