@@ -4,7 +4,7 @@
 
 Vartotojo registracijai ir vėliau naudosime Crispy formas. Crispy leidžia pritaikyti Bootstrap dizainą automatinėms Django formoms.
 
-Jei dirbame su **Bootstrap5**:
+Jei dirbame su **Bootstrap5** (tai galima pasižiūrėti base.html failo viršuje):
 
 Reikės įsidiegti tai:
 ```console
@@ -33,7 +33,7 @@ CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
 ```
 
-Jei dirbame su **Bootstrap4** (tai galima pasižiūrėti base.html failo viršuje):
+Jei dirbame su **Bootstrap4**:
 
 Reikės įsidiegti tai:
 ```console
