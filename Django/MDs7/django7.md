@@ -80,7 +80,7 @@ accounts/ reset/<uidb64>/<token>/ [name='password_reset_confirm']
 accounts/ reset/done/ [name='password_reset_complete']
 ```
 
-jeigu pabandytumėm aplankyti http://127.0.0.1:8000/library/accounts/login/, gautumėm klaidą, kad trūksta *template*'o:
+jeigu pabandytumėm aplankyti http://127.0.0.1:8000/accounts/login/, gautumėm klaidą, kad trūksta *template*'o:
 
 ```
 ...
