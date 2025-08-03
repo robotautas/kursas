@@ -104,11 +104,6 @@ Turime tokį rezultatą:
 # Class Based Views
 
 Dabar išdėliokite knygas views'uose per klases. 
-Pirmiausiai papildykime urlpatterns sąrašą:
-
-```python
-    path('books/', views.BookListView.as_view(), name='books'),
-```
 
 Sukurkime klasę views.py:
 
@@ -119,6 +114,11 @@ class BookListView(generic.ListView):
     model = Book
     template_name = "books.html"
     context_object_name = "books"
+```
+
+Dabar papildykime urlpatterns sąrašą:
+```python
+    path('books/', views.BookListView.as_view(), name='books'),
 ```
 
 ...ir books.html:
