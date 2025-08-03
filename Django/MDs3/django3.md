@@ -7,14 +7,14 @@ Faile *models.py*, modelio klasės apačioje, sukurkime Meta klasę ir įrašyki
 
 ```python
 class Genre(models.Model):
-    name = models.CharField(verbose_name='Pavadinimas', max_length=200, help_text='Įveskite knygos žanrą (pvz. detektyvas)')
+    name = models.CharField(verbose_name="Name", max_length=200)
+
+    class Meta:
+        verbose_name = 'Genre'
+        verbose_name_plural = 'Genres'
 
     def __str__(self):
         return self.name
-
-    class Meta:
-        verbose_name = 'Žanras'
-        verbose_name_plural = 'Žanrai'
 ```
 
 Pakeiskime modelio Book vaizdavimą administratoriaus svetainėje, kad būtų informatyvesnis:
