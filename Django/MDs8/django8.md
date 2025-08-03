@@ -20,8 +20,8 @@ tuomet papildykime klasę *BookInstance* skaitytoju:
 toje pačioje klasėje pridėkime metodą, kuris grąžina True, jei yra pasirinkta data ir ji yra ankstesnė, nei šiandienos data:
 
 ```python
-def is_overdue(self):
-    return self.due_back and timezone.now() > self.due_back
+    def is_overdue(self):
+        return self.due_back and timezone.now() > self.due_back
 ```
 
 ...ir viską numigruokime.
