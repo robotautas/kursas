@@ -17,6 +17,15 @@ class Genre(models.Model):
         return self.name
 ```
 
+Mėginame perdaryti, kad matytumėm daugiau informacijos knygų aprašymo lentelėje. *title, author* laukai yra aiškūs. Taip pat norėtumėm matyti ir žanrą, tačiau django neleis taip pat paprastai jo įtraukti, nes gausis "database heavy" operacija. Taip yra su many2many laukais. Apribojimą galime apeiti šiek tiek pakoreguojant patį modelį Book - jame pridėkime šias eilutes:
+
+```python
+        def display_genre(self):
+            return ', '.join(genre.name for genre in self.genre.all())
+
+        display_genre.short_description = 'Žanras'
+```
+
 Pakeiskime modelio Book vaizdavimą administratoriaus svetainėje, kad būtų informatyvesnis:
 *admin.py:*
 
@@ -31,15 +40,6 @@ admin.site.register(Book, BookAdmin)
 admin.site.register(Author)
 admin.site.register(Genre)
 admin.site.register(BookInstance)
-```
-
-mėginame perdaryti, kad matytumėm daugiau informacijos knygų aprašymo lentelėje. *title, author* laukai yra aiškūs. Taip pat norėtumėm matyti ir žanrą, tačiau django neleis taip pat paprastai jo įtraukti, nes gausis "database heavy" operacija. Taip yra su many2many laukais. Apribojimą galime apeiti šiek tiek pakoreguojant patį modelį Book - jame pridėkime šias eilutes:
-
-```python
-        def display_genre(self):
-            return ', '.join(genre.name for genre in self.genre.all())
-
-        display_genre.short_description = 'Žanras'
 ```
 
 makemigrations, migrate. Dabar turėtume matyti panašų vaizdą:
