@@ -275,6 +275,7 @@ class BookReview(models.Model):
         verbose_name_plural = 'Book Reviews'
         ordering = ['-date_created']
 ```
+Nepamirštame migracijų!
 
 *Dėmesio!* Užtikrinkite, kad prie ryšinių laukų (book ir reviewer) būtų parametrai null=True ir blank=True. Kitaip formos negalės validuoti prieš priskiriant book ir reviewer.
 
