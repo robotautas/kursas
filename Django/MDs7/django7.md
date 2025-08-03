@@ -58,13 +58,14 @@ pabaigoje rasime *'save'*, jį ir paspauskime.
 
 Į Django integruota visa autentifikacijos sistema - URL mapper'iai, formos, *views'ai*. Tik templates teks susikurti patiems.
 
-Pradėkime nuo *library/urls.py*. Pridėkime:
+Pradėkime nuo *mysite/urls.py*. Pridėkime:
 ```python
 from django.urls import path, include
 
-urlpatterns += [
+...
+
     path('accounts/', include('django.contrib.auth.urls')),
-]
+
 ```
 
 pridėję šį vienintelį narį prie *urlpatterns* sąrašo, realiai gauname visą puokštę naudingų *endpoint*'ų, su gatava už jų esančia logika:
