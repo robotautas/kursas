@@ -328,8 +328,6 @@ Dabar perrašykime *BookDetailView*  *view*'są taip:
 ```python
 from django.shortcuts import render, reverse, get_object_or_404, reverse
 from .forms import BookReviewForm
-
-# Importuojame FormMixin, kurį naudosime BookDetailView klasėje
 from django.views.generic.edit import FormMixin
 
 class BookDetailView(FormMixin, generic.DetailView):
