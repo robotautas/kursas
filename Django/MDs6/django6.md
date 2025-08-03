@@ -133,17 +133,20 @@ papildykime navigaciją paieškos laukeliu:
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="mynavbar">
-        <ul class="navbar-nav me-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'index' %}">HOME</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'tasks' %}">Tasks</a>
-            </li>
-        </ul>
-        <form action="{% url 'search' %}" method="get" class="d-flex">
-            <input name="query" class="form-control me-2" type="text" placeholder="Paieška">
-        </form>
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'index' %}">HOME</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'authors' %}">Autoriai</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="{% url 'books' %}">Knygos</a>
+                </li>
+            </ul>
+            <form action="{% url 'search' %}" method="get" class="d-flex">
+                <input name="query" class="form-control me-2" type="text" placeholder="Paieška">
+            </form>
         </div>
     </div>
 </nav>
