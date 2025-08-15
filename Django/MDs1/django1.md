@@ -152,6 +152,20 @@ urlpatterns = [
 ]
 ```
 
+Tam, kad visi ateityje naudojami įrankiai atpažintų mūsų aplikaciją, ją reikia užregistruoti settings.py:
+
+```python
+INSTALLED_APPS = [
+    'library',
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+]
+```
+
 Taip pririšame app'są prie projekto. Projektas mato mūsų aplikaciją *library*,kaip modulį, tą galime nuspėti iš sintaksės. Galime kurti daug aplikacijų, ir pats centrinis modelis, ir jos pačios viena kitą matys kaip modulius. Pamėginkime paleisti serverį dar kartą:
 
 ```bash
@@ -171,20 +185,6 @@ ir django pasididžiavimas, vienas iš batteries included komponentų, puikioji 
 ![](admin.png)
 
 ...apie kurią būtinai kalbėsime ateityje! 
-
-Tam, kad visi ateityje naudojami įrankiai atpažintų mūsų aplikaciją, ją reikia užregistruoti settings.py:
-
-```python
-INSTALLED_APPS = [
-    'library',
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-]
-```
 
 Čia pat, settings.py nustatome vietinę laiko zoną:
 ```python
