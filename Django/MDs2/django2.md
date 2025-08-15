@@ -87,7 +87,7 @@ import uuid
 class BookInstance(models.Model):
     uuid = models.UUIDField(verbose_name="UUID", default=uuid.uuid4)
     book = models.ForeignKey(to="Book", verbose_name="Book", on_delete=models.SET_NULL, null=True, blank=True, related_name="instances")
-    due_back = models.DateField("Available On", null=True, blank=True)
+    due_back = models.DateField(verbose_name="Available On", null=True, blank=True)
 
     LOAN_STATUS = (
         ('d', 'Administered'),
