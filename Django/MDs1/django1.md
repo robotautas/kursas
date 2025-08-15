@@ -175,4 +175,4 @@ $ python manage.py migrate
 ## Užduotis
 Pradėti kurti Django užduotį – [Autoservisas](https://github.com/robotautas/kursas/wiki/Django-u%C5%BEduotis:-Autoservisas):
 * Sukurti naują Django projektą su appsu autoservice
-* Jame sukurti statinį puslapį index su norimu tekstu
+* Jame sukurti statinį puslapį index su norimu tekstu ir dizainu ;)
