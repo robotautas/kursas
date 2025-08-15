@@ -10,7 +10,7 @@ Django yra internetinių puslapių ir programų framework'as. Pasižymi tokiomis
 * Puikiai dokumentuotas - dokumentacijas anksčiau ar vėliau teks pradėti skaityti, django atveju tai bus žymiai maloniau, negu kad pvz Odoo :)
 * Turbūt pagrindinis - greitas rezultatas (rapid development). Pramokus django, web projektus darysite greitai.
 
-Atkreipkite dėmesį, Django 3.0 palaiko Python 3.6, 3.7, and 3.8 versijas. Django 3 neveiks, jeigu bandysite naudoti su ankstesne už 3.6 python versija. Instaliacija:
+Instaliacija:
 
 ```bash
 $ pip install django
