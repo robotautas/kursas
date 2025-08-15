@@ -77,6 +77,7 @@ Vienas iš django trūkumų - palyginti didelė failų struktūra, kurią reikia
 Taigi, vietoje firminės užsklandos norime matyti kažką savo, gražesnio. Susikurkime app'są!
 
 ```bash
+$ cd mysite
 $ python manage.py startapp library
 ```
 
