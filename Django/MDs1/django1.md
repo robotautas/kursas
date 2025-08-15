@@ -115,6 +115,18 @@ Taigi, prie standartinio *path* importuojame failą views.py, kurį rašėme pri
 * *views.index* - nurodome, kad funkcija, kuri mums grąžins *HttpResponse("Labas, pasauli!")* yra faile *views* ir ji vadinasi *index*.
 * *name='index'* - suteikiame pavdinimą šiam adresui. Ateityje tai bus naudinga referuojant į jį iš šablonų (templates).
 
+Sekantis veiksmas yra sureguliuoti, kaip mūsų app'sas atrodys projekto kontekste. Faile urls.py, kuris yra mysite kataloge, įrašykime tai:
+
+```python
+from django.contrib import admin
+from django.urls import include, path
+
+urlpatterns = [
+    path('library/', include('library.urls')),
+    path('admin/', admin.site.urls),
+]
+```
+
 Jei norime įdėti daugiau dizaino, galime sukurti atskirą html failą. Tam savo appso (library) kataloge sukurkime katalogą templates ir jame sukurkime failą index.html, pavyzdžiui:
 
 ```html
@@ -138,18 +150,6 @@ from django.shortcuts import render
 
 def index(request):
     return render(request, template_name="index.html")
-```
-
-Sekantis veiksmas yra sureguliuoti, kaip mūsų app'sas atrodys projekto kontekste. Faile urls.py, kuris yra mysite kataloge, įrašykime tai:
-
-```python
-from django.contrib import admin
-from django.urls import include, path
-
-urlpatterns = [
-    path('library/', include('library.urls')),
-    path('admin/', admin.site.urls),
-]
 ```
 
 Tam, kad visi ateityje naudojami įrankiai atpažintų mūsų aplikaciją, ją reikia užregistruoti settings.py:
