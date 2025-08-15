@@ -115,6 +115,31 @@ Taigi, prie standartinio *path* importuojame failą views.py, kurį rašėme pri
 * *views.index* - nurodome, kad funkcija, kuri mums grąžins *HttpResponse("Labas, pasauli!")* yra faile *views* ir ji vadinasi *index*.
 * *name='index'* - suteikiame pavdinimą šiam adresui. Ateityje tai bus naudinga referuojant į jį iš šablonų (templates).
 
+Jei norime įdėti daugiau dizaino, galime sukurti atskirą html failą. Tam savo appso (library) kataloge sukurkime katalogą templates ir jame sukurkime failą index.html, pavyzdžiui:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mūsų biblioteka</title>
+</head>
+<body>
+<h1>Mūsų biblioteka</h1>
+<p>Sveiki atvykę į mūsų bibliotekos svetainę!</p>
+</body>
+</html>
+```
+
+Taip pat reikės paredaguoti rodinį, kad jis matytų mūsų naują šabloną views.py faile:
+
+```python
+from django.shortcuts import render
+
+def index(request):
+    return render(request, template_name="index.html")
+```
+
 Sekantis veiksmas yra sureguliuoti, kaip mūsų app'sas atrodys projekto kontekste. Faile urls.py, kuris yra mysite kataloge, įrašykime tai:
 
 ```python
