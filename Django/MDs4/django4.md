@@ -206,7 +206,7 @@ Kelioms eilutėms ar kitam kodui užkomentuoti:
 
  ## Užduotis
 Tęsti kurti Django užduotį – [Autoservisas](https://github.com/robotautas/kursas/wiki/Django-u%C5%BEduotis:-Autoservisas):
-* Padaryti, kad programa matytų templates ir static katalogus
+* Padaryti, kad programa matytų static katalogą, išbandyti (įdėti į jį css failą)
 * Jeigu reikia, padaryti nukreipimą iš puslapio "/" į "/autoservice" (redirect)
 * Pridėti pasirenkamą statuso lauką į užsakymų modelį
 * Susikurti savo puslapio stilių (base.html failą). Jei reikia, pridėkite css ir kitus failus (patartina naudoti bootstrap). Galite panaudoti paskaitoje rodytus pavyzdžius. Panaudokite frontend kurse išmoktas žinias! :)
