@@ -77,7 +77,7 @@ Modelis iš esmės pats save aprašantis. Į ką reikėtų atkreipti dėmesį:
 * author lauko parametruose *on_delete=models.SET_NULL* reiškia, kad ištrynus autorių, knygą neišsitrins, tiesiog vietoje autoriaus bus nustatytas NULL laukas.
 * *null=True* - leidžia duomenų bazėje nurodyti *NULL* reikšmę. Plačiau apie parametro naudojimą [čia](https://i.stack.imgur.com/TMMej.png) ir [čia](https://i.stack.imgur.com/gUanA.png).
 
-Sukurkime dar vieną modelį:
+Sukurkime dar vieną, atskirų knygos kopijų (egzempliorių), modelį:
 
 ```python
 import uuid
