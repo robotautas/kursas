@@ -14,7 +14,7 @@ class BookListView(generic.ListView):
 Taip pat reikia pakoreguoti šabloną, pačioje pabaigoje, prieš *endblock*:
 
 ```html
-{% if paginator.has_other_pages %}
+{% if is_paginated %}
 <ul class="pagination justify-content-center">
     {% if page_obj.has_previous %}
     <li class="page-item">
