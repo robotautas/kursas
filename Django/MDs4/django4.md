@@ -210,6 +210,6 @@ Tęsti kurti Django užduotį – [Autoservisas](https://github.com/robotautas/k
 * Jeigu reikia, padaryti nukreipimą iš puslapio "/" į "/autoservice" (redirect)
 * Pridėti pasirenkamą statuso lauką į užsakymų modelį
 * Susikurti savo puslapio stilių (base.html failą). Jei reikia, pridėkite css ir kitus failus (patartina naudoti bootstrap). Galite panaudoti paskaitoje rodytus pavyzdžius. Panaudokite frontend kurse išmoktas žinias! :)
-* Patobulinti index.html puslapį (ne admin), kuriame būtų matoma statistika: paslaugų kiekis, atliktų užsakymų kiekis, automobilių kiekis
+* Patobulinti index.html puslapį (ne admin), kuriame būtų matoma statistika: paslaugų kiekis, atliktų užsakymų kiekis, autoservise registruotų automobilių kiekis
 
 [Atsakymas](https://github.com/DonatasNoreika/autoservisas)
