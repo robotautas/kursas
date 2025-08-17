@@ -190,6 +190,9 @@ ir django pasididžiavimas, vienas iš batteries included komponentų, puikioji 
 ```python
 # TIME_ZONE = 'UTC'
 TIME_ZONE = "Europe/Vilnius"
+
+# USE_TZ = True
+USE_TZ = False
 ```
 
 Kol kas neturime jokių duomenų bazės modelių, tačiau django jau susikūrė keletą lentelių vidiniam vartojimui, todėl reikia praleisti migracijas:
