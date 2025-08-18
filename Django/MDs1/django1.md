@@ -143,8 +143,8 @@ INSTALLED_APPS = [
 
 Taip pririšame app'są prie projekto. Projektas mato mūsų aplikaciją *library*,kaip modulį, tą galime nuspėti iš sintaksės. Galime kurti daug aplikacijų, ir pats centrinis modelis, ir jos pačios viena kitą matys kaip modulius. Pamėginkime paleisti serverį dar kartą:
 
-```bash
-$ python manage.py runserver
+```cmd
+python manage.py runserver
 ```
 
 Užėję į 127.0.0.1:8000 matome, kad raketa dingo, vietoj jos turime klaidos pranešimą:
