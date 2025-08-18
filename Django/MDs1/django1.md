@@ -38,6 +38,7 @@ konsolėje nieko neįvyko, tačiau atkreipkite dėmesį, kad ten, kur iniciavote
 Mūsų projektas jau veikia lokaliame vystymo (*development*) serveryje:
 
 ```cmd
+cd mysite
 python manage.py runserver
 ```
 
@@ -51,7 +52,6 @@ Vienas iš django trūkumų - palyginti didelė failų struktūra, kurią reikia
 Taigi, vietoje firminės užsklandos norime matyti kažką savo, gražesnio. Susikurkime app'są!
 
 ```cmd
-cd mysite
 python manage.py startapp library
 ```
 
