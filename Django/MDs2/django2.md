@@ -132,15 +132,8 @@ admin.site.register(BookInstance)
 
 Susikurkime supervartotoją (prisijungimas administratoriui):
 
-```bash
-$ python manage.py createsuperuser
-Username (leave blank to use 'your_current_linux_user'): admin
-Email address: 
-Password: 
-Password (again): 
-This password is too short. It must contain at least 8 characters.
-Bypass password validation and create user anyway? [y/N]: y
-Superuser created successfully.
+```cmd
+python manage.py createsuperuser
 ```
 
 Prisijunkime prie 127.0.0.1:8000/admin ir susiveskime po keletą objektų!
