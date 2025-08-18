@@ -10,8 +10,7 @@ Django yra internetinių puslapių ir programų framework'as. Pasižymi tokiomis
 * Puikiai dokumentuotas - dokumentacijas anksčiau ar vėliau teks pradėti skaityti, django atveju tai bus žymiai maloniau, negu kad pvz Odoo :)
 * Turbūt pagrindinis - greitas rezultatas (rapid development). Pramokus django, web projektus darysite greitai.
 
-Instaliacija:
-
+Instaliacija. Visų pirma terminale (PyCharm programoje Alt+F12) įdiegiame django:
 ```cmd
 pip install django
 ```
