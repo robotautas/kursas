@@ -14,7 +14,7 @@ Programos schema:
 
 ![](schema.png)
 
-[Atsakymas](https://github.com/DonatasNoreika/todo_library_renew2_20250803.git)
+[Atsakymas - nežiūrėti ;)](https://github.com/DonatasNoreika/todo_library_renew2_20250803.git)
 
 # Modeliai
 
