@@ -31,8 +31,8 @@ Successfully installed asgiref-3.2.7 django-3.0.5 pytz-2019.3 sqlparse-0.3.1
 
 pirmą kartą naudodami django turėsite pasirūpinti pradinio karkaso inicijavimu (initial setup): 
 
-```bash 
-$ django-admin startproject mysite
+```cmd 
+django-admin startproject mysite
 ```
 
 konsolėje nieko neįvyko, tačiau atkreipkite dėmesį, kad ten, kur iniciavote komandą, atsirado katalogas mysite. Čia gulės mūsų projektas. Jis turi tokią struktūrą:
