@@ -102,15 +102,6 @@ class BookInstance(models.Model):
 
 UUIDField generuos unikalų identifikacinį numerį, pvz. 81afcd8c-7544-4c0e-b2df-838c0c8c3446. Meta klasėje nurodėme, kaip rūšiuosime atvejus.
 
-Čia pat, settings.py nustatome vietinę laiko zoną:
-```python
-# TIME_ZONE = 'UTC'
-TIME_ZONE = "Europe/Vilnius"
-
-# USE_TZ = True
-USE_TZ = False
-```
-
 Jau turime keletą duomenų bazės modelių, taip pat django jau susikūrė keletą lentelių vidiniam vartojimui, todėl reikia praleisti migracijas:
 
 ```bash
@@ -135,6 +126,15 @@ Operations to perform:
   Apply all migrations: admin, auth, contenttypes, library, sessions
 Running migrations:
   Applying library.0001_initial... OK
+```
+
+Kad programa teisingai fiksuotų laiką, galime nustatyti laiko zoną faile settings.py:
+```python
+# TIME_ZONE = 'UTC'
+TIME_ZONE = "Europe/Vilnius"
+
+# USE_TZ = True
+USE_TZ = False
 ```
 
 # Administratoriaus svetainė
