@@ -104,30 +104,10 @@ UUIDField generuos unikalų identifikacinį numerį, pvz. 81afcd8c-7544-4c0e-b2d
 
 Jau turime keletą duomenų bazės modelių, taip pat django jau susikūrė keletą lentelių vidiniam vartojimui, todėl reikia praleisti migracijas:
 
-```bash
-$ python manage.py makemigrations
-$ python manage.py migrate
+```cmd
+python manage.py makemigrations
+python manage.py migrate
 ```
-
-```bash
-$ python manage.py makemigrations
-Migrations for 'library':
-  library/migrations/0001_initial.py
-    - Create model Author
-    - Create model Book
-    - Create model Genre
-    - Create model BookInstance
-    - Add field genre to book
-```
-
-```bash
-$ python manage.py migrate
-Operations to perform:
-  Apply all migrations: admin, auth, contenttypes, library, sessions
-Running migrations:
-  Applying library.0001_initial... OK
-```
-
 Kad programa teisingai fiksuotų laiką, galime nustatyti laiko zoną faile settings.py:
 ```python
 # TIME_ZONE = 'UTC'
