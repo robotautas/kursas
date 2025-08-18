@@ -12,21 +12,8 @@ Django yra internetinių puslapių ir programų framework'as. Pasižymi tokiomis
 
 Instaliacija:
 
-```bash
-$ pip install django
-Collecting django
-  Downloading https://files.pythonhosted.org/packages/a9/4f/8a247eee2958529a6a805d38fbacd9764fd566462fa0016aa2a2947ab2a6/Django-3.0.5-py3-none-any.whl (7.5MB)
-    100% |████████████████████████████████| 7.5MB 246kB/s 
-Collecting asgiref~=3.2 (from django)
-  Downloading https://files.pythonhosted.org/packages/68/00/25013f7310a56d17e1ab6fd885d5c1f216b7123b550d295c93f8e29d372a/asgiref-3.2.7-py2.py3-none-any.whl
-Collecting pytz (from django)
-  Downloading https://files.pythonhosted.org/packages/e7/f9/f0b53f88060247251bf481fa6ea62cd0d25bf1b11a87888e53ce5b7c8ad2/pytz-2019.3-py2.py3-none-any.whl (509kB)
-    100% |████████████████████████████████| 512kB 2.5MB/s 
-Collecting sqlparse>=0.2.2 (from django)
-  Downloading https://files.pythonhosted.org/packages/85/ee/6e821932f413a5c4b76be9c5936e313e4fc626b33f16e027866e1d60f588/sqlparse-0.3.1-py2.py3-none-any.whl (40kB)
-    100% |████████████████████████████████| 40kB 6.8MB/s 
-Installing collected packages: asgiref, pytz, sqlparse, django
-Successfully installed asgiref-3.2.7 django-3.0.5 pytz-2019.3 sqlparse-0.3.1
+```cmd
+pip install django
 ```
 
 pirmą kartą naudodami django turėsite pasirūpinti pradinio karkaso inicijavimu (initial setup): 
@@ -51,20 +38,8 @@ konsolėje nieko neįvyko, tačiau atkreipkite dėmesį, kad ten, kur iniciavote
 
 Mūsų projektas jau veikia lokaliame vystymo (*development*) serveryje:
 
-```bash
-$ python manage.py runserver
-Watching for file changes with StatReloader
-Performing system checks...
-
-System check identified no issues (0 silenced).
-
-You have 17 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.
-Run 'python manage.py migrate' to apply them.
-
-April 06, 2020 - 17:50:02
-Django version 3.0.5, using settings 'mysite.settings'
-Starting development server at http://127.0.0.1:8000/
-Quit the server with CONTROL-C.
+```cmd
+python manage.py runserver
 ```
 
 Pirmą kartą panaudojome manage.py! 
@@ -76,9 +51,9 @@ Vienas iš django trūkumų - palyginti didelė failų struktūra, kurią reikia
 
 Taigi, vietoje firminės užsklandos norime matyti kažką savo, gražesnio. Susikurkime app'są!
 
-```bash
-$ cd mysite
-$ python manage.py startapp library
+```cmd
+cd mysite
+python manage.py startapp library
 ```
 
 Dabar turime projektą mysite, o jame app'są library. Vienas projektas gali turėti daug app'sų. Failų struktūra dabar atrodo taip:
