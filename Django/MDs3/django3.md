@@ -167,7 +167,7 @@ Tęsti kurti Django užduotį – [Autoservisas](https://github.com/robotautas/k
 * Į Automobilių sąrašą įdėti filtrą pagal klientą, automobilio gamintoją ir modelį
 * Į Automobilių sąrašą įdėti paiešką pagal valstybinį numerį ir VIN kodą
 * Prie užsakymo eilutės modelio pridėti lauką "line_sum" (per metodą), kuris būtų automatiškai paskaičiuotas, padauginus kiekį iš paslaugos kainos. Jį atvaizduoti (Užsakymų sąraše ir/arba užsakymo formoje).
-* Prie užsakymo pridėti lauką "total" (per metodą), kuri būtų automatiškai paskaičiuojamas pagal realias užsakymo eilučių sumas. Jį atvaizduoti (Užsakymų eilučių sąraše ir/arba užsakymo eilutės formoje, ar net pačiame užsakyme).
+* Prie užsakymo pridėti lauką "total" (per metodą), kuris būtų automatiškai paskaičiuojamas pagal realias užsakymo eilučių sumas. Jį atvaizduoti (Užsakymų sąraše, ir/arba pačiame užsakyme).
 
 
 [Atsakymas](https://github.com/DonatasNoreika/autoservisas)
