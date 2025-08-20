@@ -154,7 +154,7 @@ class BookInstanceAdmin(admin.ModelAdmin):
     list_display = ['book', 'due_back', 'id', 'status']
     list_editable = ['due_back', 'status']
     list_filter = ['status', 'due_back']
-    search_fields = ['id', 'book__title']
+    search_fields = ['uuid', 'book__title']
 ```
 
  ## Užduotis
