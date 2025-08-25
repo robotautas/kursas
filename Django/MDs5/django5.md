@@ -191,7 +191,7 @@ Papildykime urlpatterns sąrašą (urls.py):
     {% if book.instances.all %}
     {% for copy in book.instances.all %}
     <hr>
-<p class="{% if copy.status == 'g' %}text-success{% elif copy.status == 'p' %}text-danger{% elif copy.status == 'r' %}text-warning{% endif %}"><strong>{{ copy.get_status_display }}</strong></p>
+<p class="{% if copy.status == 'a' %}text-success{% elif copy.status == 't' %}text-danger{% elif copy.status == 'r' %}text-warning{% endif %}"><strong>{{ copy.get_status_display }}</strong></p>
     {% if copy.due_back %}
     <p><strong>Bus gražinta: </strong>{{ copy.due_back }}</p>
     {% endif %}
