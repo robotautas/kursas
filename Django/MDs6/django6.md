@@ -306,7 +306,7 @@ Parodykime viršelius ir atskirų knygų aprašymuose. Prieš pavadinimo bloką 
 Tęsti kurti Django užduotį – [Autoservisas](https://github.com/robotautas/kursas/wiki/Django-u%C5%BEduotis:-Autoservisas):
 * Padaryti, kad įrašai užsakymų puslapyje būtų puslapiuojami (per klasę).
 * Padaryti, kad įrašai automobilių puslapyje būtų puslapiuojami (per funkciją).
-* Puslapyje įdėti paieškos laukelį, kuris ieškotų automobilių pagal savininką, modelį, valstybinį numerį, VIN kodą
+* Puslapyje įdėti paieškos laukelį, kuris ieškotų automobilių pagal savininką, markę, modelį, valstybinį numerį, VIN kodą
 * Padaryti, kad prie automobilio įrašo galima būtų pridėti nuotrauką (per admin puslapį) ir ji būtų atvaizduojama automobilių puslapyje. Nuotrauka būtų atvaizduojama ir vieno automobilio aprašyme.
 
 [Atsakymas](https://github.com/DonatasNoreika/autoservisas)
