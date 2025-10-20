@@ -234,4 +234,5 @@ ORDER BY price DESC;
 
 ![](having2.png)
 
-Išrinktos mašinos, kurių tarpe nėra toyotų, mercury ir volvo. Išfiltruotos tos, kurios senesnės už 2007m. Išrūšiuotos pagal gamintoją.
+Išrinktos mašinos, kurių tarpe nėra toyotų, mercury ir volvo. Išfiltruotos tos, kurios senesnės už 2007m. Išrūšiuotos pagal kainą mažėjančia tvarka.
+
