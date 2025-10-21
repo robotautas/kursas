@@ -1,3 +1,7 @@
+Norime sukurti duomenų bazę pagal tokią schemą:
+
+![](diagrama_su_pavadinimais.png)
+
 # CREATE TABLE
 
 Sukurkime paprastą lentelę:
@@ -192,16 +196,3 @@ INSERT INTO "passwords" ("coder_id", "pwd") VALUES ('4', 'uauauai');
 INSERT INTO "passwords" ("coder_id", "pwd") VALUES ('5', 'slaptazodis');
 INSERT INTO "passwords" ("coder_id", "pwd") VALUES ('6', 'barzda');
 ```
-
-Galutinis mūsų duomenų bazės variantas atrodo taip:
-
-![](diagrama_su_pavadinimais.png)
-
-
-
-
-
-
-
-
-
