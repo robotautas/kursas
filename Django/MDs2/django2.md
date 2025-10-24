@@ -18,21 +18,6 @@ Programos schema:
 
 Duomenų bazės modeliui imsime paprastą bibliotekos pavyzdį, kuris turi visus reliacinius ryšius:
 
-KNYGA:
-
-* Pavadinimas
-* Autorius(Many2one) ----> Vardas, knygos(ryšys)
-* Aprašymas
-* ISBN
-* Žanras(Many2many) ---> Pavadinimas, knygos(ryšys)
-
-Knyga turės ne tik aukščiau aprašytus teorinius duomenis, bet ir fizinių kopijų statusą atspindinčią lentelę:
-
-* unikalus ID
-* statusas (paskolinta, rezervuota, laisva)
-* kada galima pasiskolinti (data)
-* ryšys su aprašymu
-
 Django turi nuosavą ORM sistemą, kuri skiriasi nuo SQLAlchemy. Savo aplikacijos modelius kursime models.py faile. Pradėkime nuo pačio paprasčiausio - Žanras:
 
 ```python
@@ -46,7 +31,7 @@ class Genre(models.Model):
 ```
 * Importavome modelių paketą
 * Sukūrėme klasę *(models.Model)*
-* Nurodėme, kad žanro pavadinimas bus iki 200 eilučių string'as, pagalbinį tekstą, kuris matysis administratoriaus svetainėje.
+* Nurodėme, kad žanro pavadinimas bus iki 200 eilučių string'as.
 * def __str__ nurodėme, kaip reprezentuosis modelis. 
 
 Pridėkime modelį Author: 
@@ -75,7 +60,7 @@ class Book(models.Model):
 Modelis iš esmės pats save aprašantis. Į ką reikėtų atkreipti dėmesį:
 
 * author lauko parametruose *on_delete=models.SET_NULL* reiškia, kad ištrynus autorių, knygą neišsitrins, tiesiog vietoje autoriaus bus nustatytas NULL laukas.
-* *null=True* - leidžia duomenų bazėje nurodyti *NULL* reikšmę. Plačiau apie parametro naudojimą [čia](https://i.stack.imgur.com/TMMej.png) ir [čia](https://i.stack.imgur.com/gUanA.png).
+* *null=True* - leidžia duomenų bazėje nurodyti *NULL* reikšmę.
 
 Sukurkime dar vieną, atskirų knygos kopijų (egzempliorių), modelį:
 
