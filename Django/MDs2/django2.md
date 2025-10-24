@@ -21,7 +21,7 @@ Duomenų bazės modeliui imsime paprastą bibliotekos pavyzdį, kuris turi visus
 KNYGA:
 
 * Pavadinimas
-* Autorius(One2many) ----> Vardas, knygos(ryšys)
+* Autorius(Many2one) ----> Vardas, knygos(ryšys)
 * Aprašymas
 * ISBN
 * Žanras(Many2many) ---> Pavadinimas, knygos(ryšys)
