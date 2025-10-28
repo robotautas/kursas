@@ -158,17 +158,5 @@ ON person.car_id = car.id
 
 Rezultate matome, kad sujungtos buvo ir tos eilutės, kur *person* neturi car_id.
 
-## Full Outer Join pavyzdys su SQLITE:
-```sql
-SELECT person.first_name, person.last_name, car.make, car.model
-FROM person
-LEFT JOIN car ON person.car_id = car.id
-
-UNION
-
-SELECT person.first_name, person.last_name, car.make, car.model
-FROM car
-LEFT JOIN person ON person.car_id = car.id
-```
 
 
