@@ -173,6 +173,8 @@ Taip Django nurodoma, kur ieškoti statinių failų. Galėsite ant Bootstrap ar 
 
 ![](screenshot.png)
 
+PAPILDOMAI:
+
 Šiuo metu mūsų veikiančio puslapio URL adresas yra *127.0.0.1:8000/library*. Jeigu neketiname prie to paties projekto rišti daugiau aplikacijų, galime padaryti nukreipimą iš */library* į /. Tam dar kartą atsidarysime /mysite/urls.py ir perrašysime taip:
 
 ```python
