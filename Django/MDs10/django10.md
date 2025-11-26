@@ -201,7 +201,7 @@ python3 manage.py collectstatic
 
 Programa turi veikti.
 
-[https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/](https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/)
+[https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/](https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/)
 
 Būtinai perskaitykite šitą, nepalikite savo kode secret key, slaptažodžių ir t.t., yra botai kurie skanuoja visą githubą ieškodami būtent šitų eilučių. 
 
