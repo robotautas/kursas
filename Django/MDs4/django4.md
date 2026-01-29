@@ -114,7 +114,7 @@ Taip veikia DjangoTemplates šablonų paveldėjimo mechanizmas.
 * *{% extends "base.html" %}* - nurodome, kad šį turinį talpinsime į base.html 'apvalkalą'.
 * *{% block content %} ir {% endblock %}* - rodo, kur bus mūsų 'įterpinio' pradžia ir pabaiga.
 
-Taip pat settings.py galime nurodyti, kur bus mūsų templates katalogas (to nenurodyti nebūtina, tada templates katalogas turi būti mūsų app'so (library) kataloge):
+Taip pat galime nurodyti, kur bus mūsų templates katalogas (to nenurodyti nebūtina, tada templates katalogas turi būti mūsų app'so (library) kataloge) faile settings.py:
 
 ```python
 TEMPLATES = [
@@ -142,7 +142,7 @@ h1 {
 }
 ```
 
-*/mysite/urls.py* perrašykime sekančiai:
+Perrašykime sekančiai faike */mysite/urls.py*:
 
 ```python
 from django.contrib import admin
@@ -156,7 +156,7 @@ urlpatterns = [
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 ```
 
-Galbūt atkreipėte dėmesį, *base.html* buvo tokios eilutės:
+Galbūt atkreipėte dėmesį, buvo tokios eilutės *base.html*:
 
 ```html
 {% load static %}
@@ -175,7 +175,7 @@ Dabar visų svetainėje esančių h1 tagų tekstai turėtų nusidažyti raudona 
 
 PAPILDOMAI:
 
-Šiuo metu mūsų veikiančio puslapio URL adresas yra *127.0.0.1:8000/library*. Jeigu neketiname prie to paties projekto rišti daugiau aplikacijų, galime padaryti nukreipimą iš */library* į /. Tam dar kartą atsidarysime /mysite/urls.py ir perrašysime taip:
+Šiuo metu mūsų veikiančio puslapio URL adresas yra *127.0.0.1:8000/library*. Jeigu neketiname prie to paties projekto rišti daugiau aplikacijų, galime padaryti nukreipimą iš */library* į /. Tam dar kartą atsidarysime ir perrašysime /mysite/urls.py :
 
 ```python
 from django.contrib import admin
