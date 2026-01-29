@@ -46,7 +46,7 @@ Dabar reikia pasirašyti šabloną *base.html*, kurį naudosime dar daug kartų,
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>{% block "title" %}{% endblock %}</title>
+    <title>{% block title %}{% endblock %}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -78,7 +78,7 @@ Dabar reikia pasirašyti šabloną *base.html*, kurį naudosime dar daug kartų,
 <div class="container mt-4">
     <div class="row">
         <div class="col-sm">
-            {% block "content" %}{% endblock %}
+            {% block content %}{% endblock %}
         </div>
     </div>
 </div>
@@ -96,9 +96,9 @@ Kol kas palikime taip, eigoje kažkiek keisime. Atkreipkite dėmesį į 5 eilut�
 ```html
 {% extends "base.html" %}
 
-{% block "title" %}HOME{% endblock %}
+{% block title %}HOME{% endblock %}
 
-{% block "content" %}
+{% block content %}
   <h1>Šiuo metu turime:</h1>
   <ul>
     <li><strong>Knygų:</strong> {{ num_books }}</li>
@@ -112,7 +112,7 @@ Kol kas palikime taip, eigoje kažkiek keisime. Atkreipkite dėmesį į 5 eilut�
 Taip veikia DjangoTemplates šablonų paveldėjimo mechanizmas. 
 
 * *{% extends "base.html" %}* - nurodome, kad šį turinį talpinsime į base.html 'apvalkalą'.
-* *{% block "content" %} ir {% endblock %}* - rodo, kur bus mūsų 'įterpinio' pradžia ir pabaiga.
+* *{% block content %} ir {% endblock %}* - rodo, kur bus mūsų 'įterpinio' pradžia ir pabaiga.
 
 Taip pat settings.py galime nurodyti, kur bus mūsų templates katalogas (to nenurodyti nebūtina, tada templates katalogas turi būti mūsų app'so (library) kataloge):
 
@@ -142,8 +142,6 @@ h1 {
 }
 ```
 
-Dabar visų svetainėje esančių h1 tagų tekstai turėtų nusidažyti raudona spalva. Čia pat galime apsirašyti daug papildomo CSS kodo, kuris keis svetainės dizainą.
-
 */mysite/urls.py* perrašykime sekančiai:
 
 ```python
@@ -168,6 +166,8 @@ Galbūt atkreipėte dėmesį, *base.html* buvo tokios eilutės:
 ir dar, settings.py, pati paskutinė eilutė yra *STATIC_URL = '/static/'*. Pabandykite logiškai susieti šiuos 4 epizodus :) 
 
 Taip Django nurodoma, kur ieškoti statinių failų. Galėsite ant Bootstrap ar kito CSS karkaso viršaus darašinėti savo stiliaus korekcijas. Static, apima ne tik CSS, tačiau ir JS skriptus, paveikslėlius. Pastaruosius aptarsime vėlesnėje eigoje. 
+
+Dabar visų svetainėje esančių h1 tagų tekstai turėtų nusidažyti raudona spalva. Čia pat galime apsirašyti daug papildomo CSS kodo, kuris keis svetainės dizainą.
 
 Štai taip dabar atrodo mūsų aplikacija:
 
