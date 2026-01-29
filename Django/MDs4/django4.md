@@ -36,7 +36,7 @@ def index(request):
 ```
 
 Kaip rašyti Django ORM (SQL) užklausas:
-[https://docs.djangoproject.com/en/5.0/topics/db/queries/](https://docs.djangoproject.com/en/6.0/topics/db/queries/)
+[https://docs.djangoproject.com/en/6.0/topics/db/queries/](https://docs.djangoproject.com/en/6.0/topics/db/queries/)
 
 Trumpus paaiškinimus rasite komentaruose. 
 
