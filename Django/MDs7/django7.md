@@ -136,14 +136,8 @@ Exception Value: registration/login.html
             <h2 class="mb-4 text-center">Login</h2>
             <form method="post">
                 {% csrf_token %}
-                <div class="mb-3">
-                    <label for="id_username" class="form-label">Vartotojo vardas</label>
-                    <input type="text" name="username" autofocus required id="id_username" class="form-control">
-                </div>
-                <div class="mb-3">
-                    <label for="id_password" class="form-label">Slaptažodis</label>
-                    <input type="password" name="password" required id="id_password" class="form-control">
-                </div>
+                {% load crispy_forms_tags %}
+                {{ form | crispy }}
                 <button type="submit" class="btn btn-primary w-100">Prisijungti</button>
                 <input type="hidden" name="next" value="{{ next }}"/>
             </form>
@@ -270,22 +264,8 @@ Anksčiau minėjau, kad galima perrašyti standartinius django slaptažodžių p
             <h2 class="mb-4 text-center">Slaptažodžio keitimas</h2>
             <form method="post">
                 {% csrf_token %}
-                {% if form.errors %}
-                <div class="alert alert-danger">
-                    {% for field in form %}
-                    {% for error in field.errors %}
-                    <div>{{ error }}</div>
-                    {% endfor %}
-                    {% endfor %}
-                    {% for error in form.non_field_errors %}
-                    <div>{{ error }}</div>
-                    {% endfor %}
-                </div>
-                {% endif %}
-                <div class="mb-3">
-                    <label for="id_email" class="form-label">El. pašto adresas</label>
-                    <input type="email" name="email" required id="id_email" class="form-control" autofocus>
-                </div>
+                {% load crispy_forms_tags %}
+                {{ form | crispy }}
                 <button type="submit" class="btn btn-primary w-100">Išsiųsti slaptažodžio keitimo el. laišką</button>
             </form>
         </div>
@@ -371,27 +351,8 @@ Arba vaizdingiau:
             <h2 class="mb-4 text-center">Įveskite naują slaptažodį ir pakartokite</h2>
             <form method="post">
                 {% csrf_token %}
-                {% if form.errors %}
-                <div class="alert alert-danger">
-                    {% for field in form %}
-                    {% for error in field.errors %}
-                    <div>{{ error }}</div>
-                    {% endfor %}
-                    {% endfor %}
-                    {% for error in form.non_field_errors %}
-                    <div>{{ error }}</div>
-                    {% endfor %}
-                </div>
-                {% endif %}
-                <div class="mb-3">
-                    <label for="id_new_password1" class="form-label">Naujas slaptažodis</label>
-                    <input type="password" name="new_password1" required id="id_new_password1" class="form-control"
-                           autofocus>
-                </div>
-                <div class="mb-3">
-                    <label for="id_new_password2" class="form-label">Pakartokite naują slaptažodį</label>
-                    <input type="password" name="new_password2" required id="id_new_password2" class="form-control">
-                </div>
+                {% load crispy_forms_tags %}
+                {{ form | crispy }}
                 <button type="submit" class="btn btn-primary w-100">Pakeisti slaptažodį</button>
             </form>
         </div>
