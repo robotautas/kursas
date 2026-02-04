@@ -201,7 +201,7 @@ Papildomai galime susikonfiguruoti meniu base.html faile, kad veiktų prisijungi
           {% endif %}
 
 ```
-# Slaptažodžio keitimo šablonai
+## Slaptažodžio keitimo šablonai
 
 Minimalus šablonų kiekis parašytas. Taip pat autentifikacijai reikalingi slaptažodžio keitimo mechanizmai. Šablonus jiems galima perrašyti patiems, tačiau iš pradžių naudosime django standartinius. Taip pat, keičiant slaptažodį reikia, kad django galėtų siųsti laiškus. Į settings.py įrašykime :
 
