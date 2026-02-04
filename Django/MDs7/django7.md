@@ -88,7 +88,7 @@ settings.py gale:
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
 ```
-##Vartotojo prisijungimas/atsijungimas
+## Vartotojo prisijungimas/atsijungimas
 
 Į Django integruota visa autentifikacijos sistema - URL mapper'iai, formos, *views'ai*. Tik templates teks susikurti patiems.
 
