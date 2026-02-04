@@ -56,6 +56,39 @@ Tuomet sukurkime vartotoją, įveskime *username*, slaptažodį ir *save*. Tuome
 
 pabaigoje rasime *'save'*, jį ir paspauskime.
 
+## Crispy Formos
+
+Vartotojo registracijai ir vėliau naudosime Crispy formas. Crispy leidžia pritaikyti Bootstrap dizainą automatinėms Django formoms.
+
+Jei dirbame su **Bootstrap5** (tai galima pasižiūrėti base.html failo viršuje):
+
+Reikės įsidiegti tai:
+```console
+pip install django-crispy-forms crispy-bootstrap5
+```
+
+```python
+INSTALLED_APPS = [
+    'tinymce',
+    'library',
+    'crispy_forms',
+    'crispy_bootstrap5',
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+]
+```
+
+settings.py gale:
+```python
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
+```
+
 Į Django integruota visa autentifikacijos sistema - URL mapper'iai, formos, *views'ai*. Tik templates teks susikurti patiems.
 
 Pradėkime nuo *mysite/urls.py*. Pridėkime:
