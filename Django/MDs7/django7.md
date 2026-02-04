@@ -93,9 +93,9 @@ Exception Value: registration/login.html
 ```html
 {% extends "base.html" %}
 
-{% block "title" %}Prisijungimas{% endblock %}
+{% block title %}Prisijungimas{% endblock %}
 
-{% block "content" %}
+{% block content %}
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-4">
@@ -142,9 +142,9 @@ Arba sukurkime logout logged_out.html:
 ```html
 {% extends "base.html" %}
 
-{% block "title" %}Atsijungimas{% endblock %}
+{% block title %}Atsijungimas{% endblock %}
 
-{% block "content" %}
+{% block content %}
   <p>Sėkmingai atsijungėte!</p>  
   <a href="{% url 'login'%}">Prisijungti iš naujo.</a>
 {% endblock %}
@@ -227,9 +227,9 @@ Anksčiau minėjau, kad galima perrašyti standartinius django slaptažodžių p
 ```html
 {% extends "base.html" %}
 
-{% block "title" %}Slaptažodžio keitimas{% endblock %}
+{% block title %}Slaptažodžio keitimas{% endblock %}
 
-{% block "content" %}
+{% block content %}
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-5">
@@ -265,9 +265,9 @@ Anksčiau minėjau, kad galima perrašyti standartinius django slaptažodžių p
 ```html
 {% extends "base.html" %}
 
-{% block "title" %}Patikrinkite savo el. paštą{% endblock %}
+{% block title %}Patikrinkite savo el. paštą{% endblock %}
 
-{% block "content" %}
+{% block content %}
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-5">
@@ -328,9 +328,9 @@ Arba vaizdingiau:
 ```html
 {% extends "base.html" %}
 
-{% block "title" %}Slaptažodžio keitimas{% endblock %}
+{% block title %}Slaptažodžio keitimas{% endblock %}
 
-{% block "content" %}
+{% block content %}
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-5">
@@ -371,9 +371,9 @@ Arba vaizdingiau:
 ```html
 {% extends "base.html" %}
 
-{% block "title" %}Slaptažodžio keitimas įvykdytas{% endblock %}
+{% block title %}Slaptažodžio keitimas įvykdytas{% endblock %}
 
-{% block "content" %}
+{% block content %}
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-5">
