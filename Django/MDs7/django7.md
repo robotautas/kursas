@@ -42,7 +42,7 @@ išveskime rezultatą į naršyklę. *index.html* pabaigoje pridėkime eilutę:
 
 kaskartą perkrovus puslapį, skaičius paauga. Jeigu pabandytumėt užeiti iš kitos naršyklės, kad ir tame pačiame kompiuteryje, matytumėt kitą skaičių. Tokiu būdu sesijos leidžia kaupti informaciją apie anoniminius vartotojus. 
 
-# Vartotojai, prisijungimas, atsijungimas
+# Vartotojai, grupės
 
 Sesijų pagrindu sukurta visa django autentifikacijos ir autorizacijos sistema. Autentifikacijos sistema įjungiama automatiškai, inicijavus projektą (kuomet leidome komandą *django-admin startproject*), todėl papildomai jokių nustatymų daryti nereikės. Duomenų bazė jau paruošta vartotojų kūrimui nuo pat pirmosios migracijos. Užregistruokime bibliotekai skaitytojų!
 
@@ -88,6 +88,7 @@ settings.py gale:
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
 ```
+Vartotojo prisijungimas/atsijungimas
 
 Į Django integruota visa autentifikacijos sistema - URL mapper'iai, formos, *views'ai*. Tik templates teks susikurti patiems.
 
