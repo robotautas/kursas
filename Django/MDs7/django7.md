@@ -58,7 +58,7 @@ pabaigoje rasime *'save'*, jį ir paspauskime.
 
 ## Crispy Formos
 
-Vartotojo registracijai ir vėliau naudosime Crispy formas. Crispy leidžia pritaikyti Bootstrap dizainą automatinėms Django formoms.
+Daugumos formų laukus Django sugeneruoja automatiškai (parašius {{ form }} ). Tačiau tam, kad formos būtų pritaikytos Django dizainui, naudosime Crispy formas. Jas reikės susidiegti papildomai:
 
 Jei dirbame su **Bootstrap5** (tai galima pasižiūrėti base.html failo viršuje):
 
@@ -88,7 +88,7 @@ settings.py gale:
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
 ```
-Vartotojo prisijungimas/atsijungimas
+##Vartotojo prisijungimas/atsijungimas
 
 Į Django integruota visa autentifikacijos sistema - URL mapper'iai, formos, *views'ai*. Tik templates teks susikurti patiems.
 
