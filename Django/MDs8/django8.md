@@ -80,9 +80,9 @@ Reikės šablono my_books.html:
 ```html
 {% extends "base.html" %}
 
-{% block "title" %}Mano knygos{% endblock %}
+{% block title %}Mano knygos{% endblock %}
 
-{% block "content" %}
+{% block content %}
 <h1>Mano paimtos knygos:</h1>
 {% for instance in instances %}
 <p class="{% if instance.is_overdue %}text-danger{% endif %}">{{ instance.book }} ({{ instance.uuid }})</p>
