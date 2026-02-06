@@ -195,9 +195,9 @@ Sukurkime naują šabloną *search.html*:
 ```html
 {% extends "base.html" %}
 
-{% block "title" %}Paieškos rezultatai{% endblock %}
+{% block title %}Paieškos rezultatai{% endblock %}
 
-{% block "content" %}
+{% block content"%}
 <h1>Knygos, rastos pagal paiešką "{{ query }}":</h1>
 <br>
 {% if books %}
