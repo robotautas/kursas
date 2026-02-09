@@ -261,7 +261,7 @@ Turėsime tokį rezultatą:
 
 ## Dedame atsiliepimus prie knygos
 
-Pabandykime padaryti taip, kad užsiregistravęs skaitytojas galėtų palikti atiliepimą apie knygą. Pirmiausiai sukurkime atsiliepimų modelį:
+Pabandykime padaryti taip, kad užsiregistravęs skaitytojas galėtų palikti atsiliepimą apie knygą. Pirmiausiai sukurkime atsiliepimų modelį:
 
 ```python
 class BookReview(models.Model):
