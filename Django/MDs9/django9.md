@@ -85,9 +85,9 @@ Taip pat sukūriame naują šabloną templates/signup.html:
 ```html
 {% extends "base.html" %}
 
-{% block "title" %}Sign Up{% endblock %}
+{% block title %}Sign Up{% endblock %}
 
-{% block "content" %}
+{% block content %}
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-4">
