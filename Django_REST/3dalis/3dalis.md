@@ -85,7 +85,7 @@ class PostSerializer(serializers.ModelSerializer):
     user = serializers.ReadOnlyField(source='user.username')
     user_id = serializers.ReadOnlyField(source='user.id')
     comment_count = serializers.SerializerMethodField()
-    comments = serializers.StringRelatedField(many=True)
+    comments = serializers.StringRelatedField(many=True, read_only=True)
     likes = serializers.SerializerMethodField()
 
     class Meta:
@@ -151,6 +151,7 @@ urlpatterns = [
 Gauname nuorodą į paveikslėlį:
 
 ![](nuoroda.png)
+
 
 
 
