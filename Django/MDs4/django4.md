@@ -142,7 +142,7 @@ h1 {
 }
 ```
 
-Perrašykime sekančiai faike */mysite/urls.py*:
+Perrašykime sekančiai faile */mysite/urls.py*:
 
 ```python
 from django.contrib import admin
