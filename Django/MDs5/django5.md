@@ -235,5 +235,3 @@ Tęsti kurti Django užduotį – [Autoservisas](https://github.com/robotautas/k
 * Paspaudus ant užsakymo nuorodos, būtų rodoma detali informacija apie užsakymą. Čia pat būtų matoma ir užsakymo eilučių informacija.
 * Padaryti, kad prie užsakymo eilutės būtų rodoma jos suma. O prie užsakymo - bendra užsakymo suma.
 * Sutvarkyti meniu (sudėti aktyvias nuorodas į sukurtus view'sus)
-
-[Atsakymas](https://github.com/DonatasNoreika/autoservisas)
