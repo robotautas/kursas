@@ -380,5 +380,3 @@ rezultatas:
 Tęsti kurti Django užduotį – [Autoservisas](https://github.com/robotautas/kursas/wiki/Django-u%C5%BEduotis:-Autoservisas):
 * Padaryti vartotojo registracijos formą pagal šioje pamokoje išmoktus žingsnius.
 * Padaryti, kad prisijungusiam vartotojui leistų palikti komentarus prie bet kurio užsakymo.
-
-[Atsakymas](https://github.com/DonatasNoreika/autoservisas)
