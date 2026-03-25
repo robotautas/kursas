@@ -26,7 +26,7 @@ def index(request):
         'num_authors': num_authors,
         'num_visits': num_visits,
     }
-    return render(request, 'index.html', context=context
+    return render(request, 'index.html', context=context)
 ```
 
 * nustatome sesijos 'num_visits' rakto reikšmę 1, jeigu ji nebuvo nustatyta prieš tai.
