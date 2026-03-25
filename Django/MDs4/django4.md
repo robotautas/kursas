@@ -213,5 +213,3 @@ Tęsti kurti Django užduotį – [Autoservisas](https://github.com/robotautas/k
 * Susikurti savo puslapio stilių (base.html failą). Jei reikia, pridėkite css ir kitus failus (patartina naudoti bootstrap). Galite panaudoti paskaitoje rodytus pavyzdžius. Panaudokite frontend kurse išmoktas žinias! :)
 * Padaryti, kad programa matytų static katalogą, išbandyti (įdėti į jį css failą)
 * Jeigu reikia, padaryti nukreipimą iš puslapio "/" į "/autoservice" (redirect)
-
-[Atsakymas](https://github.com/DonatasNoreika/autoservisas)
