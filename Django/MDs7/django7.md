@@ -69,7 +69,6 @@ pip install django-crispy-forms crispy-bootstrap5
 
 ```python
 INSTALLED_APPS = [
-    'tinymce',
     'library',
     'crispy_forms',
     'crispy_bootstrap5',
