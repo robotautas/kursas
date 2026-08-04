@@ -31,9 +31,9 @@ Sukurkime šabloną authors.html:
 ```html
 {% extends "base.html" %}
 
-{% block "title" %}Autoriai{% endblock %}
+{% block title %}Autoriai{% endblock %}
 
-{% block "content" %}
+{% block content %}
 <h1>Autoriai</h1>
 <p>Mūsų knygų autorių sąrašas.</p>
 {% for author in authors %}
@@ -84,9 +84,9 @@ belieka sukurti *author.html*:
 ```html
 {% extends "base.html" %}
 
-{% block "title" %}Autorius{% endblock %}
+{% block title %}Autorius{% endblock %}
 
-{% block "content" %}
+{% block content %}
 <p><strong>Vardas: </strong>{{ author.first_name }}</p>
 <p><strong>Pavardė: </strong>{{ author.last_name }}</p>
 <p>{{ author.description }}</p>
@@ -127,9 +127,9 @@ Dabar papildykime urlpatterns sąrašą:
 ```html
 {% extends "base.html" %}
 
-{% block "title" %}Knygos{% endblock %}
+{% block title %}Knygos{% endblock %}
 
-{% block "content" %}
+{% block content %}
   <h1>Mūsų knygos:</h1>
   {% if books %}
   <ul>
@@ -180,9 +180,9 @@ Papildykime urlpatterns sąrašą (urls.py):
 ```html
 {% extends "base.html" %}
 
-{% block "title" %}Knyga{% endblock %}
+{% block title %}Knyga{% endblock %}
 
-{% block "content" %}
+{% block content %}
 <p><strong>Pavadinimas: </strong>{{ book.title }}</p>
 <p><strong>Autorius: </strong>{{ book.author }}</p>
 <p><strong>ISBN: </strong>{{ book.isbn }}</p>
