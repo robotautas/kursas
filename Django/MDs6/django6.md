@@ -188,7 +188,7 @@ def search(request):
     }
     return render(request, template_name="search.html", context=context)
 ```
-Apie Q daugiau informacijos rasite [dokumentacijoje](https://docs.djangoproject.com/en/3.2/topics/db/queries/#complex-lookups-with-q-objects).
+Apie Q daugiau informacijos rasite [dokumentacijoje](https://docs.djangoproject.com/en/6.1/topics/db/queries/#complex-lookups-with-q-objects).
 
 Sukurkime naują šabloną *search.html*:
 
