@@ -291,7 +291,6 @@ Anksčiau minėjau, kad galima perrašyti standartinius django slaptažodžių p
                         Jei paskyra nurodytu el. paštu egzistuoja, netrukus gausite laišką su slaptažodžio pakeitimo
                         nuoroda.
                     </p>
-                    <a href="{% url 'login' %}" class="btn btn-primary w-100 mt-3">Back to Login</a>
                 </div>
             </div>
         </div>
