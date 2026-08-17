@@ -432,7 +432,7 @@ slaptažodį pavyko pakeisti.
 
  ## Užduotis
 Tęsti kurti Django užduotį – [Autoservisas](https://github.com/robotautas/kursas/wiki/Django-u%C5%BEduotis:-Autoservisas):
-* Padaryti, kad pagrindiniame puslapyje būtų rodomas sesijos apsilankymų skaičius.
+* Padaryti, kad pagrindiniame puslapyje būtų rodomas vartotojo apsilankymų skaičius.
 * Padaryti login puslapį, per kurį leistų prisijungti vartotojui.
 * Jei reikia, perdaryti base.html meniu, kad prisijungimo punkto nerodytų prisijungus, atsijungimo atsijungus ir pan.
 * Susikonfiguruoti el. paštą slaptažodžio keitimui (netikrą).
