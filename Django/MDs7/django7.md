@@ -214,18 +214,18 @@ MAILERS = {
 
 Serveryje nustatymai bus panašūs į šiuos:
 ```python
-# MAILERS = {
-#     "default": {
-#         "BACKEND": "django.core.mail.backends.smtp.EmailBackend",
-#         "OPTIONS": {
-#             "host": "smtp.gmail.com",
-#             "port": 587,
-#             "use_tls": True,
-#             "username": "mano_pastas@gmail.com",
-#             "password": "VerySecret",
-#         },
-#     },
-# }
+MAILERS = {
+    "default": {
+        "BACKEND": "django.core.mail.backends.smtp.EmailBackend",
+        "OPTIONS": {
+            "host": "smtp.gmail.com",
+            "port": 587,
+            "use_tls": True,
+            "username": "mano_pastas@gmail.com",
+            "password": "VerySecret",
+        },
+    },
+}
 ```
 
 Senesnė versija, veikusi iki Django 6.1:
